@@ -1,12 +1,11 @@
 import React from 'react';
 import './App.css';
+import Layout from './hoc/Layout/Layout';
 
 function App() {
   return (
     <div className="App">
-      <div>
-        <h1>TestCommit#3</h1>
-      </div>
+      <Layout />
     </div>
   );
 }
