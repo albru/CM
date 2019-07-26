@@ -1,0 +1,7 @@
+.NavigationItems {
+    display: flex;
+}
+
+.NavigationItems li {
+    list-style: none;
+}

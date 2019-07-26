@@ -1,12 +1,11 @@
 import React from 'react';
 import classes from './Header.css';
-
+import NavigationItems from '../NavigationItems/NavigationItems';
 
 const header = props => {
-    console.log(classes)
     return (
         <header className={classes.Header}>
-            <h1>headerComponent</h1>
+            <NavigationItems />
         </header>
     )
 }
