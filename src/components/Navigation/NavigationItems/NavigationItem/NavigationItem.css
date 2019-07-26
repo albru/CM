@@ -1,0 +1,7 @@
+.NavigationItem a {
+    text-decoration: none;
+    cursor: pointer;
+}
+.NavigationItem {
+    margin-right: 15px;
+}
