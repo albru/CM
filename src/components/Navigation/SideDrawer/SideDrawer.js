@@ -3,21 +3,18 @@ import React from 'react';
 import Logo from '../../Logo/Logo';
 import NavigationItems from '../NavigationItems/NavigationItems';
 import classes from './SideDrawer.css';
-import Aux from '../../../hoc/Aux/Aux.js';
 
 const sideDrawer = ( props ) => {
-
+    let attachedClasses = [classes.SideDrawer, classes.Open];
     return (
-        <Aux>
-            <div className={classes.SideDrawer}>
-                <div >
-                    <Logo />
-                </div>
-                <nav>
-                    <NavigationItems  />
-                </nav>
+        <div className={attachedClasses.join(' ')}>
+            <div >
+                <Logo />
             </div>
-        </Aux>
+            <nav>
+                <NavigationItems  />
+            </nav>
+        </div>
     );
 };
 

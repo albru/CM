@@ -12,7 +12,7 @@ const NavigationItem = props => {
     ];
     return navigationLinkData.map((item, id) => {
         return ( 
-            <li key={item.route}
+            <li key={id}
                 className={classes.NavigationItem}>
                 <NavLink 
                     to={item.route}

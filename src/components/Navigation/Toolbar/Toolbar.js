@@ -1,18 +1,16 @@
 import React from 'react';
-import classes from './Header.css';
+import classes from './Toolbar.css';
 import NavigationItems from '../NavigationItems/NavigationItems';
 import Logo from '../../Logo/Logo';
 import Contacts  from '../../Contacts/Contacts';
-
-
-
-
 
 const header = props => {
     return (
         <header className={classes.Header}>
             <Logo />
-            <NavigationItems />
+            <nav className={classes.DesktopOnly}>
+                <NavigationItems />
+            </nav>
             <Contacts />
         </header>
     )
