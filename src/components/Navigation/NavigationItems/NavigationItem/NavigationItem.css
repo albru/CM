@@ -1,6 +1,7 @@
 .NavigationItem a {
     text-decoration: none;
     cursor: pointer;
+    text-transform: uppercase;
 }
 .NavigationItem {
     margin-right: 15px;

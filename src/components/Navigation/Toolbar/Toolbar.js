@@ -2,7 +2,8 @@ import React from 'react';
 import classes from './Toolbar.css';
 import NavigationItems from '../NavigationItems/NavigationItems';
 import Logo from '../../Logo/Logo';
-import Contacts  from '../../Contacts/Contacts';
+import Socials  from '../../Contacts/Socials/Socials';
+import Phone  from '../../Contacts/Phone/Phone';
 
 const header = props => {
     return (
@@ -11,7 +12,10 @@ const header = props => {
             <nav className={classes.DesktopOnly}>
                 <NavigationItems />
             </nav>
-            <Contacts />
+            <div>
+                <Phone />
+                <Socials />
+            </div>
         </header>
     )
 }
