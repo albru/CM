@@ -17,15 +17,18 @@ const Layout = props => {
         setSideDrawerIsVisible(!sidDrawerIsVisible)
     }
 
+    if (setSideDrawerIsVisible === true) {
+        this.addEventListener('click', sideDrawerCloseHandler)
+    };
+
     return (
         <Aux>
-            <Toolbar />
+            <Toolbar sideDrawerToggle={sideDrawerToggleHandler}/>
             <SideDrawer open={sidDrawerIsVisible}/>
             <Main>
                 <h1> MAIN </h1>
             </Main>
             <Footer />
-            <button style={{'margin-left': '300px'}} onClick={sideDrawerToggleHandler}>CLICK</button>
         </Aux>
     )
 }

@@ -12,7 +12,7 @@ const SideDrawer = ( props ) => {
 
     return (
         <div className={attachedClasses.join(' ')}>
-            <div >
+            <div>
                 <Logo />
             </div>
             <nav>
