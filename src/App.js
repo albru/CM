@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.css';
 import Layout from './hoc/Layout/Layout';
+import Greetings from './components/Main/Greetings/Greetings';
 
 function App() {
   return (
     <div className="App">
       <Layout>
-        <h1>main</h1>
+        <Greetings />
       </Layout>
     </div>
   );

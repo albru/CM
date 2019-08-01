@@ -16,11 +16,11 @@ const header = props => {
             <nav className={media.DesktopOnly}>
                 <NavigationItems />
             </nav>
-            <Button btnType="ContactButton">Перезвоните мне</Button>
             <div>
                 <Phone />
                 <Socials />
             </div>
+            <Button btnType="ContactButton">Перезвоните мне</Button>
         </header>
     )
 }
