@@ -1,0 +1,11 @@
+@media (max-width: 499px) {
+    .DesktopOnly {
+        display: none!important;
+    }
+}
+
+@media (min-width: 500px) {
+    .PhonesOnly {
+        display: none!important;
+    }
+}

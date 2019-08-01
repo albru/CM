@@ -1,15 +1,15 @@
 import React from 'react';
 
 import Aux from '../../../hoc/Aux/Aux';
-import Logo from '../../Logo/Logo';
 import NavigationItems from '../NavigationItems/NavigationItems';
 import classes from './SideDrawer.css';
+import media from '../../../shared/css/Media.css';
 import Backdrop from '../../UI/Backdrop/Backdrop';
 
 const SideDrawer = ( props ) => {
-    let attachedClasses = [classes.SideDrawer, classes.Close];
+    let attachedClasses = [classes.SideDrawer, classes.Close, media.PhonesOnly];
     if (props.open) {
-        attachedClasses = [classes.SideDrawer, classes.Open];
+        attachedClasses = [classes.SideDrawer, classes.Open, media.PhonesOnly];
     }
 
     return (
@@ -21,9 +21,6 @@ const SideDrawer = ( props ) => {
             <div 
                 className={attachedClasses.join(' ')}
                 onClick={props.closed}>
-                <div>
-                    <Logo />
-                </div>
                 <nav>
                     <NavigationItems  />
                 </nav>

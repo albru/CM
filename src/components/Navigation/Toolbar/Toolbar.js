@@ -5,15 +5,18 @@ import Logo from '../../Logo/Logo';
 import Socials  from '../../Contacts/Socials/Socials';
 import Phone  from '../../Contacts/Phone/Phone';
 import DrawerToggle from '../SideDrawer/DrawerToggle/DrawerToggle';
+import Button from '../../UI/Button/Button';
+import media from '../../../shared/css/Media.css';
 
 const header = props => {
     return (
         <header className={classes.Header}>
             <DrawerToggle drawerToggle={props.sideDrawerToggle}/>
             <Logo />
-            <nav className={classes.DesktopOnly}>
+            <nav className={media.DesktopOnly}>
                 <NavigationItems />
             </nav>
+            <Button btnType="ContactButton">Перезвоните мне</Button>
             <div>
                 <Phone />
                 <Socials />

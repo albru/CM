@@ -7,6 +7,7 @@ const backdrop = props => {
             className={classes.Backdrop}
             onClick={props.close}></div> : 
         null;
+        
     return (
         <div>
             {showBackdrop}

@@ -1,0 +1,16 @@
+.Button {
+    height: 40px;
+    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.Button:disabled {
+    color: #ccc;
+    cursor: not-allowed;
+    border: none;
+}
+
+.ContactButton {
+    border: 1px solid green;
+}

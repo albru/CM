@@ -3,3 +3,10 @@
     height: 100%;
     width: 50px;
 }
+
+@media (max-width: 499px) {
+    .Logo {
+        margin: auto;
+    }
+}
+
