@@ -16,6 +16,7 @@ const NavigationItems = props => {
                 id={index}
                 route={item.route}
                 exact={item.exact}
+                name={item.name}
                 />
         )
     })

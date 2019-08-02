@@ -10,9 +10,9 @@ const contacts = props => {
     let attachedClasses = [media.DesktopOnly, classes.Socials]
     return (
         <div className={attachedClasses.join(' ')}>
-            <a href="#"><img src={inst} alt='inst'></img></a>
-            <a href="#"><img src={vk} alt='vk'></img></a>
-            <a href="#"><img src={whats} alt='whatsapp'></img></a>              
+            <a href="/2323"><img src={inst} alt='inst'></img></a>
+            <a href="/4134"><img src={vk} alt='vk'></img></a>
+            <a href="/135131"><img src={whats} alt='whatsapp'></img></a>              
         </div>
         
     )

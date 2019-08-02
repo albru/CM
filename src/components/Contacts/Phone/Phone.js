@@ -6,7 +6,7 @@ const phone = props => {
     let attachedClasses = [classes.Phone, media.DesktopOnly]
     return (
         <div className={attachedClasses.join(' ')}>
-            <a href="#">+7 (921) 929 99 99 </a>
+            <a href="/3212">+7 (921) 929 99 99 </a>
         </div>
     )
 };
