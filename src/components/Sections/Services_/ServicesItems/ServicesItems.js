@@ -29,6 +29,7 @@ const servicesItems = (props) => {
     const servicesList = servicesData.map((item, index) => {
         return (
             <ServicesItem 
+                key={index}
                 title={item.title}
                 href={item.href}
                 imgSrc={item.imgSrc}

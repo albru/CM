@@ -3,7 +3,10 @@ import ServicesItems from './ServicesItems/ServicesItems'
 
 const services = props => {
     return (
-        <ServicesItems />
+        <section>
+            <h2>Услуги</h2>
+            <ServicesItems />
+        </section>
     )
 };
 
