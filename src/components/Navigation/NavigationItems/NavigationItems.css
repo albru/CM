@@ -4,9 +4,14 @@
     list-style: none;
     display: flex;
     flex-flow: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     height: 100%;
+}
+
+.NavigationItems li a{
+    color: var(--color-gray);
+    text-transform: initial;
 }
 
 @media (min-width: 500px) {
@@ -14,3 +19,4 @@
         flex-flow: row;
     }
 }
+

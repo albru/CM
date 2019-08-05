@@ -4,11 +4,7 @@
     font-size: 27px;
     font-weight: bold;
     font-family: 'Playball', cursive;
+    margin: auto;
 }
 
-@media (max-width: 499px) {
-    .Logo {
-        margin: auto;
-    }
-}
 

@@ -7,10 +7,5 @@
 
 .NavigationItem {
     margin-right: 15px;
-}
-
-@media (max-width: 499px) {
-    .NavigationItem {
-        margin-bottom: 30px;
-    }
+    margin-bottom: 30px;
 }

@@ -1,5 +1,5 @@
 .Header {
-    height: 56px;
+    height: 50px;
     width: 100%;
     position: fixed;
     background-color: white;
@@ -12,12 +12,6 @@
     box-sizing: border-box;
     z-index: 90;
     border-bottom: 1px inset var(--color-lightgray);
-}
-
-@media (max-width: 499px) {
-    .Header {
-        height: 50px;
-    }
 }
 
 .Header nav {

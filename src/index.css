@@ -22,5 +22,7 @@ section {
   --color-main: #31ADBA;
   --color-second: #E1508E;
   --color-header: #212121;
+  --color-gray: #455A64;
   --color-lightgray: #B0BEC5;
+  --color-warmlite: #FBF5ED;
 }
