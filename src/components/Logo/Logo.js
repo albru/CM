@@ -4,9 +4,7 @@ import classes from './Logo.css';
 
 const logo = props => {
     return (
-        <img 
-            alt="Logo"
-            className={classes.Logo}></img>
+        <div className={classes.Logo}>CetusMedia</div>
     )
 };
 

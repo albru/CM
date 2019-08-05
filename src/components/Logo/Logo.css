@@ -1,7 +1,9 @@
 .Logo {
-    display: block;
-    height: 100%;
-    width: 50px;
+    display: flex;
+    color: var(--color-header);
+    font-size: 27px;
+    font-weight: bold;
+    font-family: 'Playball', cursive;
 }
 
 @media (max-width: 499px) {

@@ -3,7 +3,7 @@
     height: 100%;
     display: flex;
     flex-flow: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     padding: 10px 0;
     box-sizing: border-box;
@@ -12,7 +12,14 @@
 
 .DrawerToggle div {
     width: 90%;
-    height: 3px;
-    background-color: blue;
+    height: 2px;
+    background-color: var(--color-main);
+}
+
+@media (max-width: 499px) {
+    .DrawerToggle {
+        height: 80%;
+        width: 30px;
+    }
 }
 

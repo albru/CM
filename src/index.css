@@ -17,3 +17,10 @@ code {
 section {
   padding: 10px;
 }
+
+:root {
+  --color-main: #31ADBA;
+  --color-second: #E1508E;
+  --color-header: #212121;
+  --color-lightgray: #B0BEC5;
+}

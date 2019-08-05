@@ -2,15 +2,22 @@
     height: 56px;
     width: 100%;
     position: fixed;
+    background-color: white;
     top: 0;
     left: 0;
-    background-color: peachpuff;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 0 20px;
     box-sizing: border-box;
     z-index: 90;
+    border-bottom: 1px inset var(--color-lightgray);
+}
+
+@media (max-width: 499px) {
+    .Header {
+        height: 50px;
+    }
 }
 
 .Header nav {
