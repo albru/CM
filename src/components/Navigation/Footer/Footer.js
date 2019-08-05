@@ -2,15 +2,15 @@ import React from 'react';
 import Logo from '../../Logo/Logo';
 import NavigationItems from '../NavigationItems/NavigationItems';
 import Button from '../../UI/Button/Button';
-import Phone from '../../Contacts/Phone/Phone';
-import Socials from '../../Contacts/Socials/Socials';
+import Phone from '../../UI/Contacts/Phone/Phone';
+import Socials from '../../UI/Contacts/Socials/Socials';
 
 const footer = props => {
     return (
         <footer>
             <Logo />
             <NavigationItems />
-            <div>
+            <div style={{'width': '100px'}}>
                 <Phone />
                 <Socials />
             </div>

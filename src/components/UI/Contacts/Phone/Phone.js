@@ -1,11 +1,10 @@
 import React from 'react';
 import classes from './Phone.css';
-import media from '../../../shared/css/Media.css';
+import media from '../../../../shared/css/Media.css'
 
 const phone = props => {
-    let attachedClasses = [classes.Phone, media.DesktopOnly]
     return (
-        <div className={attachedClasses.join(' ')}>
+        <div className={[classes.Phone, media[props.mediaType]].join(' ')}>
             <a href="/3212">+7 (921) 929 99 99 </a>
         </div>
     )

@@ -17,4 +17,6 @@ function App() {
   );
 }
 
+console.log(App)
+
 export default App;
