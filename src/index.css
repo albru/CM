@@ -7,6 +7,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
+  font-size: 21px;
 }
 
 code {
@@ -15,14 +16,25 @@ code {
 }
 
 section {
-  padding: 10px;
+  padding: 20px 0;
+  margin: auto;
+  width: 90%;
 }
 
 :root {
+  /* COLOR STYLES */
   --color-main: #31ADBA;
   --color-second: #E1508E;
   --color-header: #212121;
   --color-gray: #455A64;
   --color-lightgray: #B0BEC5;
   --color-warmlite: #FBF5ED;
+
+  /* FONT STYLES */
 }
+
+h1,h2 {
+  padding: 0;
+  margin: 0;
+}
+

@@ -1,0 +1,6 @@
+.Footer {
+    background-color: var(--color-warmlite);
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}

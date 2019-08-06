@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './Backdrop.css';
+import Aux from '../../../hoc/Aux/Aux';
 
 const backdrop = props => {
     const showBackdrop = props.isShow ? 
@@ -9,9 +10,9 @@ const backdrop = props => {
         null;
         
     return (
-        <div>
+        <Aux>
             {showBackdrop}
-        </div>
+        </Aux>
     )
 };
 

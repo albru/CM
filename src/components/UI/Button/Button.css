@@ -11,7 +11,7 @@
     border: none;
 }
 
-.ContactButton {
+.ToolbarButton {
     height: 30px;
     border: 1px solid var(--color-main);
     text-transform: uppercase;
@@ -19,7 +19,19 @@
     background-color: transparent;
 }
 
-.ContactButton:hover {
+.ToolbarButton:hover {
     background-color: var(--color-main);
     color: white;
+}
+
+.MainButton {
+    background-color: var(--color-second);
+    width: 60%;
+    border: none;
+    color: white;
+    text-transform: uppercase;
+}
+
+.MainButton:hover {
+    background-color: var(--color-main);
 }

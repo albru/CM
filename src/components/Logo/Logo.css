@@ -1,10 +1,15 @@
 .Logo {
     display: flex;
+    margin: auto;
+    cursor: pointer;
+}
+
+.Logo a {
     color: var(--color-header);
     font-size: 27px;
     font-weight: bold;
     font-family: 'Playball', cursive;
-    margin: auto;
+    text-decoration: none;
 }
 
 
