@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './Backdrop.css';
-import Aux from '../../../hoc/Aux/Aux';
+import Aux from '../../../hoc/_Aux/_Aux';
 
 const backdrop = props => {
     const showBackdrop = props.isShow ? 

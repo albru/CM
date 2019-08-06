@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import classes from './Layout.css';
-import Aux from '../Aux/Aux';
+import Aux from '../_Aux/_Aux';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
 import Footer from '../../components/Navigation/Footer/Footer';
