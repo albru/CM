@@ -5,7 +5,7 @@ import classes from './Logo.css';
 const logo = props => {
     return (
         <div className={classes.Logo}>
-            <Link to="/">CetusMedia</Link>
+            <Link to="/">CCetusMedia</Link>
         </div>
     )
 };
