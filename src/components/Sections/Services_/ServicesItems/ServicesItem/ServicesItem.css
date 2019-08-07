@@ -1,8 +1,26 @@
 .ServicesItem{
     list-style: none;
     text-align: center;
+    margin: 0 5% 20px 5%;
+    padding: 5%;
+    width: 80%;
+    border: 1px solid var(--color-lightgray);
+    box-shadow:  10px 10px 5px 0px var(--color-lightgray);
+    border-radius: 5px;
 }
 
 .ServicesItem a {
     text-decoration: none;
+    width: 100%;
+    height: 100%;
+    color: var(--color-main);
+    font-size: 16px;
+    border-bottom: 1px solid var(--color-main);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.ServicesItem img {
+    background-color: var(--color-gray);
+    border-radius: 3%;
 }

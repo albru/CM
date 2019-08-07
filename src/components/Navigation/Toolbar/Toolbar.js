@@ -20,7 +20,7 @@ const header = props => {
                 <Phone mediaType="DesktopOnly"/>
                 <Socials mediaType="DesktopOnly"/>
             </div>
-            <Button btnType="ToolbarButton">Заказать</Button>
+            <Button btnType="ToolbarButton">ss</Button>
         </header>
     )
 }
