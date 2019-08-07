@@ -17,6 +17,7 @@
     text-transform: uppercase;
     color: var(--color-main);
     background-color: transparent;
+    font-weight: bold;
 }
 
 .ToolbarButton:hover {

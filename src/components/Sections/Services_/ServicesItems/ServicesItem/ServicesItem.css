@@ -1,0 +1,8 @@
+.ServicesItem{
+    list-style: none;
+    text-align: center;
+}
+
+.ServicesItem a {
+    text-decoration: none;
+}

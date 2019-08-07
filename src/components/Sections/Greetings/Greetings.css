@@ -1,4 +1,6 @@
 .Greetings {
     text-align: center;
     border-bottom: 1px inset var(--color-lightgray);
+    width: 95%;
+    padding: 20px 0;
 }

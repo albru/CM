@@ -1,29 +1,34 @@
 import React from 'react';
-
+import outdoorAdvImg from '../../../../assets/img/services/outdoorAdvImg.png';
+import interiorAdvImg from '../../../../assets/img/services/interiorAdvImg.png';
+import advServicesImg from '../../../../assets/img/services/advServicesImg.png';
 import ServicesItem from './ServicesItem/ServicesItem';
+import classes from './ServicesItems.css';
+
+
 
 const servicesItems = (props) => {
     const servicesData = [
         {
-            title: 'Card',
+            title: 'Наружная реклама',
             href: '/11',
-            imgSrc: '#',
-            imgAlt: 'Card',
-            desc: 'aas333221vv'
+            imgSrc: outdoorAdvImg,
+            imgAlt: 'outdoorAdvImg',
+            desc: 'Фасадные вывески • Объёмные буквы • Согласование вывесок • Крышные установки • Козырёк над крыльцом • Летние кафе • Рекламные стелы • Бегущие строки • Входная группа • Панель-кронштейны • Световые короба • Изготовление металлоконструкций'
         },
         {
-            title: 'Card2',
+            title: 'Интерьерная реклама',
             href: '/22',
-            imgSrc: '#',
-            imgAlt: 'Card2',
-            desc: '222dasdaw'
+            imgSrc: interiorAdvImg,
+            imgAlt: 'interiorAdvImg',
+            desc: 'Зоны ресепшн • Кассовые зоны • Неоновые вывески • Световые панели • Выставочные стенды • Изготовление табличек • Информационные стенды • Изделия из дерева'
         },
         {
-            title: 'Card3',
+            title: 'Рекламные услуги',
             href: '/33',
-            imgSrc: '#',
-            imgAlt: 'Card3',
-            desc: 'adsasadasdasdas'
+            imgSrc: advServicesImg,
+            imgAlt: 'advServicesImg',
+            desc: 'Дизайн рекламы • Нейминг • Широкоформатная печать • Плоттерная резка • Полиграфия • Ремонт вывесок • Промышленный альпинизм'
         }
     ]
     const servicesList = servicesData.map((item, index) => {
@@ -39,7 +44,7 @@ const servicesItems = (props) => {
     })
 
     return (
-        <ul>
+        <ul className={classes.ServicesList}>
             {servicesList}
         </ul>
     )
