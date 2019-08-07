@@ -9,7 +9,9 @@ import classes from './Footer.css';
 const footer = props => {
     return (
         <footer className={classes.Footer}>
-            <Logo />
+            <Logo 
+                footer={true}
+                logoType="LogoFooter"/>
             <NavigationItems />
             <div>
                 <Phone />

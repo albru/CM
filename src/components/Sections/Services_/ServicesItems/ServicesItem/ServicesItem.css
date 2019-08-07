@@ -4,8 +4,9 @@
     margin: 0 5% 20px 5%;
     padding: 5%;
     width: 80%;
-    border: 1px solid var(--color-lightgray);
-    box-shadow:  10px 10px 5px 0px var(--color-lightgray);
+    border-left: 1px solid var(--color-lightgray);
+    border-top: 1px solid var(--color-lightgray);
+    box-shadow:  5px 5px 5px 0px var(--color-lightgray);
     border-radius: 5px;
 }
 
@@ -23,4 +24,5 @@
 .ServicesItem img {
     background-color: var(--color-gray);
     border-radius: 3%;
+    padding: 5px;
 }

@@ -3,4 +3,6 @@
     display: flex;
     flex-flow: column;
     align-items: center;
+    box-shadow: inset -1px 5px 5px -4px var(--color-lightgray);
+    padding: 40px 0;
 }

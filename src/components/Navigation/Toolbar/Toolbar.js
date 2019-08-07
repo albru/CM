@@ -12,7 +12,9 @@ const header = props => {
     return (
         <header className={classes.Header}>
             <DrawerToggle drawerToggle={props.sideDrawerToggle}/>
-            <Logo />
+            <Logo 
+                header={true}
+                logoType='LogoHeader' />
             <nav className={media.DesktopOnly}>
                 <NavigationItems />
             </nav>
