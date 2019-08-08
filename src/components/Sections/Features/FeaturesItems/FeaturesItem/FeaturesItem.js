@@ -1,9 +1,10 @@
 import React from 'react';
+import classes from './FeaturesItem.css';
 
 const featuresItem = props => {
       
         return (
-            <li>
+            <li className={classes.FeaturesItem}>
                 <div>
                     <img src={props.imgSrc} alt={props.imgAlt}></img>
                 </div>

@@ -12,15 +12,17 @@ const header = props => {
     return (
         <header className={classes.Header}>
             <DrawerToggle drawerToggle={props.sideDrawerToggle}/>
-            <Logo />
+            <Logo 
+                header={true}
+                logoType='LogoHeader' />
             <nav className={media.DesktopOnly}>
-                <NavigationItems />
+                <NavigationItems navType='NavToolbar' />
             </nav>
             <div>
                 <Phone mediaType="DesktopOnly"/>
                 <Socials mediaType="DesktopOnly"/>
             </div>
-            <Button btnType="ToolbarButton">Заказать</Button>
+            <Button btnType="ToolbarButton">ss</Button>
         </header>
     )
 }

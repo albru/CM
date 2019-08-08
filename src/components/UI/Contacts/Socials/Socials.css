@@ -1,8 +1,15 @@
 .Socials {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    padding: 40px;
 }
+
+.Socials a:not(:last-child) {
+    margin-right: 40px;
+    cursor: pointer;
+}
+
 
 .Socials img {
     width: 30px;

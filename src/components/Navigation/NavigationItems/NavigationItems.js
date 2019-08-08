@@ -19,7 +19,7 @@ const NavigationItems = props => {
         )
     })
     return (
-        <ul className={classes.NavigationItems}>
+        <ul className={[classes.NavigationItems, classes[props.navType]].join(' ')}>
             {navigationList}
         </ul>
     )

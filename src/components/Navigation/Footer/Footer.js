@@ -5,17 +5,18 @@ import Button from '../../UI/Button/Button';
 import Phone from '../../UI/Contacts/Phone/Phone';
 import Socials from '../../UI/Contacts/Socials/Socials';
 import classes from './Footer.css';
+import Privacy from './Privacy/Privacy';
 
 const footer = props => {
     return (
         <footer className={classes.Footer}>
-            <Logo />
-            <NavigationItems />
-            <div>
-                <Phone />
-                <Socials />
-            </div>
-            <Button btnType="ContactButton">FOOTER BTNs</Button>
+            <Logo 
+                footer={true}
+                logoType="LogoFooter"/>
+            <Socials />
+            <NavigationItems navType='NavFooter'/>
+            <Phone />
+            <Privacy />
         </footer>
     )
 }

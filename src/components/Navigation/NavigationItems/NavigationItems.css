@@ -4,9 +4,16 @@
     list-style: none;
     display: flex;
     flex-flow: column;
-    align-items: flex-start;
     justify-content: center;
     height: 100%;
+}
+
+.NavToolbar {
+    align-items: flex-start;
+}
+
+.NavFooter {
+    align-items: center;
 }
 
 .NavigationItems li a{

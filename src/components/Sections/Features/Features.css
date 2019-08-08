@@ -1,3 +1,6 @@
 .Features {
     text-align: center;
+    border-top: 1px inset var(--color-lightgray);
+    width: 95%;
+    padding: 0 0 20px 0;
 }
