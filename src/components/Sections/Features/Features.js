@@ -1,6 +1,6 @@
 import React from 'react';
 
-import FeaturesItems from './FeaturesItems/FeatureItems';
+import FeaturesItems from './FeaturesItems/FeaturesItems';
 import classes from './Features.css';
 
 const features = props => {
