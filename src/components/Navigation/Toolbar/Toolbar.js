@@ -16,7 +16,7 @@ const header = props => {
                 header={true}
                 logoType='LogoHeader' />
             <nav className={media.DesktopOnly}>
-                <NavigationItems />
+                <NavigationItems navType='NavToolbar' />
             </nav>
             <div>
                 <Phone mediaType="DesktopOnly"/>

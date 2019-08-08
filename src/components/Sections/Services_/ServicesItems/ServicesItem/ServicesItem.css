@@ -1,13 +1,14 @@
 .ServicesItem{
     list-style: none;
     text-align: center;
-    margin: 0 5% 20px 5%;
+    margin: 0 5% 40px 5%;
     padding: 5%;
     width: 80%;
     border-left: 1px solid var(--color-lightgray);
     border-top: 1px solid var(--color-lightgray);
     box-shadow:  5px 5px 5px 0px var(--color-lightgray);
     border-radius: 5px;
+    background-color: #F5F5F5;
 }
 
 .ServicesItem a {

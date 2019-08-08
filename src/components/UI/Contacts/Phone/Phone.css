@@ -1,4 +1,8 @@
 
+.Phone {
+    padding: 0 0 40px 0;
+}
+
 .Phone a{
     color: black;
     text-decoration: none;
