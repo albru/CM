@@ -13,10 +13,20 @@ const Contacts = React.lazy(() => {
   return import('./containers/Contacts/Contacts');
 });
 
+const AdvConstructor = React.lazy(() => {
+  return import('./containers/AdvConstructor/AdvConstructor');
+});
+
+const Services = React.lazy(() => {
+  return import('./containers/Services_/Services');
+});
+
 let routes = (
   <Switch>
     <Route path="/portfolio" exact render={(props) => <Portfolio {...props}/>} />
+    <Route path="/services" exact render={(props) => <Services {...props}/>} />
     <Route path="/contacts" exact render={(props) => <Contacts {...props}/>} />
+    <Route path="/constructor" exact render={(props) => <AdvConstructor {...props}/>} />
     <Route path="/" exact render={(props) => <MainPage {...props}/>} />
   </Switch>
 )
