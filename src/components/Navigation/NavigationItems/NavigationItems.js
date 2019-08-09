@@ -4,9 +4,9 @@ import classes from './NavigationItems.css';
 
 const NavigationItems = props => {
     const navigationLinkData = [
-        {name: "Портфолио", route: "/1", exact: null},
+        {name: "Портфолио", route: "/portfolio", exact: true},
         {name: "Конструктор вывесок", route: "/2", exact: null},
-        {name: "Контакты", route: "/3", exact: null}
+        {name: "Контакты", route: "/contacts", exact: true}
     ];
     const navigationList = navigationLinkData.map((item, index) => {
         return (
