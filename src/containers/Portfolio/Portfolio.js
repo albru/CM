@@ -1,10 +1,11 @@
 import React from 'react';
+import Aux from '../../hoc/_Aux'
 
 const portfolio = props => {
     return (
-        <div>
-            PORTFOLIO
-        </div>
+        <Aux>
+            
+        </Aux>
     )
 };
 
