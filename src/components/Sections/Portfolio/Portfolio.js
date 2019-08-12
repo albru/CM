@@ -5,7 +5,7 @@ const portfolio = props => {
 
     return (
         <section className={classes.Portfolio}>
-            <h1>Работы</h1>
+            <h1>Портфолио</h1>
             {props.children}
         </section>
     )
