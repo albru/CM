@@ -1,5 +1,6 @@
 .Portfolio {
     width: 100%;
+    position: relative;
     text-align: center;
     margin-bottom: 40px;
 };

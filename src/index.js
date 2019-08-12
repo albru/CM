@@ -4,14 +4,16 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 import portfolioReducer from './store/reducers/portfolio';
+import sideDrawerReducer from './store/reducers/sideDrawer';
 
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 const rootReducer = combineReducers({
-    portfolio: portfolioReducer
-})
+    portfolio: portfolioReducer,
+    sideDrawer: sideDrawerReducer
+});
 
 const store = createStore(
     rootReducer, /* preloadedState, */
@@ -22,7 +24,7 @@ ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
             <App />
-        </BrowserRouter>);
+        </BrowserRouter>
     </Provider>, document.getElementById('root')
 );
 // If you want your app to work offline and load faster, you can change

@@ -4,9 +4,9 @@ import classes from './PortfolioItems.css';
 import PortfolioItem from './PortfolioItem/PortfolioItem';
 
 
+
 const portfolioItems = props => {
-    
-    const portfolioList = props.portfolio.map((item, index) => {
+    const portfolioList = props.portfolioData.map((item, index) => {
         return (
             <PortfolioItem 
                 key={index}
@@ -16,7 +16,7 @@ const portfolioItems = props => {
                 desc={item.desc}
             />
         )
-    })
+    });
 
     return (
         <ul className={classes.PortfolioItems}>
@@ -26,9 +26,11 @@ const portfolioItems = props => {
 };
 
 
-const mapStateToProps = (state) => {
-    return state;
+const mapStateToProps = state => {
+    return {
+        portfolioData: state.portfolio.portfolioData,
+    }
 };
-const mapDispatchToProps = {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(portfolioItems);
+
+export default connect(mapStateToProps)(portfolioItems);

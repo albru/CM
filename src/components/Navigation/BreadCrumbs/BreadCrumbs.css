@@ -1,0 +1,10 @@
+.BreadCrumbs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 95%;
+    font-size: 12px;
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+}
