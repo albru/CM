@@ -1,8 +1,11 @@
-.PortfolioItem:not(:last-child) {
+.PortfolioItem {
     list-style: none;
+    padding: 0 5%;
+}
+
+.PortfolioItem:not(:last-child) {
     margin-bottom: 20px;
     border-bottom: 5px solid var(--color-ultralightgray);
-    padding: 0 5%;
 }
 
 .PortfolioItem img {

@@ -6,7 +6,7 @@ import classes from './Features.css';
 const features = props => {
     return (
         <section className={classes.Features}>
-            <h2>Наши преимущества</h2>
+            <h2>Преимущества</h2>
             <FeaturesItems />
         </section>
     )
