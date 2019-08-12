@@ -1,5 +1,6 @@
 import React from 'react';
 import BreadCrumb from './BreadCrumb/BreadCrumb';
+import classes from './BreadCrumbs.css'
 
 const breadCrumbs = props => {
     const crumbs = props.crumbs.map((item, index) => {
@@ -12,7 +13,7 @@ const breadCrumbs = props => {
         )
     })
     return (
-        <div>
+        <div className={classes.BreadCrumbs}>
             {crumbs}
         </div>
     )

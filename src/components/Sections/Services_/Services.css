@@ -3,4 +3,5 @@
     text-align: center;
     /* Greetings Component has 95% width */
     padding: 0;
+    position: relative;
 }
