@@ -1,4 +1,5 @@
 import React from 'react';
+
 import classes from './Toolbar.css';
 import NavigationItems from '../NavigationItems/NavigationItems';
 import Logo from '../../Logo/Logo';
@@ -26,5 +27,7 @@ const header = props => {
         </header>
     )
 }
+
+
 
 export default header;

@@ -9,6 +9,7 @@ const breadCrumbs = props => {
                 name={item.crumbName}
                 href={item.crumbHref}
                 type={item.linkType}
+                key={index}
             />
         )
     })

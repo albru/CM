@@ -1,5 +1,5 @@
 import React from 'react';
-import Services from '../../components/Sections/Services_/Services';
+import ServicesSection from '../../components/Sections/Services_/Services';
 import BreadCrumbs from '../../components/Navigation/BreadCrumbs/BreadCrumbs';
 
 
@@ -17,9 +17,9 @@ const crumbs = [
 
 const services = props => {
     return (
-        <Services >
+        <ServicesSection >
             <BreadCrumbs crumbs={crumbs} />
-        </Services>
+        </ServicesSection>
     )
 };
 

@@ -1,6 +1,7 @@
 import React from 'react';
-import Contacts from '../../components/Sections/Contacts/Contacts';
+import ContactsSection from '../../components/Sections/Contacts/Contacts';
 import BreadCrumbs from '../../components/Navigation/BreadCrumbs/BreadCrumbs';
+import Aux from '../../hoc/_Aux/_Aux';
 
 const contacts = props => {
     const crumbs = [
@@ -16,9 +17,11 @@ const contacts = props => {
     ];
 
     return (
-        <Contacts>
-            <BreadCrumbs crumbs={crumbs}/>
-        </Contacts>
+        <Aux>
+            <ContactsSection>
+                <BreadCrumbs crumbs={crumbs}/>
+            </ContactsSection>
+        </Aux>
     )
 };
 
