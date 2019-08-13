@@ -1,22 +1,16 @@
 import * as actionTypes from '../actions/actions';
+import { updateObject } from '../../shared/utility';
 
 const initialState = {
     sideDrawerIsVisible: false
 }
 
 const sideDrawerCloseHandler = (state, action) => {
-    return {
-        ...state,
-        sideDrawerIsVisible: false
-    }
+    return updateObject ( state, { sideDrawerIsVisible: false })
 }
 
 const sideDrawerToggleHandler = (state, action) => {
-    let toggle = !state.sideDrawerIsVisible;
-    return {
-        ...state,
-        sideDrawerIsVisible: toggle
-    }
+    return updateObject( state, { sideDrawerIsVisible: !state.sideDrawerIsVisible })
 }
 
 const sideDrawerReducer = (state = initialState, action) => {
