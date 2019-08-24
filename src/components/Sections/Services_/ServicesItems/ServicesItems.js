@@ -6,7 +6,7 @@ import classes from './ServicesItems.css';
 
 const servicesItems = (props) => {
 
-    const servicesList = servicesData.map((item, index) => {
+    const servicesItems = servicesData.map((item, index) => {
         return (
             <ServicesItem 
                 key={index}
@@ -19,8 +19,8 @@ const servicesItems = (props) => {
     })
 
     return (
-        <ul className={classes.ServicesList}>
-            {servicesList}
+        <ul className={classes.ServicesItems}>
+            {servicesItems}
         </ul>
     )
 };

@@ -1,0 +1,10 @@
+.ServicesList {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: auto;
+    width: 90%;
+    margin-bottom: 40px;
+}

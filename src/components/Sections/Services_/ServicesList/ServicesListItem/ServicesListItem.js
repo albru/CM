@@ -1,10 +1,14 @@
 import React from 'react';
-
+import classes from './ServicesListItem.css';
 
 const servicesListItem = props => {
     return (
-        <li>
-            <a href={props.href}>{props.name}</a>
+        <li className={classes.ServicesListItem}>
+            <a href={props.href}>
+                <span>
+                    {props.name}
+                </span>
+            </a>
         </li>
     )
 }

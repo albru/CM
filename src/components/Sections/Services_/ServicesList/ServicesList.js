@@ -1,6 +1,7 @@
 import React from 'react';
 import { servicesListData } from '../../../../store/data/servicesData';
 import ServicesListItem from './ServicesListItem/ServicesListItem';
+import classes from './ServicesList.css';
 
 
 const servicesList = props => {
@@ -13,7 +14,7 @@ const servicesList = props => {
     })
 
     return (
-        <ul>
+        <ul className={classes.ServicesList}>
             {servicesItems}
         </ul>
     )
