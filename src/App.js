@@ -36,7 +36,7 @@ function App() {
   return (
     <div className="App">
       <Layout>
-        <Suspense fallback={<p>Loading...</p>}>
+        <Suspense fallback={<p>Загрузка...</p>}>
           {routes}
         </Suspense>
       </Layout>

@@ -1,8 +1,8 @@
 import React from 'react';
 import Logo from '../../Logo/Logo';
 import NavigationItems from '../NavigationItems/NavigationItems';
-import Phone from '../../UI/Contacts/Phone/Phone';
-import Socials from '../../UI/Contacts/Socials/Socials';
+import Phone from '../../Contacts/Phone/Phone';
+import Socials from '../../Contacts/Socials/Socials';
 import classes from './Footer.css';
 import Privacy from './Privacy/Privacy';
 
