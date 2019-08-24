@@ -24,4 +24,50 @@ export const servicesData = [
         imgAlt: 'advServicesImg',
         desc: 'Дизайн рекламы • Нейминг • Широкоформатная печать • Плоттерная резка • Полиграфия • Ремонт вывесок • Промышленный альпинизм'
     }
+];
+
+export const servicesListData = [
+    {
+        name: 'Зоны ресепшн',
+        href: '',
+        imgSrc: null,
+        imgAlt: null
+    },
+    {
+        name: 'Выставочные стенды',
+        href: '',
+        imgSrc: null,
+        imgAlt: null
+    },
+    {
+        name: 'Кассовая зона',
+        href: '',
+        imgSrc: null,
+        imgAlt: null
+    },
+    {
+        name: 'Неоновые вывески',
+        href: '',
+        imgSrc: null,
+        imgAlt: null
+    },
+    {
+        name: 'Световые панели',
+        href: '',
+        imgSrc: null,
+        imgAlt: null
+    },
+    {
+        name: 'Изготовление табличек',
+        href: '',
+        imgSrc: null,
+        imgAlt: null
+    },
+    {
+        name: 'Информационные стенды',
+        href: '',
+        imgSrc: null,
+        imgAlt: null
+    }
 ]
+
