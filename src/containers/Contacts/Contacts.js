@@ -2,6 +2,9 @@ import React from 'react';
 import ContactsSection from '../../components/Sections/Contacts/Contacts';
 import BreadCrumbs from '../../components/Navigation/BreadCrumbs/BreadCrumbs';
 import Aux from '../../hoc/_Aux/_Aux';
+import Map from '../../components/Contacts/Map/Map';
+import Adress from '../../components/Contacts/Adress/Adress';
+import Phone from '../../components/Contacts/Phone/Phone';
 
 const contacts = props => {
     const crumbs = [
@@ -20,6 +23,9 @@ const contacts = props => {
         <Aux>
             <ContactsSection>
                 <BreadCrumbs crumbs={crumbs}/>
+                <Map />
+                <Adress />
+                <Phone />
             </ContactsSection>
         </Aux>
     )

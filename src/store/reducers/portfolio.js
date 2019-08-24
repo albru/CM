@@ -11,15 +11,15 @@ const initialState = {
 }
 
 const addPortfolioItem = (state, action) => {
-    if (state.items < portfolioData.length) {
-        state.items += state.step;
-        if(state.items >= portfolioData.length) {
-            state.maximumItems = true;
+    let updatedState = updateObject(state, { maximumItems: state.maximumItems, items: state.items, portfolioData: state.portfolioData });
+    if (updatedState.items < portfolioData.length) {
+        updatedState.items += updatedState.step;
+        if(updatedState.items >= portfolioData.length) {
+            updatedState.maximumItems = true;
         }
     }
-    return updateObject(state, {
-        portfolioData: [...portfolioData].slice(state.initial, state.items)
-    });
+    updatedState.portfolioData = [...portfolioData].slice(updatedState.initial, updatedState.items)
+    return updatedState;
 }
 
 const portfolioReducer = (state = initialState, action) => {

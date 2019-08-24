@@ -1,0 +1,44 @@
+.ServicesListItem {
+    list-style: none;
+    width: 100%;
+    height: 300px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .3s;
+
+}
+
+.ServicesListItem:nth-of-type(odd) {
+    background-color: var(--color-lightgray);
+}
+
+.ServicesListItem:nth-of-type(odd) a{
+    color: var(--color-ultralightgray);
+}
+
+.ServicesListItem:nth-of-type(even) {
+    background-color: var(--color-ultralightgray);
+}
+
+.ServicesListItem:nth-of-type(even) a {
+    color: var(--color-gray);
+}
+
+.ServicesListItem a {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    color: var(--color-main);
+    font-weight: bold;
+    
+}
+
+.ServicesListItem:hover{
+    filter: brightness(80%);
+}

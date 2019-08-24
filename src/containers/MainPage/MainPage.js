@@ -11,9 +11,11 @@ const mainPage = props => {
     return (
         <Aux>
             <GreetingsSection />
+
             <ServicesSection>
                 <ServicesItems />
             </ServicesSection>
+
             <FeaturesSection>
                 <FeaturesItems />
             </FeaturesSection>
