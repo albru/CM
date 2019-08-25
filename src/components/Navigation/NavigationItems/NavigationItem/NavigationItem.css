@@ -5,6 +5,17 @@
 }
 
 .NavigationItem {
-    margin-right: 15px;
     margin-bottom: 30px;
+}
+
+@media (min-width: 500px) {
+    .NavigationItem {
+        margin-right: 15px;
+        margin-bottom: 0;
+    }
+
+    .NavigationItem a:hover {
+        color: var(--color-header);
+        border-bottom: 1px solid var(--color-gray);
+    }
 }
