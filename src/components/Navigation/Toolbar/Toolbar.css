@@ -19,5 +19,7 @@
 }
 
 @media (min-width: 500px) {
-
+    .Header {
+        justify-content: space-evenly;
+    }
 }

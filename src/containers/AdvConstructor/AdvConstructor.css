@@ -1,0 +1,7 @@
+.AdvConstructor {
+    min-height: 650px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}

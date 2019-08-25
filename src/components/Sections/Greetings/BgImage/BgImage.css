@@ -1,0 +1,17 @@
+.BgImage {
+    display: none;
+}
+
+@media(min-width: 500px) {
+    .BgImage {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+    }
+    .BgImage img{
+        display: block;
+        width: 99vw;
+    }
+}

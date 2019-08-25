@@ -16,11 +16,6 @@
     align-items: center;
 }
 
-.NavigationItems li a{
-    color: var(--color-gray);
-    text-transform: initial;
-}
-
 @media (min-width: 500px) {
     .NavigationItems {
         flex-flow: row;
