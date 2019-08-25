@@ -4,3 +4,9 @@
     position: relative;
     width: 90%;
 }
+
+@media (max-width: 499px) {
+    .Contacts {
+        padding-top: 15px;
+    }
+}

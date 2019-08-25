@@ -7,9 +7,8 @@
     width: 90%;
 }
 
-
-@media (min-width: 500px) {
-    .Features {
-        width: 100%;
+@media (max-width: 499px) {
+    .Services {
+        padding-top: 15px;
     }
 }
