@@ -1,14 +1,23 @@
 .ServicesItem{
     list-style: none;
     text-align: center;
-    margin: 0 5% 40px 5%;
+    margin: 0 0 30px 0;
     padding: 5%;
-    width: 80%;
+    width: 90%;
     border-left: 1px solid var(--color-lightgray);
     border-top: 1px solid var(--color-lightgray);
     box-shadow:  5px 5px 5px 0px var(--color-lightgray);
     border-radius: 5px;
     background-color: #F5F5F5;
+}
+
+@media (min-width: 500px) {
+    .ServicesItem {
+        width: 28%;
+        margin: 0 20px 0 0;
+        padding: 15px;
+        height: 430px;
+    }
 }
 
 .ServicesItem a {

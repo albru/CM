@@ -3,11 +3,12 @@ import React from 'react';
 import classes from './Toolbar.css';
 import NavigationItems from '../NavigationItems/NavigationItems';
 import Logo from '../../Logo/Logo';
-import Socials  from '../../Contacts/Socials/Socials';
-import Phone  from '../../Contacts/Phone/Phone';
+// import Socials  from '../../Contacts/Socials/Socials';
+// import Phone  from '../../Contacts/Phone/Phone';
 import DrawerToggle from '../SideDrawer/DrawerToggle/DrawerToggle';
 import Button from '../../UI/Button/Button';
 import media from '../../../shared/css/Media.css';
+import PhoneIcon from '@material-ui/icons/Phone';
 
 const header = props => {
     return (
@@ -19,11 +20,13 @@ const header = props => {
             <nav className={media.DesktopOnly}>
                 <NavigationItems navType='NavToolbar' />
             </nav>
-            <div>
+            {/* <div>
                 <Phone mediaType="DesktopOnly"/>
                 <Socials mediaType="DesktopOnly"/>
-            </div>
-            <Button btnType="ToolbarButton">ss</Button>
+            </div> */}
+            <Button btnType="ToolbarButton">
+                <PhoneIcon />
+            </Button>
         </header>
     )
 }

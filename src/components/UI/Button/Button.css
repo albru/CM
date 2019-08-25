@@ -25,14 +25,27 @@
     color: white;
 }
 
+@media (min-width: 500px) {
+    .ToolbarButton {
+        display: none;
+    }
+}
+
 .MainButton {
     background-color: var(--color-second);
     width: 60%;
     border: none;
     color: white;
     text-transform: uppercase;
+    transition: all .2s;
 }
 
 .MainButton:hover {
     background-color: var(--color-main);
+}
+
+@media (min-width: 500px) {
+    .MainButton {
+        width: 150px;
+    }
 }

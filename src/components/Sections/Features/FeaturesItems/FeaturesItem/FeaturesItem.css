@@ -1,3 +1,11 @@
 .FeaturesItem {
     list-style: none;
+    margin-bottom: 30px;
+}
+
+@media (min-width: 500px) {
+    .FeaturesItem {
+        margin-bottom: 0;
+        width: 25%;
+    }
 }

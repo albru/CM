@@ -5,4 +5,14 @@
     align-items: center;
     padding: 0;
     margin: 0;
+    width: 100%;
+}
+
+@media (min-width: 500px) {
+    .ServicesItems {
+        flex-flow: row;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+    }
 }
