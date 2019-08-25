@@ -2,7 +2,11 @@
     text-decoration: none;
     cursor: pointer;
     text-transform: uppercase;
+    color: var(--color-gray);
+    text-transform: initial;
 }
+
+
 
 .NavigationItem {
     margin-bottom: 30px;
@@ -15,7 +19,11 @@
     }
 
     .NavigationItem a:hover {
-        color: var(--color-header);
-        border-bottom: 1px solid var(--color-gray);
+        color: var(--color-main);
+        border-bottom: 1px solid var(--color-main);
+    }
+    .NavigationItemActive {
+        color: var(--color-main)!important;
+        border-bottom: 1px solid var(--color-main);
     }
 }

@@ -40,12 +40,6 @@ export const servicesListData = [
         imgAlt: null
     },
     {
-        name: 'Кассовая зона',
-        href: '',
-        imgSrc: null,
-        imgAlt: null
-    },
-    {
         name: 'Неоновые вывески',
         href: '',
         imgSrc: null,

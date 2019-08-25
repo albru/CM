@@ -6,3 +6,9 @@
     position: relative;
     width: 90%;
 }
+
+@media (max-width: 499px) {
+    .Services {
+        padding-top: 15px;
+    }
+}

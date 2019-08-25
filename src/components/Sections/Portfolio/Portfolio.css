@@ -1,6 +1,14 @@
 .Portfolio {
-    width: 100%;
+    width: 90%;
     position: relative;
     text-align: center;
     margin-bottom: 40px;
-};
+}
+
+@media (max-width: 499px) {
+    .Portfolio {
+        padding-top: 15px;
+    }
+}
+
+

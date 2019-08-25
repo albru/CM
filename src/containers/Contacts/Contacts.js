@@ -5,6 +5,7 @@ import Aux from '../../hoc/_Aux/_Aux';
 import Map from '../../components/Contacts/Map/Map';
 import Adress from '../../components/Contacts/Adress/Adress';
 import Phone from '../../components/Contacts/Phone/Phone';
+import classes from './Contacts.css';
 
 const contacts = props => {
     const crumbs = [
@@ -23,9 +24,13 @@ const contacts = props => {
         <Aux>
             <ContactsSection>
                 <BreadCrumbs crumbs={crumbs}/>
-                <Map />
-                <Adress />
-                <Phone />
+                <div className={classes.Contacts}>
+                    <Map />
+                    <div>
+                        <Adress />
+                        <Phone />
+                    </div>
+                </div>
             </ContactsSection>
         </Aux>
     )

@@ -12,3 +12,17 @@
     display: block;
     width: 100%;
 }
+
+@media (min-width: 500px) {
+    .PortfolioItem {
+        width: 30%;
+        padding: 0;
+        margin-right: 35px;
+    }
+    .PortfolioItem:not(:last-child) {
+        border-bottom: none;
+    }
+    .PortfolioItem img {
+        height: 247.5px;
+    }
+}

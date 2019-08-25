@@ -4,3 +4,10 @@
     width: 90%;
     padding: 0 0 40px 0 ;
 }
+
+@media (min-width: 500px) {
+    .Greetings {
+
+        border-bottom: none;
+    }
+}

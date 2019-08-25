@@ -6,7 +6,7 @@ const NavigationItems = props => {
     const navigationLinkData = [
         {name: 'Услуги', route: "/services"},
         {name: "Портфолио", route: "/portfolio"},
-        {name: "Конструктор вывесок", route: "/constructor"},
+        {name: "Конструктор вывесок", route: "/constructor", disabled: true},
         {name: "Контакты", route: "/contacts"}
     ];
     const navigationList = navigationLinkData.map((item, index) => {
@@ -15,6 +15,7 @@ const NavigationItems = props => {
                 key={index}
                 route={item.route}
                 name={item.name}
+                disabled={item.disabled ? true : null}
                 />
         )
     })

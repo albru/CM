@@ -1,0 +1,7 @@
+@media (min-width: 500px) {
+    .Contacts {
+        display: flex;
+        flex-flow: row;
+        margin-bottom: 40px;
+    }
+}

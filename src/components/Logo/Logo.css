@@ -4,6 +4,12 @@
     cursor: pointer;
 }
 
+@media (min-width: 500px) {
+    .Logo {
+        margin: 0;
+    }
+}
+
 .LogoHeader a {
     color: var(--color-header);
     font-size: 27px;
