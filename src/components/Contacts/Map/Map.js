@@ -1,5 +1,5 @@
 import React from 'react';
-import mapImg from '../../../assets/img/map/map.png';
+import mapImg from '../../../assets/img/map/map.webp';
 import classes from './Map.css';
 
 const map = () => {
