@@ -1,11 +1,11 @@
-import severImg from '../../assets/img/portfolio/sever.jpg';
-import cdsImg from '../../assets/img/portfolio/cds.jpg';
-import dominaImg from '../../assets/img/portfolio/domina&nove.jpg';
-import kartaImg from '../../assets/img/portfolio/karta.jpg';
-import laituriImg from '../../assets/img/portfolio/laituri.jpg';
-import manlyImg from '../../assets/img/portfolio/manly.jpg';
-import uptickImg from '../../assets/img/portfolio/uptick.jpg';
-import viessmannImg from '../../assets/img/portfolio/viessmann.jpg';
+import severImg from '../../assets/img/portfolio/sever.webp';
+import cdsImg from '../../assets/img/portfolio/cds.webp';
+import dominaImg from '../../assets/img/portfolio/domina_nove.webp';
+import kartaImg from '../../assets/img/portfolio/karta.webp';
+import laituriImg from '../../assets/img/portfolio/laituri.webp';
+import manlyImg from '../../assets/img/portfolio/manly.webp';
+import uptickImg from '../../assets/img/portfolio/uptick.webp';
+import viessmannImg from '../../assets/img/portfolio/viessmann.webp';
 
 export const portfolioData = [
     {
