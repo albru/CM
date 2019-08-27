@@ -30,7 +30,7 @@ const contacts = props => {
                         <Adress />
                         <Phone />
                     </div>
-                </div>
+                </div>                
             </ContactsSection>
         </Aux>
     )
