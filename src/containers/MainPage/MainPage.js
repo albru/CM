@@ -6,11 +6,14 @@ import FeaturesSection from '../../components/Sections/Features/Features';
 import FeaturesItems from '../../components/Sections/Features/FeaturesItems/FeaturesItems';
 import ServicesItems from '../../components/Sections/Services_/ServicesItems/ServicesItems';
 import Modal from '../../components/UI/Modal/Modal';
+import CallForm from '../../components/Order/CallForm/CallForm';
 
 const mainPage = props => {
     return (
         <Aux>
-            <Modal />
+            <Modal>
+                <CallForm />
+            </Modal>
             <GreetingsSection />
 
             <ServicesSection>
