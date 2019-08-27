@@ -23,6 +23,7 @@ const header = props => {
             {/* <div>
                 <Phone mediaType="DesktopOnly"/>
                 <Socials mediaType="DesktopOnly"/>
+                test
             </div> */}
             <Button btnType="ToolbarButton">
                 <PhoneIcon />
