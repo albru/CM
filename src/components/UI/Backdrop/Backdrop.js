@@ -6,7 +6,8 @@ const backdrop = props => {
     const showBackdrop = props.isShow ? 
         <div 
             className={classes.Backdrop}
-            onClick={props.close}></div> : 
+            onClick={props.close}>
+        </div> : 
         null;
         
     return (

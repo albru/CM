@@ -5,11 +5,12 @@ import ServicesSection from '../../components/Sections/Services_/Services';
 import FeaturesSection from '../../components/Sections/Features/Features';
 import FeaturesItems from '../../components/Sections/Features/FeaturesItems/FeaturesItems';
 import ServicesItems from '../../components/Sections/Services_/ServicesItems/ServicesItems';
+import Modal from '../../components/UI/Modal/Modal';
 
 const mainPage = props => {
-    console.log(props, 'MainPage PROPS');
     return (
         <Aux>
+            <Modal />
             <GreetingsSection />
 
             <ServicesSection>
