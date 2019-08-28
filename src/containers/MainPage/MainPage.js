@@ -8,22 +8,25 @@ import ServicesSection from '../../components/Sections/Services_/Services';
 import FeaturesSection from '../../components/Sections/Features/Features';
 import FeaturesItems from '../../components/Sections/Features/FeaturesItems/FeaturesItems';
 import ServicesItems from '../../components/Sections/Services_/ServicesItems/ServicesItems';
+import BgImg from '../../components/Sections/Greetings/BgImage/BgImage';
 import Modal from '../../components/UI/Modal/Modal';
 import { inputData } from '../../store/data/inputData';
 import Input from '../../components/UI/Input/Input';
+import Button from '../../components/UI/Button/Button';
 
 const MainPage = props => {
 
     const [ inputDataObj, setInputDataObj ] = useState(inputData);
 
-    const inputChangeHandler = (event, controlName) => {
+    const inputChangeHandler = (event, inputName) => {
+        console.log(inputName,' control')
         const updatedValue = updateObject(inputDataObj, {
-            [controlName]: updateObject(inputDataObj[controlName], {
+            [inputName]: updateObject(inputDataObj[inputName], {
             value: event.target.value,
             touched: true,
             valid: checkValidity(
                 event.target.value, 
-                inputDataObj[controlName].validation
+                inputDataObj[inputName].validation
                 )
             })
 
@@ -59,6 +62,7 @@ const MainPage = props => {
     const form = (
         <form>
             {formContent}
+            <Button btnType="MainButton">Отправить</Button>
         </form>
     )
 
@@ -66,10 +70,14 @@ const MainPage = props => {
     
     return (
         <Aux>
-            <Modal show={props.showModal} clicked={props.closeModal}>
+            <Modal show={props.showModal} 
+                   clicked={props.closeModal}>
                 {form}
             </Modal>
-            <GreetingsSection />
+            <GreetingsSection>
+                <Button btnType='MainButton'>Заказать</Button>
+                <BgImg />
+            </GreetingsSection>
 
             <ServicesSection>
                 <ServicesItems />
