@@ -51,7 +51,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
-  font-size: var(--font-normal);
+  font-size: 17px;
 }
 
 code {
@@ -71,7 +71,7 @@ code {
   --color-warmlite: #FBF5ED;
 
   /* FONT STYLES */
-  --font-normal: 17px;
+  --font-normal: ;
   --font-small: 12px;
 }
 

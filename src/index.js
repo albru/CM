@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 import portfolioReducer from './store/reducers/portfolio';
 import sideDrawerReducer from './store/reducers/sideDrawer';
+import modalReducer from './store/reducers/modal';
 
 import './index.css';
 import App from './App';
@@ -12,7 +13,8 @@ import * as serviceWorker from './serviceWorker';
 
 const rootReducer = combineReducers({
     portfolio: portfolioReducer,
-    sideDrawer: sideDrawerReducer
+    sideDrawer: sideDrawerReducer,
+    modal: modalReducer
 });
 
 const store = createStore(
