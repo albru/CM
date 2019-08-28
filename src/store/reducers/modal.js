@@ -1,16 +1,16 @@
-import * as actionTypes from '../actions/actions';
+import * as actionTypes from '../actions/actionTypes';
 import { updateObject } from '../../shared/utility';
 
 const initialState = {
     modalIsVisible: false
 }
 
-const modalCloseHandler = (state, action) => {
-    return updateObject ( state, { modalIsVisible: false })
-}
-
 const modalOpenHandler = (state, action) => {
     return updateObject( state, { modalIsVisible: true })
+}
+
+const modalCloseHandler = (state, action) => {
+    return updateObject ( state, { modalIsVisible: false })
 }
 
 const modalReducer = (state = initialState, action) => {

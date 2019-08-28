@@ -2,7 +2,7 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
-import * as actionTypes from '../../store/actions/actions';
+import * as actionTypes from '../../store/actions/actionTypes';
 import classes from './Layout.css';
 import Aux from '../_Aux/_Aux';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';

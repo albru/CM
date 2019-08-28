@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import * as actionTypes from '../../store/actions/actions';
+import * as actionTypes from '../../store/actions/actionTypes';
 import Aux from '../../hoc/_Aux/_Aux';
 import PortfolioSection from '../../components/Sections/Portfolio/Portfolio';
 import PortfolioItems from '../../components/Sections/Portfolio/Portfolioitems/PortfolioItems';

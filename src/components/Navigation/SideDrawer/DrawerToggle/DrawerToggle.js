@@ -2,7 +2,7 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
-import * as actionTypes from '../../../../store/actions/actions';
+import * as actionTypes from '../../../../store/actions/actionTypes';
 import classes from './DrawerToggle.css';
 import media from '../../../../shared/css/Media.css';
 

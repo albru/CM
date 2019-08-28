@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
+import * as actionTypes from '../../store/actions/actionTypes';
 import { updateObject, checkValidity } from '../../shared/utility';
 import Aux from '../../hoc/_Aux/_Aux';
 import GreetingsSection from '../../components/Sections/Greetings/Greetings';
@@ -34,7 +35,6 @@ const MainPage = props => {
         setInputDataObj(updatedValue)
     }
 
-
     const formElementsArray = [];
     for (let key in inputDataObj) {
         formElementsArray.push({
@@ -42,12 +42,14 @@ const MainPage = props => {
             config: inputDataObj[key]
         })
     }
+
     const formContent = formElementsArray.map(formElement => {
+        console.log(formElement)
         return (
             <Input 
                 key={formElement.id}
-                elementType={formElement.elementType}
-                elementConfig={formElement.elementConfig}
+                elementType={formElement.config.elementType}
+                elementConfig={formElement.config.elementConfig}
                 value={formElement.config.value}
                 invalid={!formElement.config.valid}
                 shouldValidate={formElement.config.validation}
@@ -57,25 +59,23 @@ const MainPage = props => {
         )
     })
 
-    console.log(inputDataObj)
-
     const form = (
         <form>
             {formContent}
-            <Button btnType="MainButton">Отправить</Button>
+            <Button btnType="MainButton"
+                    clicked={props.modalClose}>Отправить</Button>
         </form>
     )
 
-    console.log(formElementsArray)
-    
     return (
         <Aux>
-            <Modal show={props.showModal} 
-                   clicked={props.closeModal}>
+            <Modal show={props.modalIsVis} 
+                close={props.modalClose}>
                 {form}
             </Modal>
             <GreetingsSection>
-                <Button btnType='MainButton'>Заказать</Button>
+                <Button btnType='MainButton'
+                        clicked={props.modalOpen}>Заказать</Button>
                 <BgImg />
             </GreetingsSection>
 
@@ -90,4 +90,17 @@ const MainPage = props => {
     )
 };
 
-export default MainPage;
+const mapStateToProps = state => {
+    return {
+        modalIsVis: state.modal.modalIsVisible
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        modalOpen: () => dispatch({type: actionTypes.MODAL_OPEN}),
+        modalClose: () => dispatch({type: actionTypes.MODAL_CLOSE})
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainPage);

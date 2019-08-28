@@ -55,6 +55,6 @@ export const inputData = (() => {
             },
             valid: false,
             touched: false
-            }
+        }
     }
 });
