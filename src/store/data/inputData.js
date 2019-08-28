@@ -1,33 +1,33 @@
-export const userDataObject = (() => {
+export const inputData = (() => {
     return {
-        email: {
-            elementType: 'input',
-            elementConfig: {
-              type: 'email',
-              placeholder: 'Почта'
-            },
-            value: '',
-            validation: {
-              required: true,
-              isEmail: true
-            },
-            valid: false,
-            touched: false
-          },
-        password: {
-            elementType: 'input',
-            elementConfig: {
-                type: 'password',
-                placeholder: 'Пароль'
-            },
-            value: '',
-            validation: {
-                required: true,
-                minLength: 6
-            },
-            valid: false,
-            touched: false
-        },
+        // email: {
+        //     elementType: 'input',
+        //     elementConfig: {
+        //       type: 'email',
+        //       placeholder: 'Почта'
+        //     },
+        //     value: '',
+        //     validation: {
+        //       required: true,
+        //       isEmail: true
+        //     },
+        //     valid: false,
+        //     touched: false
+        //   },
+        // password: {
+        //     elementType: 'input',
+        //     elementConfig: {
+        //         type: 'password',
+        //         placeholder: 'Пароль'
+        //     },
+        //     value: '',
+        //     validation: {
+        //         required: true,
+        //         minLength: 6
+        //     },
+        //     valid: false,
+        //     touched: false
+        // },
         phone: {
             elementType: 'input',
             elementConfig: {
