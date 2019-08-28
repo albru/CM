@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
 import * as actionTypes from '../../store/actions/actionTypes';
@@ -62,8 +62,6 @@ const MainPage = props => {
     const form = (
         <form>
             {formContent}
-            <Button btnType="MainButton"
-                    clicked={props.modalClose}>Отправить</Button>
         </form>
     )
 
@@ -72,6 +70,8 @@ const MainPage = props => {
             <Modal show={props.modalIsVis} 
                 close={props.modalClose}>
                 {form}
+                <Button btnType="MainButton"
+                    clicked={props.modalClose}>Отправить</Button>
             </Modal>
             <GreetingsSection>
                 <Button btnType='MainButton'

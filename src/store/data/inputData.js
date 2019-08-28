@@ -31,13 +31,14 @@ export const inputData = (() => {
         phone: {
             elementType: 'input',
             elementConfig: {
-                type: 'number',
+                type: 'text',
                 placeholder: 'Ваш телефон'
             },
             value: '',
             validation: {
                 required: true,
-                minLength: 11
+                minLength: 11,
+                isNumeric: true
             },
             valid: false,
             touched: false

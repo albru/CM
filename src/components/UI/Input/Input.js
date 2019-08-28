@@ -52,7 +52,7 @@ const input = props => {
 
     return (
         <div className={classes.Input}>
-          <label className={classes.Label}>{props.label}</label>
+          {props.label ? <label className={classes.Label}>{props.label}</label> : null}
           {inputElement}
         </div>
       )
