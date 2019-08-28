@@ -7,27 +7,16 @@ import PortfolioSection from '../../components/Sections/Portfolio/Portfolio';
 import PortfolioItems from '../../components/Sections/Portfolio/Portfolioitems/PortfolioItems';
 import BreadCrumbs from '../../components/Navigation/BreadCrumbs/BreadCrumbs';
 import Button from '../../components/UI/Button/Button';
+import { breadCrumbsData } from '../../components/Navigation/BreadCrumbs/breadCrumbsDataObj/breadCrumbsDataObj';
 
 const portfolio = props => {
-
+    const crumbs = breadCrumbsData.portfolioCrumb;
     const showMoreButton = (
         props.maximumItems === false ?
          <Button clicked={props.showNewPortfolioItem} 
             btnType="MainButton">Показать еще</Button> :
          null
     );
-
-    const crumbs = [
-        {
-            crumbName:'Главная',
-            crumbHref: '/',
-            linkType: 'prev'},
-        {
-            crumbName:'Портфолио',
-            crumbHref: '/portfolio',
-            linkType: 'current'
-        }
-    ];
 
     return (
         <Aux>

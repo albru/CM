@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { servicesData } from '../../../../store/data/servicesData';
+import { servicesData } from '../servicesDataObj/servicesDataObj';
 import ServicesItem from './ServicesItem/ServicesItem';
 import classes from './ServicesItems.css';
 
@@ -9,7 +9,7 @@ const servicesItems = (props) => {
     const servicesItems = servicesData.map((item, index) => {
         return (
             <ServicesItem 
-                key={index}
+                key={item.title}
                 title={item.title}
                 href={item.href}
                 imgSrc={item.imgSrc}

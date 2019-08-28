@@ -5,7 +5,7 @@ const services = props => {
 
     return (
         <section className={classes.Services}>
-            <h2>Услуги</h2>
+            <h1>Услуги</h1>
             {props.children}
         </section>
     )

@@ -6,20 +6,10 @@ import Map from '../../components/Contacts/Map/Map';
 import Adress from '../../components/Contacts/Adress/Adress';
 import Phone from '../../components/Contacts/Phone/Phone';
 import classes from './Contacts.css';
+import { breadCrumbsData } from '../../components/Navigation/BreadCrumbs/breadCrumbsDataObj/breadCrumbsDataObj';
 
 const contacts = props => {
-    const crumbs = [
-        {
-            crumbName:'Главная',
-            crumbHref: '/',
-            linkType: 'prev'},
-        {
-            crumbName:'Контакты',
-            crumbHref: '/contacts',
-            linkType: 'current'
-        }
-    ];
-
+    const crumbs = breadCrumbsData.contactsCrumb;
     return (
         <Aux>
             <ContactsSection>

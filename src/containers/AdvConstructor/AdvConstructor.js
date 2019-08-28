@@ -2,24 +2,13 @@ import React from 'react';
 import classes from './AdvConstructor.css';
 import Button from '../../components/UI/Button/Button';
 import BreadCrumbs from '../../components/Navigation/BreadCrumbs/BreadCrumbs';
+import { breadCrumbsData } from '../../components/Navigation/BreadCrumbs/breadCrumbsDataObj/breadCrumbsDataObj';
 
 const AdvConstructor = props => {
     const buttonRedirectHandler = () => {
         props.history.push('/');
     }
-
-    const crumbs = [
-        {
-            crumbName:'Главная',
-            crumbHref: '/',
-            linkType: 'prev'},
-        {
-            crumbName:'Конструктор вывесок',
-            crumbHref: '/constructor',
-            linkType: 'current'
-        }
-    ];
-
+    const crumbs = breadCrumbsData.advConstructorCrumb
     return (
         <section className={classes.AdvConstructor}>
             <BreadCrumbs crumbs={crumbs} />
