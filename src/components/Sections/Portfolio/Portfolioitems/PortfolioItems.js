@@ -9,7 +9,7 @@ const portfolioItems = props => {
     const portfolioList = props.portfolioData.map((item, index) => {
         return (
             <PortfolioItem 
-                key={index}
+                key={item.title}
                 imgSrc={item.imgSrc}
                 imgAlt={item.imgAlt}
                 title={item.title}

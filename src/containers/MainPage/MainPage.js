@@ -11,7 +11,7 @@ import FeaturesItems from '../../components/Sections/Features/FeaturesItems/Feat
 import ServicesItems from '../../components/Sections/Services_/ServicesItems/ServicesItems';
 import BgImg from '../../components/Sections/Greetings/BgImage/BgImage';
 import Modal from '../../components/UI/Modal/Modal';
-import { inputData } from '../../store/data/inputData';
+import { inputData } from '../../components/UI/Input/modalInputDataObj/modalInputDataObj';
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
 
@@ -44,7 +44,6 @@ const MainPage = props => {
     }
 
     const formContent = formElementsArray.map(formElement => {
-        console.log(formElement)
         return (
             <Input 
                 key={formElement.id}

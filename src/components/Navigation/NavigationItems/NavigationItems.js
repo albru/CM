@@ -1,15 +1,14 @@
 import React from 'react';
 import NavigationItem from './NavigationItem/NavigationItem';
 import classes from './NavigationItems.css';
+import { navigationItemsData } from './NavigationItemsData/NavigationItemsData';
 
 const NavigationItems = props => {
-    const navigationLinkData = [
-        {name: 'Услуги', route: "/services"},
-        {name: "Портфолио", route: "/portfolio"},
-        {name: "Конструктор вывесок", route: "/constructor", disabled: true},
-        {name: "Контакты", route: "/contacts"}
-    ];
-    const navigationList = navigationLinkData.map((item, index) => {
+    let navigationList = [];
+    for (let key in navigationItemsData) {
+        navigationList.push(navigationItemsData[key])
+    }
+    const navigationItems = navigationList.map((item, index) => {
         return (
             <NavigationItem 
                 key={index}
@@ -21,7 +20,7 @@ const NavigationItems = props => {
     })
     return (
         <ul className={[classes.NavigationItems, classes[props.navType]].join(' ')}>
-            {navigationList}
+            {navigationItems}
         </ul>
     );
 };
