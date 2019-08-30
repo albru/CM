@@ -1,0 +1,66 @@
+.Contacts {
+    text-align: center;
+    padding: 0;
+    position: relative;
+    width: 90%;
+}
+
+@media (max-width: 499px) {
+    .Contacts {
+        padding-top: 15px;
+    }
+}
+
+.Features {
+    text-align: center;
+    border-top: 1px inset var(--color-lightgray);
+    width: 90%;
+    padding: 0 0 30px 0;
+}  
+
+
+@media (min-width: 500px) {
+    .Features {
+        border-top: none;
+    }
+}
+
+.Greetings {
+    text-align: center;
+    border-bottom: 1px inset var(--color-lightgray);
+    width: 90%;
+    padding: 0 0 40px 0 ;
+}
+
+@media (min-width: 500px) {
+    .Greetings {
+        border-bottom: none;
+    }
+}
+
+.Portfolio {
+    width: 90%;
+    position: relative;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 499px) {
+    .Portfolio {
+        padding-top: 15px;
+    }
+}
+
+.Services{
+    text-align: center;
+    /* Greetings Component has 95% width */
+    padding: 0;
+    position: relative;
+    width: 90%;
+}
+
+@media (max-width: 499px) {
+    .Services {
+        padding-top: 15px;
+    }
+}

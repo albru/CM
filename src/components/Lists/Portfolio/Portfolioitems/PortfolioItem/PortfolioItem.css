@@ -1,6 +1,8 @@
 .PortfolioItem {
     list-style: none;
     padding: 0 5%;
+    background-color: white;
+    min-height: 373.25px;
 }
 
 .PortfolioItem:not(:last-child) {
@@ -11,6 +13,7 @@
 .PortfolioItem img {
     display: block;
     width: 100%;
+
 }
 
 @media (min-width: 500px) {

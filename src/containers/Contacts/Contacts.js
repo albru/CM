@@ -1,5 +1,5 @@
 import React from 'react';
-import ContactsSection from '../../components/Sections/Contacts/Contacts';
+import Section from '../../components/Section/Section';
 import BreadCrumbs from '../../components/Navigation/BreadCrumbs/BreadCrumbs';
 import Aux from '../../hoc/_Aux/_Aux';
 import Map from '../../components/Contacts/Map/Map';
@@ -12,7 +12,8 @@ const contacts = props => {
     const crumbs = breadCrumbsData.contactsCrumb;
     return (
         <Aux>
-            <ContactsSection>
+            <Section sectionType="Contacts">
+                <h1>Контакты</h1>
                 <BreadCrumbs crumbs={crumbs}/>
                 <div className={classes.Contacts}>
                     <Map />
@@ -21,7 +22,7 @@ const contacts = props => {
                         <Phone />
                     </div>
                 </div>                
-            </ContactsSection>
+            </Section>
         </Aux>
     )
 };
