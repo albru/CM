@@ -1,16 +1,17 @@
 import React from 'react';
-import ServicesSection from '../../components/Sections/Services_/Services';
+import Section from '../../components/Section/Section';
 import BreadCrumbs from '../../components/Navigation/BreadCrumbs/BreadCrumbs';
-import ServicesList from '../../components/Sections/Services_/ServicesList/ServicesList';
+import ServicesList from '../../components/Lists/Services_/ServicesList/ServicesList';
 import { breadCrumbsData } from '../../components/Navigation/BreadCrumbs/breadCrumbsDataObj/breadCrumbsDataObj';
 
 const services = props => {
     const crumbs = breadCrumbsData.servicesCrumb;
     return (
-        <ServicesSection >
+        <Section sectionType="Services" >
+            <h1>Услуги</h1>
             <BreadCrumbs crumbs={crumbs} />
             <ServicesList />
-        </ServicesSection>
+        </Section>
     )
 };
 

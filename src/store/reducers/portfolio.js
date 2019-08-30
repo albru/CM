@@ -1,4 +1,4 @@
-import  { portfolioData } from '../../components/Sections/Portfolio/Portfolioitems/portfolioDataObj/portfolioDataObj';
+import  { portfolioData } from '../../components/Lists/Portfolio/Portfolioitems/portfolioDataObj/portfolioDataObj';
 import * as actionTypes from '../actions/actionTypes';
 import { updateObject } from '../../shared/utility';
 
