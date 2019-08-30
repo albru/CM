@@ -1,7 +1,7 @@
 import React from 'react';
 import NavigationItem from './NavigationItem/NavigationItem';
 import classes from './NavigationItems.css';
-import { navigationItemsData } from './NavigationItemsData/NavigationItemsData';
+import { navigationItemsData } from './navigationItemsDataObj/NavigationItemsData';
 
 const NavigationItems = props => {
     let navigationList = [];

@@ -11,6 +11,7 @@ const AdvConstructor = props => {
     const crumbs = breadCrumbsData.advConstructorCrumb
     return (
         <section className={classes.AdvConstructor}>
+            <h1>Конструктор вывесок</h1>
             <BreadCrumbs crumbs={crumbs} />
             <h2> Конструктор вывесок временно недоступен.  </h2>
             <Button 

@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 
 import * as actionTypes from '../../store/actions/actionTypes';
 import Aux from '../../hoc/_Aux/_Aux';
-import PortfolioSection from '../../components/Sections/Portfolio/Portfolio';
-import PortfolioItems from '../../components/Sections/Portfolio/Portfolioitems/PortfolioItems';
+import Section from '../../components/Section/Section';
+import PortfolioItems from '../../components/Lists/Portfolio/Portfolioitems/PortfolioItems';
 import BreadCrumbs from '../../components/Navigation/BreadCrumbs/BreadCrumbs';
 import Button from '../../components/UI/Button/Button';
 import { breadCrumbsData } from '../../components/Navigation/BreadCrumbs/breadCrumbsDataObj/breadCrumbsDataObj';
@@ -20,11 +20,12 @@ const portfolio = props => {
 
     return (
         <Aux>
-            <PortfolioSection> 
+            <Section sectionType="Portfolio"> 
+                <h1>Портфолио</h1>
                 <BreadCrumbs crumbs={crumbs} />
                 <PortfolioItems />
                 {showMoreButton}
-            </PortfolioSection>
+            </Section>
         </Aux>
     )
 };
