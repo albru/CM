@@ -67,10 +67,10 @@ const MainPage = props => {
     return (
         <Aux>
             <Modal show={props.modalIsVis} 
-                close={props.modalClose}>
+                   close={props.modalClose}>
                 {form}
                 <Button btnType="MainButton"
-                    clicked={props.modalClose}>Отправить</Button>
+                        clicked={props.modalClose}>Отправить</Button>
             </Modal>
             <GreetingsSection>
                 <Button btnType='MainButton'

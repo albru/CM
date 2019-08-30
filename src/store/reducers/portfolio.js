@@ -7,16 +7,23 @@ for (let key in portfolioData) {
     updatedPortfolioData.push(portfolioData[key])
 }
 
-const initialState = {
-    portfolioData: [...updatedPortfolioData].slice(0, 4),
-    initial: 0,
-    step: 4,
-    items: 4,
-    maximumItems: false
+const initPortfolioState = (arr, from, to) => {
+    return {
+        portfolioData: [...arr].slice(from,to),
+        initial: 0,
+        step: 2,
+        items: to,
+        maximumItems: false
+    }
 }
 
+const initialState = initPortfolioState(updatedPortfolioData, 0, 4)
+
 const addPortfolioItem = (state, action) => {
-    let updatedState = updateObject(state, { maximumItems: state.maximumItems, items: state.items, portfolioData: state.portfolioData });
+    let updatedState = updateObject(state, { 
+        maximumItems: state.maximumItems, 
+        items: state.items
+    });
     if (!updatedState.maximumItems && updatedState.items < updatedPortfolioData.length) {
         updatedState.items += updatedState.step;
         if(updatedState.items >= updatedPortfolioData.length) {
