@@ -1,10 +1,29 @@
 
 .Phone {
     padding: 0 0 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .Phone a{
-    color: black;
+    color: var(--color-gray);
     text-decoration: none;
     font-weight: bold;
+    min-width: 177.72px;
+}
+
+.Phone svg{
+    color: var(--color-main);
+    margin-right: 15px;
+}
+
+@media (min-width: 500px) {
+    .Phone svg {
+        transition: all .3s;
+    }
+    .Phone:hover > svg {
+        color: var(--color-second);
+    }
 }

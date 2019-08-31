@@ -5,6 +5,7 @@ import Aux from '../../hoc/_Aux/_Aux';
 import Map from '../../components/Contacts/Map/Map';
 import Adress from '../../components/Contacts/Adress/Adress';
 import Phone from '../../components/Contacts/Phone/Phone';
+import Email from '../../components/Contacts/Email/Email';
 import classes from './Contacts.css';
 import { breadCrumbsData } from '../../components/Navigation/BreadCrumbs/breadCrumbsDataObj/breadCrumbsDataObj';
 
@@ -20,6 +21,7 @@ const contacts = props => {
                     <div>
                         <Adress />
                         <Phone />
+                        <Email />
                     </div>
                 </div>                
             </Section>
