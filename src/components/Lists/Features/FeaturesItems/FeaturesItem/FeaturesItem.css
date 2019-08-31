@@ -3,6 +3,13 @@
     margin-bottom: 30px;
 }
 
+.FeaturesIcon {
+    width: 250px;
+    height: 250px;
+    font-size: 250px;
+    color: var(--color-main);
+}
+
 @media (min-width: 500px) {
     .FeaturesItem {
         margin-bottom: 0;

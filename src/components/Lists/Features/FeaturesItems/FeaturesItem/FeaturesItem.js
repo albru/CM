@@ -1,12 +1,33 @@
 import React from 'react';
 import classes from './FeaturesItem.css';
+import GuaranteeIcon from '@material-ui/icons/Lock';
+import ContractIcon from '@material-ui/icons/Assignment';
+import RulesIcon from '@material-ui/icons/DoneAll';
+import TimeIcon from '@material-ui/icons/Timer';
 
 const featuresItem = props => {
-      
+    let icon = null;
+    switch(props.icon) {
+        case 'GuaranteeIcon':
+            icon =  <GuaranteeIcon className={classes.FeaturesIcon}/>
+            break;
+        case 'ContractIcon':
+            icon = <ContractIcon />
+            break;
+        case 'RulesIcon':
+            icon = <RulesIcon />
+            break;
+        case 'TimeIcon':
+            icon = <TimeIcon />
+            break;
+        default:
+            icon = null
+    }
+        console.log(icon)
         return (
             <li className={classes.FeaturesItem}>
                 <div>
-                    <img src={props.imgSrc} alt={props.imgAlt}></img>
+                    {icon}
                 </div>
                 <div>
                     <p>{props.desc}</p>
