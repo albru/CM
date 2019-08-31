@@ -4,9 +4,7 @@
 }
 
 .FeaturesIcon {
-    width: 250px;
-    height: 250px;
-    font-size: 250px;
+    font-size: 80px!important;
     color: var(--color-main);
 }
 

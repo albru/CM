@@ -12,13 +12,13 @@ const featuresItem = props => {
             icon =  <GuaranteeIcon className={classes.FeaturesIcon}/>
             break;
         case 'ContractIcon':
-            icon = <ContractIcon />
+            icon = <ContractIcon className={classes.FeaturesIcon}/>
             break;
         case 'RulesIcon':
-            icon = <RulesIcon />
+            icon = <RulesIcon className={classes.FeaturesIcon}/>
             break;
         case 'TimeIcon':
-            icon = <TimeIcon />
+            icon = <TimeIcon className={classes.FeaturesIcon}/>
             break;
         default:
             icon = null
