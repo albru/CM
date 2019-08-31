@@ -7,6 +7,15 @@ import manlyImg from '../../../../../assets/img/portfolio/manly.webp';
 import uptickImg from '../../../../../assets/img/portfolio/uptick.webp';
 import viessmannImg from '../../../../../assets/img/portfolio/viessmann.webp';
 
+
+let s;
+
+(() => {
+
+    s = navigator.userAgent.toString();
+    console.log(s,'browser')
+})()
+
 export const portfolioData = (() => {
     return {
         sever: {

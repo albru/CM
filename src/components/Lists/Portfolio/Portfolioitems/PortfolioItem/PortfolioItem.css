@@ -1,15 +1,12 @@
 .PortfolioItem {
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items:center;
     list-style: none;
-    padding: 0 5%;
+    padding: 5%;
     background-color: white;
-    min-height: 373.25px;
     box-shadow: 0px 0px 16px 1px var(--color-lightgray);
     border-radius: 16px;
 }
+
+
 
 .PortfolioItem:not(:last-child) {
     margin-bottom: 20px;
@@ -26,16 +23,22 @@
     .PortfolioItem {
         width: 35%;
         padding: 0;
-        margin-right: 35px;
+        margin-bottom: 20px;
+        transition: all .3s;
     }
-    .PortfolioItem:not(:last-child) {
+    .PortfolioItem:nth-child(2n + 1) {
         border-bottom: none;
+        margin-right: 35px;
     }
     .PortfolioItem img {
         width: 100%;
         height: 100%;
+        transition: all .3s;
     }
     .PortfolioImgCont {
-        margin: 15px;
+        padding: 15px 15px 0 15px;
+    }
+    .PortfolioItem:hover {
+        transform: translateY(-5px);
     }
 }

@@ -11,7 +11,7 @@
     color: var(--color-gray);
     text-decoration: none;
     font-weight: bold;
-    min-width: 177.72px;
+    min-width: 157.97px
 }
 
 .Phone svg{
@@ -20,6 +20,9 @@
 }
 
 @media (min-width: 500px) {
+    .Phone a {
+        min-width: 177.72px;
+    }
     .Phone svg {
         transition: all .3s;
     }
