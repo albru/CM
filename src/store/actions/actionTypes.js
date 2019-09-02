@@ -5,3 +5,4 @@ export const SIDE_DRAWER_CLOSE = 'SIDE_DRAWER_CLOSE';
 
 export const MODAL_CLOSE = 'MODAL_CLOSE';
 export const MODAL_OPEN = 'MODAL_OPEN';
+export const MODAL_CONTENT_CHANGE = 'MODAL_CONTENT_CHANGE';

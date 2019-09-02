@@ -5,7 +5,7 @@ import ContractIcon from '@material-ui/icons/Assignment';
 import RulesIcon from '@material-ui/icons/DoneAll';
 import TimeIcon from '@material-ui/icons/Timer';
 
-const featuresItem = props => {
+const FeaturesItem = props => {
     let icon = null;
     switch(props.icon) {
         case 'GuaranteeIcon':
@@ -23,7 +23,6 @@ const featuresItem = props => {
         default:
             icon = null
     }
-        console.log(icon)
         return (
             <li className={classes.FeaturesItem}>
                 <div>
@@ -36,4 +35,4 @@ const featuresItem = props => {
         )
 };
 
-export default featuresItem;
+export default FeaturesItem;
