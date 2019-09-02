@@ -20,6 +20,8 @@
     .NavigationItems {
         flex-flow: row;
         align-items: center;
+    }
+    .NavFooter {
         margin-bottom: 30px;
     }
 }

@@ -13,5 +13,15 @@
 .Socials img {
     width: 30px;
     height: 30px;
+    color: red;
+}
+
+@media(min-width: 500px) {
+    .Socials a {
+        transition: all .3s;
+    }
+    .Socials a:hover {
+        filter: brightness(115%);
+    }
 }
 

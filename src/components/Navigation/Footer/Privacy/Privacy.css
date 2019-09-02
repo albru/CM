@@ -4,4 +4,5 @@
     color: var(--color-lightgray);
     text-align: center;
     font-size: var(--font-small);
+    margin-top: 40px;
 }

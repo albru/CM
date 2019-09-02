@@ -5,6 +5,8 @@ import './App.css';
 import Layout from './hoc/Layout/Layout';
 import MainPage from './containers/MainPage/MainPage';
 
+import Spinner from './components/UI/Spinner/Spinner';
+
 const Portfolio = React.lazy(() => {
   return import('./containers/Portfolio/Portfolio');
 });
@@ -33,10 +35,23 @@ let routes = (
 
 
 function App() {
+  const bigSpinnerStyles = {
+    'minHeight': '100vh',
+    'width': '100vw',
+    'display': 'flex',
+    'justifyContent': 'center',
+    'alignItems': 'center',
+    'transform': 'translateY(-100px)'
+  }
+  const bigSpinner = (
+    <div style={bigSpinnerStyles}>
+      <Spinner />
+    </div>
+  )
   return (
     <div className="App">
       <Layout>
-        <Suspense fallback={<p>Загрузка...</p>}>
+        <Suspense fallback={bigSpinner}>
           {routes}
         </Suspense>
       </Layout>

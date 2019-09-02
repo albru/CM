@@ -35,3 +35,13 @@ export const updateObject = (oldObject, updatedProperties) => {
   
     return isValid;
   }
+
+  export const checkUserBrowserForRightImages = (item) => {
+    const userBrowserInfo = navigator.userAgent.toString();
+    const userHaveMac = userBrowserInfo.indexOf('Macintosh');
+    const userHaveIphone = userBrowserInfo.indexOf('iPhone');
+    if (item) {
+        return userHaveMac > 0 || userHaveIphone > 0 ? item.imgSrcJpg : item.imgSrc;
+    }
+    return userHaveMac > 0 || userHaveIphone > 0 ? true : false;
+}

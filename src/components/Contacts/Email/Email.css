@@ -1,0 +1,25 @@
+.Email {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+.Email svg {
+    color: var(--color-main);
+    margin-right: 15px;
+}
+
+.Email a{
+    color: var(--color-gray);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+@media (min-width: 500px) {
+    .Email svg {
+        transition: all .3s;
+    }
+    .Email:hover > svg {
+        color: var(--color-second);
+    }
+}

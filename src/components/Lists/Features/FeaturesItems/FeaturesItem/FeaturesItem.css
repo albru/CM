@@ -1,12 +1,10 @@
-.FeaturesItem {
+.FeaturesItem:not(:last-child) {
     list-style: none;
     margin-bottom: 30px;
 }
 
 .FeaturesIcon {
-    width: 250px;
-    height: 250px;
-    font-size: 250px;
+    font-size: 75px!important;
     color: var(--color-main);
 }
 

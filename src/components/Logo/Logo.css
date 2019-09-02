@@ -8,14 +8,21 @@
     .Logo {
         margin: 0;
     }
+    .LogoHeader a:hover {
+        color: var(--color-second);
+    }
+    .LogoFooter:hover {
+        background-color: var(--color-second);
+    }
 }
 
 .LogoHeader a {
-    color: var(--color-header);
+    color: var(--color-main);
     font-size: 27px;
     font-weight: bold;
     font-family: 'Playball', cursive;
     text-decoration: none;
+    transition: all .3s;
 }
 
 .LogoFooter {
@@ -27,7 +34,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--color-header);
+    background-color: var(--color-main);
+    transition: all .3s;
 }
 
 .LogoFooter a {

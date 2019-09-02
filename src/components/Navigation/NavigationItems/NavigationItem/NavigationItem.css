@@ -4,9 +4,8 @@
     text-transform: uppercase;
     color: var(--color-gray);
     text-transform: initial;
+    font-weight: bold;
 }
-
-
 
 .NavigationItem {
     margin-bottom: 30px;
@@ -14,8 +13,19 @@
 
 @media (min-width: 500px) {
     .NavigationItem {
-        margin-right: 15px;
+        display: flex;
+        align-items:center;
+        justify-content: center;
         margin-bottom: 0;
+        height: 100%;
+    }
+    .NavigationItem:not(:last-child) {
+        margin-right: 15px;
+    }
+
+    .NavigationItem a{
+        transition: all .3s;
+        border-bottom: 1px solid transparent;
     }
 
     .NavigationItem a:hover {
@@ -24,6 +34,6 @@
     }
     .NavigationItemActive {
         color: var(--color-main)!important;
-        border-bottom: 1px solid var(--color-main);
+        border-bottom: 1px solid var(--color-main)!important;
     }
 }
