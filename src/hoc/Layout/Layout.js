@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-
 import { connect } from 'react-redux';
-
 import * as actionTypes from '../../store/actions/actionTypes';
 import { updateObject, checkValidity } from '../../shared/utility';
 import classes from './Layout.css';
@@ -102,7 +100,6 @@ const Layout = props => {
         )
     }
     
-
     return (
         <Aux>
             <Modal show={props.modalIsVis} 
