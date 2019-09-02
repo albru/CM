@@ -4,19 +4,36 @@ import { updateObject } from '../../shared/utility';
 const initialState = {
     modalIsVisible: false,
     modalDataSend: false,
-    username: null
+    username: null,
+    modalError: false,
+    errorMsg: null
 }
 
 const modalOpenHandler = (state, action) => {
-    return updateObject( state, { modalIsVisible: true })
+    return updateObject( state, { 
+        modalIsVisible: true 
+    })
 }
 
-const modalCloseHandler = (state, action, event) => {
-    return updateObject ( state, { modalIsVisible: false })
+const modalCloseHandler = (state, action) => {
+    return updateObject ( state, { 
+        modalIsVisible: false,
+        modalError: false
+    })
 }
 
-const modalDataSendHandler = (state, action, event) => {
-    return updateObject ( state, { modalDataSend: true, username: action.username })
+const modalDataSendHandler = (state, action) => {
+    return updateObject ( state, { 
+        modalDataSend: true, 
+        username: action.username 
+    })
+}
+
+const modalError = (state, action) => {
+    return updateObject( state, { 
+        modalError: true, 
+        errorMsg: action.errorName
+    })
 }
 
 const modalReducer = (state = initialState, action) => {
@@ -25,8 +42,10 @@ const modalReducer = (state = initialState, action) => {
             return modalOpenHandler(state, action)
         case actionTypes.MODAL_CLOSE:
             return modalCloseHandler(state, action)
-        case actionTypes.MODAL_CONTENT_CHANGE:
+        case actionTypes.MODAL_CONTENT_SEND:
             return modalDataSendHandler(state, action)
+        case actionTypes.MODAL_ERROR:
+            return modalError(state, action)
         default:
             return state
     }
