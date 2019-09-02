@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-
 import { connect } from 'react-redux';
-
 import * as actionTypes from '../../store/actions/actionTypes';
 import { updateObject, checkValidity } from '../../shared/utility';
 import classes from './Layout.css';
@@ -13,6 +11,7 @@ import Modal from '../../components/UI/Modal/Modal';
 import { inputData } from '../../components/UI/Input/inputDataObj/modalInputDataObj';
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
+import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 
 const Layout = props => {
     const [ inputDataObj, setInputDataObj ] = useState(inputData);
@@ -38,10 +37,11 @@ const Layout = props => {
             body: JSON.stringify({ name: inputDataObj.name.value, phone: inputDataObj.phone.value}),
             headers: {'Content-Type': 'application/json'}
         }).then(response => {
-            return response.json()
+            return response.json();
         }).then(responseData => {
-            props.modalClose()
-            props.modalContentChange(inputDataObj.name.value)
+            props.modalContentSend(inputDataObj.name.value);
+        }).catch(error => {
+            props.modalErrorHandler(error.toString());
         })
     }
 
@@ -67,14 +67,27 @@ const Layout = props => {
             />
         )
     })
-    const form = props.modalDataSend ? (
+    
+    let form;
+    if(props.modalError) {
+        form = (
+            <ErrorMessage errorMessage={props.errorMsg}
+                          btnClick={props.modalClose} />
+        )
+    }
+
+    if(props.modalDataSend) {
+        form = (
             <Aux>
                 <h2>{props.username}, ваша заявка отправлена. Менеджер свяжется с вами в ближайшее время</h2>
                 <Button btnType="MainButton"
                         clicked={props.modalClose}>Ок</Button>
             </Aux>
+        )
+    }
 
-         ) : (
+    if (!props.modalDataSend && !props.modalError) {
+        form =  (
             <form id="CustomerForm" onSubmit={(event) => submitFormHandler(event)}>
                 <fieldset>
                     <legend>
@@ -85,7 +98,8 @@ const Layout = props => {
                 </fieldset>
             </form>
         )
-
+    }
+    
     return (
         <Aux>
             <Modal show={props.modalIsVis} 
@@ -110,7 +124,9 @@ const mapStateToProps = state => {
         sidDrawerIsVisible: state.sideDrawer.sideDrawerIsVisible,
         modalIsVis: state.modal.modalIsVisible,
         modalDataSend: state.modal.modalDataSend,
-        username: state.modal.username
+        username: state.modal.username,
+        modalError: state.modal.modalError,
+        errorMsg: state.modal.errorMsg
     }
 }
 
@@ -120,7 +136,8 @@ const mapDispatchToProps = dispatch => {
         sideDrawerCloseHandler: () => dispatch({type: actionTypes.SIDE_DRAWER_CLOSE}),
         modalOpen: () => dispatch({type: actionTypes.MODAL_OPEN}),
         modalClose: () => dispatch({type: actionTypes.MODAL_CLOSE}),
-        modalContentChange: (name) => dispatch({type: actionTypes.MODAL_CONTENT_CHANGE, username: name})
+        modalContentSend: (name) => dispatch({type: actionTypes.MODAL_CONTENT_SEND, username: name}),
+        modalErrorHandler: (error) => dispatch({type: actionTypes.MODAL_ERROR, errorName: error})
     }
 }
 
