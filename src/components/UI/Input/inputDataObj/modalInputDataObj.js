@@ -36,9 +36,9 @@ export const inputData = (() => {
             },
             value: '',
             validation: {
-                required: true,
+                required: false,
                 minLength: 11,
-                isNumeric: true
+                isNumeric: false
             },
             valid: false,
             touched: false

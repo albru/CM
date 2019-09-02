@@ -9,7 +9,7 @@ const modalOpenHandler = (state, action) => {
     return updateObject( state, { modalIsVisible: true })
 }
 
-const modalCloseHandler = (state, action) => {
+const modalCloseHandler = (state, action, event) => {
     return updateObject ( state, { modalIsVisible: false })
 }
 

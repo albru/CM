@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import * as actionTypes from '../../store/actions/actionTypes';
@@ -14,11 +14,12 @@ import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
 
 const MainPage = props => {
-
+    useEffect(() => {
+        console.log('RENDER MAIN PAGE')
+    },[])
     const [ inputDataObj, setInputDataObj ] = useState(inputData);
 
     const inputChangeHandler = (event, inputName) => {
-        console.log(inputName,' control')
         const updatedValue = updateObject(inputDataObj, {
             [inputName]: updateObject(inputDataObj[inputName], {
             value: event.target.value,
@@ -28,9 +29,22 @@ const MainPage = props => {
                 inputDataObj[inputName].validation
                 )
             })
-
         })
         setInputDataObj(updatedValue)
+    }
+
+    const submitFormHandler = (event) => {
+        event.preventDefault();
+        fetch('https://cetus-media-b35fb.firebaseio.com/customers.json', {
+            method: 'POST',
+            body: JSON.stringify({ name: inputDataObj.name.value, phone: inputDataObj.phone.value}),
+            headers: {'Content-Type': 'application/json'}
+        }).then(response => {
+            props.modalClose()
+            return response.json()
+        }).then(responseData => {
+            
+        })
     }
 
     const formElementsArray = [];
@@ -57,8 +71,13 @@ const MainPage = props => {
     })
 
     const form = (
-        <form>
-            {formContent}
+        <form id="CustomerForm" onSubmit={(event) => submitFormHandler(event)}>
+            <fieldset>
+                <legend><h2>Оставьте заявку</h2></legend>
+                {formContent}
+                <Button btnType="MainButton">Отправить</Button> 
+            </fieldset>
+
         </form>
     )
 
@@ -67,8 +86,6 @@ const MainPage = props => {
             <Modal show={props.modalIsVis} 
                    close={props.modalClose}>
                 {form}
-                <Button btnType="MainButton"
-                        clicked={props.modalClose}>Отправить</Button>
             </Modal>
             <Section sectionType="Greetings">
                 <h1>Наружные и интерьерные вывески, рекламные конструкции от производителя</h1>
