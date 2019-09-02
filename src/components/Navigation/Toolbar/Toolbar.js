@@ -1,5 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
+import * as actionTypes from '../../../store/actions/actionTypes';
 import classes from './Toolbar.css';
 import NavigationItems from '../NavigationItems/NavigationItems';
 import Logo from '../../Logo/Logo';
@@ -11,6 +13,7 @@ import media from '../../../shared/css/Media.css';
 import PhoneIcon from '@material-ui/icons/Phone';
 
 const header = props => {
+
     return (
         <header className={classes.Header}>
             <DrawerToggle drawerToggle={props.sideDrawerToggle}/>
@@ -25,13 +28,17 @@ const header = props => {
                 <Socials mediaType="DesktopOnly"/>
                 test
             </div> */}
-            <Button btnType="ToolbarButton">
+            <Button clicked={props.modalOpen} btnType="ToolbarButton">
                 <PhoneIcon />
             </Button>
         </header>
     )
 }
 
+const mapDispatchToProps = dispatch => {
+    return {
+        modalOpen: () => dispatch({type: actionTypes.MODAL_OPEN}),
+    }
+}
 
-
-export default header;
+export default connect(null, mapDispatchToProps)(header);
