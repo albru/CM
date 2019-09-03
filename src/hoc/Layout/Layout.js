@@ -41,6 +41,7 @@ const Layout = props => {
             return response.json()
         }).then(responseData => {
             props.modalClose()
+        }).then(() => {
             props.modalContentChange(inputDataObj.name.value)
         })
     }

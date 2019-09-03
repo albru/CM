@@ -10,6 +10,7 @@ import Button from '../../components/UI/Button/Button';
 import { breadCrumbsData } from '../../components/Navigation/BreadCrumbs/breadCrumbsDataObj/breadCrumbsDataObj';
 
 const portfolio = props => {
+
     const crumbs = breadCrumbsData.portfolioCrumb;
     const showMoreButton = (
         props.maximumItems === false ?
