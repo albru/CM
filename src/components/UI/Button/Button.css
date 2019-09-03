@@ -4,6 +4,16 @@
     cursor: pointer;
 }
 
+.Button:active, button:focus {
+    outline: 0 !important;
+    border:0 none !important;
+  }
+.Button::-moz-focus-inner {
+    outline: 0 !important;
+    border:0 none !important;
+}
+
+
 .Button:disabled {
     color: #ccc;
     cursor: not-allowed;
