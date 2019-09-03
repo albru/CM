@@ -12,6 +12,11 @@ const modal = props => {
                         transform: props.show ? 'translateY(0)' : 'translateY(-100vh)',
                         opacity: props.show ? '1' : '0'
                     }}>
+                <div className={classes.CloseBtn}
+                     onClick={props.close}>
+                    <div className={classes.Stick1}></div>
+                    <div className={classes.Stick2}></div>
+                </div>
                 {props.children}
             </div>
         </Aux>

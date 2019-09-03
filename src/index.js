@@ -6,6 +6,7 @@ import { createStore, combineReducers } from 'redux';
 import portfolioReducer from './store/reducers/portfolio';
 import sideDrawerReducer from './store/reducers/sideDrawer';
 import modalReducer from './store/reducers/modal';
+import ScrollToTop from './hoc/ScrollToTop/ScrollToTop';
 
 import './index.css';
 import App from './App';
@@ -25,7 +26,9 @@ const store = createStore(
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
-            <App />
+            <ScrollToTop>
+                <App />
+            </ScrollToTop>
         </BrowserRouter>
     </Provider>, document.getElementById('root')
 );

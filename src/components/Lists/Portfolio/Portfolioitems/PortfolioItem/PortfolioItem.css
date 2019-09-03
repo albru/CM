@@ -38,7 +38,4 @@
     .PortfolioImgCont {
         padding: 15px 15px 0 15px;
     }
-    .PortfolioItem:hover {
-        transform: translateY(-5px);
-    }
 }
