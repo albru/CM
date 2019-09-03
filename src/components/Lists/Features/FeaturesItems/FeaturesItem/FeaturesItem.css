@@ -5,7 +5,7 @@
 
 .FeaturesIcon {
     font-size: 75px!important;
-    color: var(--color-main);
+    color: var(--color-gray);
 }
 
 @media (min-width: 500px) {

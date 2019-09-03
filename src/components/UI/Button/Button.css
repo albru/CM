@@ -41,7 +41,11 @@
 
 @media (min-width: 500px) {
     .ToolbarButton {
-        display: none;
+        transition: all .3s;
+    }
+    .ToolbarButton:hover {
+        border: 1px solid var(--color-second);
+        color: var(--color-second);
     }
     .MainButton {
         transition: all .2s;

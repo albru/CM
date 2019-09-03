@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import './App.css';
 import Layout from './hoc/Layout/Layout';
@@ -30,6 +30,7 @@ let routes = (
     <Route path="/contacts" exact render={(props) => <Contacts {...props}/>} />
     <Route path="/constructor" exact render={(props) => <AdvConstructor {...props}/>} />
     <Route path="/" exact render={(props) => <MainPage {...props}/>} />
+    <Redirect to="/" />
   </Switch>
 )
 
