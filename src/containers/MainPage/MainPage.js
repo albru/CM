@@ -17,8 +17,6 @@ const MainPage = props => {
         <Aux>
             <Section sectionType="Greetings">
                 <h1>Наружные и интерьерные вывески, рекламные конструкции от производителя</h1>
-                <Button btnType='MainButton'
-                        clicked={props.modalOpen}>Заказать</Button>
                 <BgImg />
             </Section>
 
@@ -31,6 +29,8 @@ const MainPage = props => {
                 <h2>Преимущества</h2>
                 <FeaturesItems />
             </Section>
+            <Button btnType='MainButton'
+                    clicked={props.modalOpen}>Заказать</Button>
         </Aux>
     )
 };
