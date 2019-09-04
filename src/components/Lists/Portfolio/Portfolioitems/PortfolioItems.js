@@ -4,8 +4,6 @@ import classes from './PortfolioItems.css';
 import PortfolioItem from './PortfolioItem/PortfolioItem';
 import { userUseApple } from '../../../../shared/utility';
 
-
-
 const portfolioItems = props => {
     let isMac = userUseApple();
     let portfolioList = props.portfolioData.map((item, index) => {
