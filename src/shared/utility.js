@@ -22,9 +22,14 @@ export const updateObject = (oldObject, updatedProperties) => {
     if ( rules.maxLength ) {
         isValid = value.length <= rules.maxLength && isValid
     }
+    
+    if (rules.isPhone) {
+        const pattern = /^((8|\+7)[- ]?)?(\(?\d{3}\)?[- ]?)?[\d\- ]{7,10}$/;
+        isValid = pattern.test( value ) && isValid
+    }
 
-    if ( rules.isName ) {
-        const pattern = /^[_a-zA-Z0-9абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ ]+$/;
+    if (rules.isUserName) {
+        const pattern = /^[a-zA-Z0-9а-яА-Я ]+$/;
         isValid = pattern.test( value ) && isValid
     }
   

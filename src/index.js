@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 import portfolioReducer from './store/reducers/portfolio';
 import sideDrawerReducer from './store/reducers/sideDrawer';
+import inputReducer from './store/reducers/input';
 import modalReducer from './store/reducers/modal';
 import ScrollToTop from './hoc/ScrollToTop/ScrollToTop';
 
@@ -12,10 +13,12 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+
 const rootReducer = combineReducers({
     portfolio: portfolioReducer,
     sideDrawer: sideDrawerReducer,
-    modal: modalReducer
+    modal: modalReducer,
+    input: inputReducer
 });
 
 const store = createStore(

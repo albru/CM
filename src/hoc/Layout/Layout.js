@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { connect } from 'react-redux';
 import * as actionTypes from '../../store/actions/actionTypes';
 import { updateObject, checkValidity } from '../../shared/utility';
@@ -12,11 +12,27 @@ import { inputData } from '../../components/UI/Input/inputDataObj/modalInputData
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+import Spinner from '../../components/UI/Spinner/Spinner'
 
 const Layout = props => {
     const [ inputDataObj, setInputDataObj ] = useState(inputData);
+    
+    // let inputValidationErrorMessage;
+    let form;
 
-    const inputChangeHandler = (event, inputName) => {
+    // useEffect(() => {
+    //     if ((!props.modalDataSend && !props.modalError) && (inputDataObj.name.value !== '' || inputDataObj.phone.value !== '')) {
+    //         const timer = setTimeout(() => {
+    //             props.allInputCheckValidity(inputDataObj);
+    //         }, 500)
+    //         return () => {
+    //             clearTimeout(timer)
+    //         }
+    //     } 
+
+    // }, [inputDataObj, props])
+    
+    const inputChangeHandler = useCallback((event, inputName) => {
         const updatedValue = updateObject(inputDataObj, {
             [inputName]: updateObject(inputDataObj[inputName], {
             value: event.target.value,
@@ -28,22 +44,31 @@ const Layout = props => {
             })
         })
         setInputDataObj(updatedValue)
-    }
+    },[inputDataObj])
+    
 
-    const submitFormHandler = (event) => {
-        event.preventDefault();
-        fetch('https://cetus-media-b35fb.firebaseio.com/customers.json', {
-            method: 'POST',
-            body: JSON.stringify({ name: inputDataObj.name.value, phone: inputDataObj.phone.value}),
-            headers: {'Content-Type': 'application/json'}
-        }).then(response => {
-            return response.json();
-        }).then(responseData => {
-            props.modalContentSend(inputDataObj.name.value);
-        }).catch(error => {
-            props.modalErrorHandler(error.toString());
-        })
-    }
+    // if(!props.allInputDataIsValid && (inputDataObj.name.value.length >= 1 && inputDataObj.phone.value.length >= 7)) {
+    //     inputValidationErrorMessage = (<p>Пожалуйста, проверьте правильность ввода данных!</p>);
+    // };
+
+    const submitFormHandler = useCallback((event) => {
+            event.preventDefault();
+            if(inputDataObj.name.valid && inputDataObj.phone.valid) {
+                fetch('https://cetus-media-b35fb.firebaseio.com/customers.json', {
+                    method: 'POST',
+                    body: JSON.stringify({ name: inputDataObj.name.value, phone: inputDataObj.phone.value}),
+                    headers: {'Content-Type': 'application/json'}
+                }).then(response => {
+                    return response.json();
+                }).then(responseData => {
+                    props.modalContentSend(inputDataObj.name.value);
+                }).catch(error => {
+                    props.modalErrorHandler(error.toString());
+                })
+                return;
+            }
+    }, [inputDataObj.name.value, inputDataObj.phone.value, inputDataObj.name.valid, inputDataObj.phone.valid, props])
+
 
     const formElementsArray = [];
     for (let key in inputDataObj) {
@@ -68,8 +93,7 @@ const Layout = props => {
             />
         )
     })
-    
-    let form;
+
     if(props.modalError) {
         form = (
             <ErrorMessage errorMessage={props.errorMsg}
@@ -88,6 +112,7 @@ const Layout = props => {
     }
 
     if (!props.modalDataSend && !props.modalError) {
+        let valid = inputDataObj.name.valid && inputDataObj.phone.valid;
         form =  (
             <form id="CustomerForm" onSubmit={(event) => submitFormHandler(event)}>
                 <fieldset>
@@ -95,8 +120,7 @@ const Layout = props => {
                         <h2>Оставьте заявку</h2>
                     </legend>
                     {formContent}
-                    <Button btnType="MainButton"
-                            disabled={props.invalid && props.shouldValidate && props.touched}>Отправить</Button> 
+                    <Button disabled={!valid} btnType={!valid ? null : "MainButton"}>Отправить</Button> 
                 </fieldset>
             </form>
         )
@@ -107,6 +131,7 @@ const Layout = props => {
             <Modal show={props.modalIsVis} 
                    close={props.modalClose}>
                 {form}
+                {/* {inputValidationErrorMessage} */}
             </Modal>
             <Toolbar sideDrawerToggle={props.sideDrawerToggleHandler}/>
             <SideDrawer 
