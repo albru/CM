@@ -37,8 +37,8 @@ export const inputData = (() => {
             value: '',
             validation: {
                 required: false,
-                minLength: 11,
-                isNumeric: false
+                isPhone: true,
+                
             },
             valid: false,
             touched: false
@@ -52,7 +52,8 @@ export const inputData = (() => {
             value: '',
             validation: {
                 required: true,
-                minLength: 3
+                minLength: 3,
+                isUserName: true
             },
             valid: false,
             touched: false

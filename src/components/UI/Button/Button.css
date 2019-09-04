@@ -8,7 +8,11 @@
     color: #ccc;
     cursor: not-allowed;
     border: none;
-    background-color: var(color-lightgray);
+    background-color: var(--color-lightgray);
+    width: 60%;
+    border: none;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 .ToolbarButton {
@@ -30,6 +34,9 @@
 }
 
 @media (min-width: 500px) {
+    .Button:disabled {
+        width: 150px;
+    }
     .ToolbarButton {
         transition: all .3s;
     }

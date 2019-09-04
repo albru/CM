@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import classes from './Input.css';
 
-const input = props => {
+const Input = props => {
+    useEffect(() => {
+        console.log('INPUT RENDER')
+    })
     let inputElement = null;
     const inputClasses = [classes.InputElement];
     if (props.invalid && props.shouldValidate && props.touched) {
@@ -59,4 +62,4 @@ const input = props => {
 
 }
 
-export default input;
+export default Input;

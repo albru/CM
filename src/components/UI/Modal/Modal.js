@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Aux from '../../../hoc/_Aux/_Aux';
 import Backdrop from '../Backdrop/Backdrop';
 import classes from './Modal.css';
 
-const modal = props => {
+const Modal = props => {
+    useEffect(() => {
+        console.log('modal render')
+    })
     return (
         <Aux>
             <Backdrop isShow={props.show} close={props.close}/>
@@ -23,4 +26,4 @@ const modal = props => {
     )
 }
 
-export default modal;
+export default Modal;
