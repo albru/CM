@@ -7,7 +7,7 @@ import Socials from '../../Contacts/Socials/Socials';
 import classes from './Footer.css';
 import Privacy from './Privacy/Privacy';
 
-const footer = props => {
+const Footer = props => {
     return (
         <footer className={classes.Footer}>
             <Logo 
@@ -22,4 +22,4 @@ const footer = props => {
     )
 }
 
-export default footer;
+export default Footer;

@@ -5,11 +5,10 @@ import classes from './FeaturesItems.css';
 
 
 const featuresItems = props => {
-    console.log(typeof featuresData)
     const featuresList = featuresData.map((item) => {
         return (
             <FeaturesItem 
-                key={item.icon}
+                key={item.desc}
                 icon={item.icon}
                 desc={item.desc}
                 />

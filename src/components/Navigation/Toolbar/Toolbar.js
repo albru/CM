@@ -12,8 +12,7 @@ import Button from '../../UI/Button/Button';
 import media from '../../../shared/css/Media.css';
 import PhoneIcon from '@material-ui/icons/Phone';
 
-const header = props => {
-
+const Header = props => {
     return (
         <header className={classes.Header}>
             <DrawerToggle drawerToggle={props.sideDrawerToggle}/>
@@ -41,4 +40,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(header);
+export default connect(null, mapDispatchToProps)(Header);

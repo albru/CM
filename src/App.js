@@ -51,11 +51,13 @@ function App() {
   )
   return (
     <div className="App">
-      <Layout>
-        <Suspense fallback={bigSpinner}>
-          {routes}
-        </Suspense>
-      </Layout>
+      <React.StrictMode>
+        <Layout>
+          <Suspense fallback={bigSpinner}>
+            {routes}
+          </Suspense>
+        </Layout>
+      </React.StrictMode>
     </div>
   );
 }
