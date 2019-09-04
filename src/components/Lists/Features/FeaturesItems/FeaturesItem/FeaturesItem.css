@@ -10,7 +10,7 @@
 
 @media (min-width: 500px) {
     .FeaturesItem {
-        margin-bottom: 0;
+        margin-bottom: 0!important;
         width: 25%;
     }
 }

@@ -20,11 +20,11 @@ const Layout = props => {
         const updatedValue = updateObject(inputDataObj, {
             [inputName]: updateObject(inputDataObj[inputName], {
             value: event.target.value,
-            touched: true,
             valid: checkValidity(
                 event.target.value, 
                 inputDataObj[inputName].validation
-                )
+            ),
+            touched: true
             })
         })
         setInputDataObj(updatedValue)
@@ -47,6 +47,7 @@ const Layout = props => {
 
     const formElementsArray = [];
     for (let key in inputDataObj) {
+        console.log(inputDataObj[key].valid)
         formElementsArray.push({
             id: key,
             config: inputDataObj[key]
@@ -94,7 +95,8 @@ const Layout = props => {
                         <h2>Оставьте заявку</h2>
                     </legend>
                     {formContent}
-                    <Button btnType="MainButton">Отправить</Button> 
+                    <Button btnType="MainButton"
+                            disabled={props.invalid && props.shouldValidate && props.touched}>Отправить</Button> 
                 </fieldset>
             </form>
         )
