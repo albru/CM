@@ -36,11 +36,11 @@ const Layout = props => {
         const updatedValue = updateObject(inputDataObj, {
             [inputName]: updateObject(inputDataObj[inputName], {
             value: event.target.value,
-            touched: true,
             valid: checkValidity(
                 event.target.value, 
                 inputDataObj[inputName].validation
-                )
+            ),
+            touched: true
             })
         })
         setInputDataObj(updatedValue)
@@ -72,6 +72,7 @@ const Layout = props => {
 
     const formElementsArray = [];
     for (let key in inputDataObj) {
+        console.log(inputDataObj[key].valid)
         formElementsArray.push({
             id: key,
             config: inputDataObj[key]

@@ -4,6 +4,16 @@
     cursor: pointer;
 }
 
+.Button:active, button:focus {
+    outline: 0 !important;
+    /* border:0 none !important; */
+  }
+.Button::-moz-focus-inner {
+    outline: 0 !important;
+    /* border:0 none !important; */
+}
+
+
 .Button:disabled {
     color: #ccc;
     cursor: not-allowed;
@@ -31,6 +41,7 @@
     color: white;
     text-transform: uppercase;
     font-weight: bold;
+    margin: 30px 0 40px 0;
 }
 
 @media (min-width: 500px) {
