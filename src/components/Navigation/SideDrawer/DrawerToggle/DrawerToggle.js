@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import * as actionTypes from '../../../../store/actions/actionTypes';
 import classes from './DrawerToggle.css';
-import media from '../../../../shared/css/Media.css';
+import media from '../../../../shared/css/media.css';
 
 const DrawerToggle = props => {
     let attachedClasses = [media.PhonesOnly, classes.DrawerToggle]

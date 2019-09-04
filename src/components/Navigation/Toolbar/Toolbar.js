@@ -9,7 +9,7 @@ import Logo from '../../Logo/Logo';
 // import Phone  from '../../Contacts/Phone/Phone';
 import DrawerToggle from '../SideDrawer/DrawerToggle/DrawerToggle';
 import Button from '../../UI/Button/Button';
-import media from '../../../shared/css/Media.css';
+import media from '../../../shared/css/media.css';
 import PhoneIcon from '@material-ui/icons/Phone';
 
 const Header = props => {

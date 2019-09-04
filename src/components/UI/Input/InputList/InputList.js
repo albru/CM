@@ -21,8 +21,6 @@ const InputList = props => {
         inputContext.setDataObj(updatedValue)
     })
 
-    
-
     const formElementsArray = [];
     for (let key in inputContext.inputData) {
         formElementsArray.push({

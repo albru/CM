@@ -1,7 +1,7 @@
 import React from 'react';
 
 import classes from './Socials.css';
-import media from '../../../shared/css/Media.css'
+import media from '../../../shared/css/media.css'
 import inst from '../../../assets/img/socialIcons/instagram.svg';
 import vk from '../../../assets/img/socialIcons/vk.svg';
 import whats from '../../../assets/img/socialIcons/whatsapp.svg';
