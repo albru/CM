@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 import * as actionTypes from '../../store/actions/actionTypes';
@@ -10,9 +10,6 @@ import BgImg from '../../components/BgImage/BgImage';
 import Button from '../../components/UI/Button/Button';
 
 const MainPage = props => {
-    useEffect(() => {
-        console.log('RENDER MAIN PAGE')
-    },[])
     return (
         <Aux>
             <Section sectionType="Greetings">

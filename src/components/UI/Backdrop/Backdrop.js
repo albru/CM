@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './Backdrop.css';
 import Aux from '../../../hoc/_Aux/_Aux';
 
-const backdrop = props => {
+const Backdrop = props => {
     const showBackdrop = props.isShow ? 
         <div 
             className={classes.Backdrop}
@@ -17,4 +17,4 @@ const backdrop = props => {
     )
 };
 
-export default backdrop;
+export default Backdrop;

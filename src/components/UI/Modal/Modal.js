@@ -1,12 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Aux from '../../../hoc/_Aux/_Aux';
 import Backdrop from '../Backdrop/Backdrop';
 import classes from './Modal.css';
 
 const Modal = props => {
-    useEffect(() => {
-        console.log('modal render')
-    })
     return (
         <Aux>
             <Backdrop isShow={props.show} close={props.close}/>

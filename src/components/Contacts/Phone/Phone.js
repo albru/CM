@@ -1,9 +1,9 @@
 import React from 'react';
 import classes from './Phone.css';
-import media from '../../../shared/css/Media.css';
+import media from '../../../shared/css/media.css';
 import PhoneImg from '@material-ui/icons/Phone';
 
-const phone = props => {
+const Phone = props => {
     return (
         <div className={[classes.Phone, media[props.mediaType]].join(' ')}>
             <PhoneImg />
@@ -12,4 +12,4 @@ const phone = props => {
     )
 };
 
-export default phone;
+export default Phone;
