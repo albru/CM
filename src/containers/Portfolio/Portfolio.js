@@ -1,7 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
-
-import * as actionTypes from '../../store/actions/actionTypes';
 import Aux from '../../hoc/_Aux/_Aux';
 import Section from '../../components/Section/Section';
 import PortfolioItems from '../../components/Lists/Portfolio/Portfolioitems/PortfolioItems';
@@ -30,16 +27,4 @@ const portfolio = props => {
     )
 };
 
-const mapStateToProps = state => {
-    return {
-        maximumItems: state.portfolio.maximumItems
-    }
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        showNewPortfolioItem: () => dispatch({type: actionTypes.SHOW_MORE_PORTFOLIO_ITEMS})
-    }
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(portfolio);
+export default portfolio;
