@@ -1,12 +1,12 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import classes from './PortfolioItems.css';
 import PortfolioItem from './PortfolioItem/PortfolioItem';
 import { userUseApple } from '../../../../shared/utility';
 
-const portfolioItems = props => {
+const PortfolioItems = props => {
     let isMac = userUseApple();
-    let portfolioList = props.portfolioData.map((item, index) => {
+    
+    let portfolioList = props.dataObj.portfolioData.map((item, index) => {
         return (
             <PortfolioItem 
                 key={item.title}
@@ -27,11 +27,6 @@ const portfolioItems = props => {
 };
 
 
-const mapStateToProps = state => {
-    return {
-        portfolioData: state.portfolio.portfolioData,
-    }
-};
 
 
-export default connect(mapStateToProps)(portfolioItems);
+export default PortfolioItems;
