@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-
 import Input from '../Input';
 import { updateObject, checkValidity } from '../../../../shared/utility';
 import Aux from '../../../../hoc/_Aux/_Aux';
@@ -12,7 +11,7 @@ const InputList = props => {
             [inputName]: updateObject(inputContext.inputData[inputName], {
             value: event.target.value,
             valid: checkValidity(
-                event.target.value, 
+                event.target.value,
                 inputContext.inputData[inputName].validation
             ),
             touched: true
@@ -28,8 +27,6 @@ const InputList = props => {
             config: inputContext.inputData[key]
         })
     } 
-
-    console.log(typeof(inputContext.inputData));
     const formContent = formElementsArray.map(formElement => {
             return (
                 <Input 

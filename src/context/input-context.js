@@ -8,17 +8,15 @@ export const InputContext = React.createContext({
 
 const InputContextProvider = props => {
     const [inputDataObj, setInputDataObj] = useState(inputData);
-    // const [dataIsValid, setDataIsValid] = useState(false);
-
     const dataObjHandler = (obj) => {
         setInputDataObj(obj)
     }
 
     return (
         <InputContext.Provider value={{
-            inputData: inputDataObj, 
-            setDataObj: dataObjHandler}}>
-
+            inputData: inputDataObj,
+            setDataObj: dataObjHandler
+            }}>
             {props.children}
         </InputContext.Provider>
     )

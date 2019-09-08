@@ -1,7 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
-
-import * as actionTypes from '../../store/actions/actionTypes';
 import Aux from '../../hoc/_Aux/_Aux';
 import Section from '../../components/Section/Section';
 import FeaturesItems from '../../components/Lists/Features/FeaturesItems/FeaturesItems';
@@ -32,10 +29,5 @@ const MainPage = props => {
     )
 };
 
-const mapDispatchToProps = dispatch => {
-    return {
-        modalOpen: () => dispatch({type: actionTypes.MODAL_OPEN}),
-    }
-}
 
-export default connect(null, mapDispatchToProps)(MainPage);
+export default MainPage;

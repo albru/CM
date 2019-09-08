@@ -6,23 +6,23 @@ import classes from './SideDrawer.css';
 import media from '../../../shared/css/media.css';
 import Backdrop from '../../UI/Backdrop/Backdrop';
 
-const SideDrawer = ( props ) => {
+const SideDrawer = (props) => {
     let attachedClasses = [classes.SideDrawer, classes.Close, media.PhonesOnly];
-    if (props.open) {
+    if (props.openForMobile) {
         attachedClasses = [classes.SideDrawer, classes.Open, media.PhonesOnly];
     }
 
     return (
         <Aux>
-            <Backdrop 
-                isShow={props.open}
-                close={props.closed}
-                />
-            <div 
+            <Backdrop
+                backdropMobile={props.openForMobile}
+                close={props.close}
+            />
+            <div
                 className={attachedClasses.join(' ')}
-                onClick={props.closed}>
+                onClick={props.close}>
                 <nav>
-                    <NavigationItems  />
+                    <NavigationItems />
                 </nav>
             </div>
         </Aux>
