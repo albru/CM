@@ -17,13 +17,12 @@ const NavigationItems = props => {
                     key={item.name}
                     route={item.route}
                     name={item.name}
-                    disabled={item.disabled ? true : null}
                     />
             )
         })
         return navigationItems
     },[navigationList])
-    
+    console.log(classes[props.navType])
     return (
         <ul className={[classes.NavigationItems, classes[props.navType]].join(' ')}>
             {list}

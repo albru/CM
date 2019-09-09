@@ -26,9 +26,9 @@ const Toolbar = props => {
                     header={true}
                     logoType='LogoHeader' />
                 <nav className={media.DesktopOnly}>
-                    <NavigationItems navType='NavToolbar' />
+                    <NavigationItems navType="NavToolbar" />
                 </nav>
-                <Button clicked={() => modalContext.toggle()} btnType="ToolbarButton">
+                <Button clicked={modalContext.toggle} btnType="ToolbarButton">
                     <PhoneIcon />
                 </Button>
             </header>

@@ -15,7 +15,7 @@ const ModalForm = props => {
 
     const inputContext = useContext(InputContext);
     const modalContext = useContext(ModalContext);
-
+    
     const submitFormHandler = event => {
         const valid = inputContext.inputData.name.valid && inputContext.inputData.phone.valid;
         const name = inputContext.inputData.name.value;
