@@ -2,10 +2,6 @@
     margin: 0;
     padding: 0;
     list-style: none;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    height: 100%;
 }
 
 .NavToolbar {
@@ -13,13 +9,16 @@
 }
 
 .NavFooter {
-    align-items: center;
+    text-align: center;
 }
 
 @media (min-width: 500px) {
     .NavigationItems {
+        display: flex;
         flex-flow: row;
         align-items: center;
+        justify-content: center;
+        height: 100%;
     }
     .NavFooter {
         margin-bottom: 30px;

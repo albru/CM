@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import NavigationItem from './NavigationItem/NavigationItem';
 import classes from './NavigationItems.css';
-import { navigationItemsData } from './navigationItemsDataObj/navigationItemsData';
+import { navigationItemsData } from './navigationItemsDataObj/NavigationItemsData';
 import PropTypes from 'prop-types';
 
 const NavigationItems = props => {
@@ -22,7 +22,6 @@ const NavigationItems = props => {
         })
         return navigationItems
     },[navigationList])
-    console.log(classes[props.navType])
     return (
         <ul className={[classes.NavigationItems, classes[props.navType]].join(' ')}>
             {list}
