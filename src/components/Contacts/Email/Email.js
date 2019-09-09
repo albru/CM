@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './Email.css';
 import media from '../../../shared/css/media.css';
 import EmailImg from '@material-ui/icons/Email';
+import PropTypes from 'prop-types';
 
 const Email = props => {
     return (
@@ -11,5 +12,9 @@ const Email = props => {
         </div>
     )
 };
+
+Email.propTypes = {
+    mediaType: PropTypes.string
+}
 
 export default Email;

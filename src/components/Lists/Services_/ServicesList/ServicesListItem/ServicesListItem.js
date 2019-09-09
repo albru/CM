@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './ServicesListItem.css';
+import PropTypes from 'prop-types';
 
 const servicesListItem = props => {
     return (
@@ -11,6 +12,11 @@ const servicesListItem = props => {
             </a>
         </li>
     )
+}
+
+servicesListItem.propTypes = {
+    href: PropTypes.string,
+    name: PropTypes.string
 }
 
 export default servicesListItem;

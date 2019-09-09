@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import classes from './ServicesItem.css';
 
 const servicesItem = props => {
@@ -12,5 +12,13 @@ const servicesItem = props => {
         </li>
     )
 };
+
+servicesItem.propTypes = {
+    imgSrc: PropTypes.string,
+    href: PropTypes.string,
+    title: PropTypes.string,
+    desc: PropTypes.string,
+    imgAlt: PropTypes.string
+}
 
 export default servicesItem;

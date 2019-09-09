@@ -1,6 +1,7 @@
 import React from 'react';
 
 import classes from './PortfolioItem.css';
+import PropTypes from 'prop-types';
 
 const portfolioItem = props => {
     return (
@@ -13,5 +14,12 @@ const portfolioItem = props => {
         </li>
     )
 };
+
+portfolioItem.propTypes = {
+    imgSrc: PropTypes.string,
+    imgAlt: PropTypes.string,
+    title: PropTypes.string,
+    desc: PropTypes.string
+}
 
 export default portfolioItem;

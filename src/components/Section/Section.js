@@ -1,5 +1,6 @@
 import React from 'react';
-import classes from './Section.css'
+import classes from './Section.css';
+import PropTypes from 'prop-types';
 
 const section = props => {
     return (
@@ -9,4 +10,9 @@ const section = props => {
     )
 }
 
+section.propTypes = {
+    sectionType: PropTypes.string
+}
+
 export default section;
+

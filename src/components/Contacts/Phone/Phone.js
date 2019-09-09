@@ -2,6 +2,8 @@ import React from 'react';
 import classes from './Phone.css';
 import media from '../../../shared/css/media.css';
 import PhoneImg from '@material-ui/icons/Phone';
+import PropTypes from 'prop-types';
+
 
 const Phone = props => {
     return (
@@ -11,5 +13,9 @@ const Phone = props => {
         </div>
     )
 };
+
+Phone.propTypes = {
+    mediaType: PropTypes.string
+}
 
 export default Phone;

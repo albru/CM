@@ -1,7 +1,8 @@
 import React, { useMemo } from 'react';
 import NavigationItem from './NavigationItem/NavigationItem';
 import classes from './NavigationItems.css';
-import { navigationItemsData } from './navigationItemsDataObj/NavigationItemsData';
+import { navigationItemsData } from './navigationItemsDataObj/navigationItemsData';
+import PropTypes from 'prop-types';
 
 const NavigationItems = props => {
     let navigationList = [];
@@ -29,5 +30,9 @@ const NavigationItems = props => {
         </ul>
     );
 };
+
+NavigationItem.propTypes = {
+    navType: PropTypes.string
+}
 
 export default NavigationItems;

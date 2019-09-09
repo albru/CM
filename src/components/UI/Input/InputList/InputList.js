@@ -37,6 +37,7 @@ const InputList = props => {
                     invalid={!formElement.config.valid}
                     shouldValidate={formElement.config.validation}
                     touched={formElement.config.touched}
+                    label={''}
                     changed={event => inputChangeHandler(event, formElement.id)}
                 />
             )
