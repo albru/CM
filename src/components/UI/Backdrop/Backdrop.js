@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import classes from './Backdrop.css';
 import Aux from '../../../hoc/_Aux/_Aux';
 import { ModalContext } from '../../../context/modal-context';
+import PropTypes from 'prop-types';
 
 const Backdrop = props => {
     const modalContext = useContext(ModalContext)
@@ -28,5 +29,10 @@ const Backdrop = props => {
         </Aux>
     )
 };
+
+Backdrop.propTypes = {
+    backdropMobile: PropTypes.bool,
+    close: PropTypes.func,
+}
 
 export default Backdrop;

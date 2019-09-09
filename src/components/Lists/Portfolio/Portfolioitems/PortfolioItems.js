@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './PortfolioItems.css';
 import PortfolioItem from './PortfolioItem/PortfolioItem';
 import { userUseApple } from '../../../../shared/utility';
+import PropTypes from 'prop-types';
 
 const PortfolioItems = props => {
     let isMac = userUseApple();
@@ -17,7 +18,6 @@ const PortfolioItems = props => {
             />
         )
     });
-    
 
     return (
         <ul className={classes.PortfolioItems}>
@@ -25,6 +25,10 @@ const PortfolioItems = props => {
         </ul>
     )
 };
+
+PortfolioItems.propTypes = {
+    dataObj: PropTypes.object
+}
 
 
 

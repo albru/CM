@@ -4,6 +4,7 @@ import GuaranteeIcon from '@material-ui/icons/Lock';
 import ContractIcon from '@material-ui/icons/Assignment';
 import RulesIcon from '@material-ui/icons/DoneAll';
 import TimeIcon from '@material-ui/icons/Timer';
+import PropTypes from 'prop-types';
 
 const FeaturesItem = props => {
     let icon = null;
@@ -34,5 +35,10 @@ const FeaturesItem = props => {
             </li>
         )
 };
+
+FeaturesItem.propTypes = {
+    desc: PropTypes.string,
+    icon: PropTypes.string
+}
 
 export default FeaturesItem;

@@ -1,6 +1,7 @@
 import React from 'react';
 import BreadCrumb from './BreadCrumb/BreadCrumb';
-import classes from './BreadCrumbs.css'
+import classes from './BreadCrumbs.css';
+import PropTypes from 'prop-types';
 
 const breadCrumbs = props => {
     const crumbs = props.crumbs.map((item, index) => {
@@ -19,6 +20,10 @@ const breadCrumbs = props => {
         </div>
     )
 };
+
+breadCrumbs.propTypes = {
+    crumbs: PropTypes.array
+}
 
 
 export default breadCrumbs;

@@ -5,6 +5,7 @@ import NavigationItems from '../NavigationItems/NavigationItems';
 import classes from './SideDrawer.css';
 import media from '../../../shared/css/media.css';
 import Backdrop from '../../UI/Backdrop/Backdrop';
+import PropTypes from 'prop-types';
 
 const SideDrawer = (props) => {
     let attachedClasses = [classes.SideDrawer, classes.Close, media.PhonesOnly];
@@ -28,5 +29,10 @@ const SideDrawer = (props) => {
         </Aux>
     );
 };
+
+SideDrawer.propTypes = {
+    close: PropTypes.func,
+    openForMobile: PropTypes.bool
+}
 
 export default SideDrawer;

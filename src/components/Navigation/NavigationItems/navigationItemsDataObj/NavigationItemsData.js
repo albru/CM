@@ -10,8 +10,7 @@ export const navigationItemsData = (() => {
         },
         advConstructor: {
             name: "Конструктор вывесок", 
-            route: "/constructor", 
-            disabled: true
+            route: "/constructor"
         },
         contacts: {
             name: "Контакты", 

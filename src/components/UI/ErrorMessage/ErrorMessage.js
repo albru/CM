@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../Button/Button';
+import PropTypes from 'prop-types';
 
 const errorMessage = props => {
     return (
@@ -12,6 +13,11 @@ const errorMessage = props => {
             </Button>
         </div>
     )
+}
+
+errorMessage.propTypes = {
+    btnClick: PropTypes.func,
+    errorMessage: PropTypes.string
 }
 
 export default errorMessage;

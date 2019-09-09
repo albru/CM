@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import classes from './Logo.css';
+import PropTypes from 'prop-types';
 
 const Logo = props => {
     let logoText = props.header ? 'CetusMedia' : 'CM';
@@ -10,5 +11,10 @@ const Logo = props => {
         </div>
     )
 };
+
+Logo.propTypes = {
+    header: PropTypes.bool,
+    logoType: PropTypes.string
+}
 
 export default Logo;

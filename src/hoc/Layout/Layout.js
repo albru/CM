@@ -19,10 +19,10 @@ const Layout = props => {
                     </InputContextProvider>
                 </Modal>
                 <Toolbar />
+                <main className={classes.Content}>
+                    {props.children}
+                </main>
             </ModalContextProvider>
-            <main className={classes.Content}>
-                {props.children}
-            </main>
             <Footer />
         </Aux>
     )
