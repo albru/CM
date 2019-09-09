@@ -1,6 +1,6 @@
-import outdoorAdvImg from '../../../../assets/img/services/outdoorAdvImg.png';
-import interiorAdvImg from '../../../../assets/img/services/interiorAdvImg.png';
-import advServicesImg from '../../../../assets/img/services/advServicesImg.png';
+import outdoorAdvImg from '../../../assets/img/services/outdoorAdvImg.png';
+import interiorAdvImg from '../../../assets/img/services/interiorAdvImg.png';
+import advServicesImg from '../../../assets/img/services/advServicesImg.png';
 
 export const servicesData = (() => {
     return [

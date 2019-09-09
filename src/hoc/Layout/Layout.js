@@ -23,7 +23,7 @@ const Layout = props => {
                     {props.children}
                 </main>
             </ModalContextProvider>
-            <Footer />
+            <Footer/>
         </Aux>
     )
 };

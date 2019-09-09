@@ -14,7 +14,7 @@ const Footer = props => {
                 footer={true}
                 logoType="LogoFooter"/>
             <Socials />
-            <NavigationItems navType='NavFooter'/>
+            <NavigationItems navType="NavFooter"/>
             <Phone />
             <Email />
             <Privacy />

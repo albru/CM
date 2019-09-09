@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Aux from '../../../hoc/_Aux/_Aux';
 import Backdrop from '../Backdrop/Backdrop';
 import classes from './Modal.css';
@@ -6,6 +6,10 @@ import { ModalContext } from '../../../context/modal-context';
 
 const Modal = props => {
     const modalContext = useContext(ModalContext);
+    useEffect(() => {
+        console.log('MODAL RENDER')
+    })
+    
     return (
         <Aux>
             <Backdrop/>
