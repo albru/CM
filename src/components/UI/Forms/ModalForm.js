@@ -13,13 +13,13 @@ const ModalForm = props => {
         username: ''
     });
 
-    const inputContext = useContext(InputContext);
+    const inputContext = useContext(InputContext).inputData;
     const modalContext = useContext(ModalContext);
     
     const submitFormHandler = event => {
-        const valid = inputContext.inputData.name.valid && inputContext.inputData.phone.valid;
-        const name = inputContext.inputData.name.value;
-        const phone = inputContext.inputData.phone.value;
+        const valid = inputContext.name.valid && inputContext.phone.valid;
+        const name = inputContext.name.value;
+        const phone = inputContext.phone.value;
         event.preventDefault();
         if(valid) {
             fetch('https://cetus-media-b35fb.firebaseio.com/customers.json', {
@@ -59,7 +59,7 @@ const ModalForm = props => {
     if(fetchResult.error) {
         form = (
             <ErrorMessage errorMessage={fetchResult.errorMsg}
-               btnClick={() => modalContext.close()} />
+               btnClick={modalContext.close} />
         )
     }
     if(fetchResult.success) {
@@ -67,7 +67,7 @@ const ModalForm = props => {
             <Aux>
                 <h2>{fetchResult.username} ваша заявка отправлена. Менеджер свяжется с вами в ближайшее время</h2>
                 <Button btnType="MainButton"
-                        clicked={() => modalContext.close()}>Ок</Button>
+                        clicked={modalContext.close}>Ок</Button>
             </Aux>
         )
     }
