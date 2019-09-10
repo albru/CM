@@ -1,30 +1,30 @@
 import React, { useContext } from 'react';
 import Input from '../Input';
-import { updateObject, checkValidity } from '../../../../shared/utility';
-import Aux from '../../../../hoc/_Aux/_Aux';
-import { InputContext } from '../../../../context/input-context';
+import { updateObject, checkValidity } from '../../../shared/utility';
+import Aux from '../../../hoc/_Aux/_Aux';
+import { InputContext } from '../../../context/input-context';
 
-const InputList = props => {
+const ModalInputList = props => {
     const inputContext = useContext(InputContext)
     const inputChangeHandler = ((event, inputName) => {
-        const updatedValue = updateObject(inputContext.inputData, {
-            [inputName]: updateObject(inputContext.inputData[inputName], {
+        const updatedValue = updateObject(inputContext.modalInputData, {
+            [inputName]: updateObject(inputContext.modalInputData[inputName], {
             value: event.target.value,
             valid: checkValidity(
                 event.target.value,
-                inputContext.inputData[inputName].validation
+                inputContext.modalInputData[inputName].validation
             ),
             touched: true
             })
         })
-        inputContext.setDataObj(updatedValue)
+        inputContext.setModalInputData(updatedValue)
     })
 
     const formElementsArray = [];
-    for (let key in inputContext.inputData) {
+    for (let key in inputContext.modalInputData) {
         formElementsArray.push({
             id: key,
-            config: inputContext.inputData[key]
+            config: inputContext.modalInputData[key]
         })
     } 
     const formContent = formElementsArray.map(formElement => {
@@ -49,4 +49,4 @@ const InputList = props => {
     )
 }
 
-export default InputList;
+export default ModalInputList;

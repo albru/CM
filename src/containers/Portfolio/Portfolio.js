@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import Aux from '../../hoc/_Aux/_Aux';
 import Section from '../../components/Section/Section';
-import PortfolioItems from '../../components/Portfolio/Portfolioitems/PortfolioItems';
+import PortfolioItems from '../../components/Lists/Portfolio/Portfolioitems/PortfolioItems';
 import BreadCrumbs from '../../components/Navigation/BreadCrumbs/BreadCrumbs';
 import Button from '../../components/UI/Button/Button';
 import { updateObject } from '../../shared/utility';
 import { breadCrumbsData } from '../../components/Navigation/BreadCrumbs/breadCrumbsDataObj/breadCrumbsDataObj';
-import { portfolioData } from '../../components/Portfolio/portfolioDataObj/portfolioDataObj';
+import { portfolioData } from '../../components/Lists/Portfolio/portfolioDataObj/portfolioDataObj';
 
 const Portfolio = props => {
     let updatedPortfolioData = [];
@@ -49,7 +49,7 @@ const Portfolio = props => {
             <Section sectionType="Portfolio"> 
                 <h1>Портфолио</h1>
                 <BreadCrumbs crumbs={crumbs} />
-                <PortfolioItems dataObj={portfolioState}/>
+                <PortfolioItems dataArr={portfolioState.portfolioData}/>
                 {showMoreButton}
             </Section>
         </Aux>
