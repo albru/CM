@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import Input from '../Input';
 import { updateObject, checkValidity } from '../../../shared/utility';
 import Aux from '../../../hoc/_Aux/_Aux';
-import { orderInputData } from '../inputDataObj/inputDataObj';
+import { inputData } from '../inputDataObj/inputDataObj';
 
 const OrderInputList = props => {
     
-    const [ orderInputData, setOrderInputData ] = useState(orderInputData);
-
+    const [ orderInputData, setOrderInputData ] = useState(inputData.orderInputData);
     const inputChangeHandler = ((event, inputName) => {
         const updatedValue = updateObject(orderInputData, {
             [inputName]: updateObject(orderInputData[inputName], {
@@ -39,7 +38,7 @@ const OrderInputList = props => {
                     invalid={!formElement.config.valid}
                     shouldValidate={formElement.config.validation}
                     touched={formElement.config.touched}
-                    label={''}
+                    label={formElement.config.label}
                     changed={event => inputChangeHandler(event, formElement.id)}
                 />
             )

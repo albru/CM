@@ -1,7 +1,7 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import NavigationItem from './NavigationItem/NavigationItem';
 import classes from './NavigationItems.css';
-import { navigationItemsData } from './navigationItemsDataObj/navigationItemsData';
+import { navigationItemsData } from './navigationItemsDataObj/NavigationItemsData';
 import PropTypes from 'prop-types';
 
 const NavigationItems = props => {

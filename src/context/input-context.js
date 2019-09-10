@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { modalInputData } from '../components/Input/inputDataObj/inputDataObj';
+import { inputData } from '../components/Input/inputDataObj/inputDataObj';
 
 export const InputContext = React.createContext({
     modalInputData: {},
@@ -9,7 +9,7 @@ export const InputContext = React.createContext({
 });
 
 const InputContextProvider = props => {
-    const [modalInputDataObj, setModalInputDataObj] = useState(modalInputData);
+    const [modalInputDataObj, setModalInputDataObj] = useState(inputData.modalInputData);
     const modalDataObkHandler = (obj) => {
         setModalInputDataObj(obj)
     }
