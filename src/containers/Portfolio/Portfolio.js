@@ -39,7 +39,7 @@ const Portfolio = props => {
     const crumbs = breadCrumbsData.portfolioCrumb;
     const showMoreButton = (
         portfolioState.maximumItems === false ?
-         <Button clicked={(portfolioState) => addPortfolioItem()} 
+         <Button clicked={addPortfolioItem} 
             btnType="MainButton">Показать еще</Button> :
          null
     );
