@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal should render correctly 1`] = `
+<Aux>
+  <Backdrop />
+  <div
+    style={
+      Object {
+        "opacity": "0",
+        "transform": "translateY(-100vh)",
+      }
+    }
+  >
+    <div
+      onClick={[Function]}
+    >
+      <div />
+      <div />
+    </div>
+  </div>
+</Aux>
+`;
