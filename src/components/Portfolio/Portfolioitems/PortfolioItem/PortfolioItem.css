@@ -6,8 +6,6 @@
     border-radius: 16px;
 }
 
-
-
 .PortfolioItem:not(:last-child) {
     margin-bottom: 20px;
     border-bottom: 5px solid var(--color-ultralightgray);
@@ -16,7 +14,6 @@
 .PortfolioItem img {
     display: block;
     width: 100%;
-
 }
 
 @media (min-width: 500px) {
@@ -26,8 +23,11 @@
         margin-bottom: 20px;
         transition: all .3s;
     }
-    .PortfolioItem:nth-child(2n + 1) {
+    .PortfolioItem:not(:last-child) {
+
         border-bottom: none;
+    }
+    .PortfolioItem:nth-child(2n + 1) {
         margin-right: 35px;
     }
     .PortfolioItem img {
