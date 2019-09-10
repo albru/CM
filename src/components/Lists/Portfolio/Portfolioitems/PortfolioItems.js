@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import classes from './PortfolioItems.css';
 import PortfolioItem from './PortfolioItem/PortfolioItem';
-import { userUseApple } from '../../../shared/utility';
+import { userUseApple } from '../../../../shared/utility';
 import PropTypes from 'prop-types';
 
 const PortfolioItems = props => {
@@ -9,7 +9,7 @@ const PortfolioItems = props => {
     let isMac = userUseApple();
     
     const list = useMemo(() => {
-        let portfolioList = props.dataObj.portfolioData.map((item, index) => {
+        let portfolioList = props.dataArr.map((item, index) => {
             return (
                 <PortfolioItem 
                     key={item.title}
@@ -21,7 +21,7 @@ const PortfolioItems = props => {
             )
         });
         return portfolioList;
-    },[isMac, props.dataObj.portfolioData])
+    },[isMac, props.dataArr])
 
 
     return (
@@ -32,10 +32,7 @@ const PortfolioItems = props => {
 };
 
 PortfolioItems.propTypes = {
-    dataObj: PropTypes.object
+    dataArr: PropTypes.array
 }
-
-
-
 
 export default PortfolioItems;

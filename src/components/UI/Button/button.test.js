@@ -7,7 +7,7 @@ import Button from './Button';
 
 configure({ adapter: new Adapter() })
 
-describe('Modal', () => {
+describe('Button', () => {
     it('should render correctly', () => {
         const output = shallow(
             <Button />

@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react';
 import Aux from '../../../hoc/_Aux/_Aux';
-import ErrorMessage from '../ErrorMessage/ErrorMessage';
-import Button from '../Button/Button';
-import InputList from '../Input/InputList/InputList';
+import ErrorMessage from '../../UI/ErrorMessage/ErrorMessage';
+import Button from '../../UI/Button/Button';
+import ModalInputList from '../../Input/ModalInputList/ModalInputList';
 import { InputContext } from '../../../context/input-context.js';
 import { ModalContext } from '../../../context/modal-context';
 
@@ -13,7 +13,7 @@ const ModalForm = props => {
         username: ''
     });
 
-    const inputContext = useContext(InputContext).inputData;
+    const inputContext = useContext(InputContext).modalInputData;
     const modalContext = useContext(ModalContext);
     
     const submitFormHandler = event => {
@@ -49,7 +49,7 @@ const ModalForm = props => {
             <fieldset>
                 <legend>
                     <h2>Оставьте заявку</h2>
-                    <InputList />
+                    <ModalInputList />
                 </legend>
                 <Button btnType="MainButton">Отправить</Button> 
             </fieldset>

@@ -7,7 +7,7 @@ import Backdrop from './Backdrop';
 
 configure({ adapter: new Adapter() })
 
-describe('Modal', () => {
+describe('Backdrop', () => {
     it('should render correctly', () => {
         const output = shallow(
             <Backdrop />

@@ -7,10 +7,13 @@ import BreadCrumbs from './BreadCrumbs';
 
 configure({ adapter: new Adapter() })
 
-describe('Modal', () => {
+describe('BreadCrumbs', () => {
     it('should render correctly', () => {
+        const props = {
+            crumbs: []
+        }
         const output = shallow(
-            <BreadCrumbs />
+            <BreadCrumbs {...props}/>
         );
         expect(shallowToJson(output)).toMatchSnapshot();
     });

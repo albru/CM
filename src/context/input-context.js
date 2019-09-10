@@ -1,21 +1,23 @@
 import React, { useState } from 'react';
-import { inputData } from '../components/UI/Input/inputDataObj/inputDataObj';
+import { modalInputData } from '../components/Input/inputDataObj/inputDataObj';
 
 export const InputContext = React.createContext({
-    inputData: {},
-    setDataObj: () => {}
+    modalInputData: {},
+    setModalInputData: () => {},
+    orderInputData: {},
+    setOrderInputData: () => {}
 });
 
 const InputContextProvider = props => {
-    const [inputDataObj, setInputDataObj] = useState(inputData);
-    const dataObjHandler = (obj) => {
-        setInputDataObj(obj)
+    const [modalInputDataObj, setModalInputDataObj] = useState(modalInputData);
+    const modalDataObkHandler = (obj) => {
+        setModalInputDataObj(obj)
     }
 
     return (
         <InputContext.Provider value={{
-            inputData: inputDataObj,
-            setDataObj: dataObjHandler
+            modalInputData: modalInputDataObj,
+            setModalInputData: modalDataObkHandler
             }}>
             {props.children}
         </InputContext.Provider>
