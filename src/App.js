@@ -16,7 +16,7 @@ const Contacts = React.lazy(() => {
 });
 
 const AdvConstructor = React.lazy(() => {
-  return import('./containers/AdvConstructor/AdvConstructor');
+  return import('./containers/Order/Order');
 });
 
 const Services = React.lazy(() => {

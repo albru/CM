@@ -7,7 +7,7 @@ import ModalForm from './ModalForm';
 
 configure({ adapter: new Adapter() })
 
-describe('Modal', () => {
+describe('ModalForm', () => {
     it('should render correctly', () => {
         const output = shallow(
             <ModalForm />

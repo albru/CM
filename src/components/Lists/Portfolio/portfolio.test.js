@@ -3,14 +3,17 @@ import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
 import { configure } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
-import NavigationItems from './NavigationItems';
+import Portfolio from './Portfolioitems/PortfolioItems';
 
 configure({ adapter: new Adapter() })
 
-describe('NavigationItems', () => {
+describe('PortfolioItems', () => {
     it('should render correctly', () => {
+        const props = {
+            dataArr: []
+        }
         const output = shallow(
-            <NavigationItems />
+            <Portfolio {...props}/>
         );
         expect(shallowToJson(output)).toMatchSnapshot();
     });
