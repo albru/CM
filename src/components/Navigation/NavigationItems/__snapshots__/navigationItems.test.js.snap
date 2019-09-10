@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal should render correctly 1`] = `
+<ul
+  className=" "
+>
+  <NavigationItem
+    key="Услуги"
+    name="Услуги"
+    route="/services"
+  />
+  <NavigationItem
+    key="Портфолио"
+    name="Портфолио"
+    route="/portfolio"
+  />
+  <NavigationItem
+    key="Конструктор вывесок"
+    name="Конструктор вывесок"
+    route="/constructor"
+  />
+  <NavigationItem
+    key="Контакты"
+    name="Контакты"
+    route="/contacts"
+  />
+</ul>
+`;

@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal should render correctly 1`] = `
+<Aux>
+  <form
+    onSubmit={[Function]}
+  >
+    <fieldset>
+      <legend>
+        <h2>
+          Оставьте заявку
+        </h2>
+        <InputList />
+      </legend>
+      <Button
+        btnType="MainButton"
+      >
+        Отправить
+      </Button>
+    </fieldset>
+  </form>
+</Aux>
+`;
