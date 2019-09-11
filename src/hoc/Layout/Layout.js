@@ -13,15 +13,15 @@ const Layout = props => {
     return (
         <Aux>
             <ModalContextProvider>
-                <Modal>
                     <InputContextProvider>
-                        <ModalForm />
+                        <Modal>
+                                <ModalForm />
+                        </Modal>
+                        <Toolbar />
+                        <main className={classes.Content}>
+                            {props.children}
+                        </main>
                     </InputContextProvider>
-                </Modal>
-                <Toolbar />
-                <main className={classes.Content}>
-                    {props.children}
-                </main>
             </ModalContextProvider>
             <Footer/>
         </Aux>

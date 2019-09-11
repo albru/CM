@@ -5,7 +5,17 @@ import Aux from '../../../hoc/_Aux/_Aux';
 import { InputContext } from '../../../context/input-context';
 
 const ModalInputList = props => {
+    
     const inputContext = useContext(InputContext)
+    
+    const formElementsArray = [];
+    for (let key in inputContext.modalInputData) {
+        formElementsArray.push({
+            id: key,
+            config: inputContext.modalInputData[key]
+        })
+    } 
+
     const inputChangeHandler = ((event, inputName) => {
         const updatedValue = updateObject(inputContext.modalInputData, {
             [inputName]: updateObject(inputContext.modalInputData[inputName], {
@@ -19,15 +29,8 @@ const ModalInputList = props => {
         })
         inputContext.setModalInputData(updatedValue)
     })
-
-    const formElementsArray = [];
-    for (let key in inputContext.modalInputData) {
-        formElementsArray.push({
-            id: key,
-            config: inputContext.modalInputData[key]
-        })
-    } 
     const formContent = formElementsArray.map(formElement => {
+        console.log(formElement.id)
             return (
                 <Input 
                     key={formElement.id}

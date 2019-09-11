@@ -18,7 +18,7 @@ const AdvConstructor = props => {
             {/* <Button 
                 btnType='MainButton'
                 clicked={buttonRedirectHandler}> На главную </Button> */}
-            <OrderForm />
+            <OrderForm {...props}/>
         </Section>
         
     )

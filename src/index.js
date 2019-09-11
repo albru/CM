@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-// import { Provider } from 'react-redux';
-// import { createStore, combineReducers } from 'redux';
-// import portfolioReducer from './store/reducers/portfolio';
+import { Provider } from 'react-redux';
+import { createStore, combineReducers } from 'redux';
+import orderReducer from './store/reducers/order';
 // import sideDrawerReducer from './store/reducers/sideDrawer';
 // import modalReducer from './store/reducers/modal';
 import ScrollToTop from './hoc/ScrollToTop/ScrollToTop';
@@ -12,25 +12,23 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 
-// const rootReducer = combineReducers({
-//     portfolio: portfolioReducer,
-//     sideDrawer: sideDrawerReducer,
-//     modal: modalReducer
-// });
+const rootReducer = combineReducers({
+    order: orderReducer
+});
 
-// const store = createStore(
-//     rootReducer, /* preloadedState, */
-//     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-//   );
+const store = createStore(
+    rootReducer, /* preloadedState, */
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  );
 
 ReactDOM.render(
-    // <Provider store={store}>
+    <Provider store={store}>
         <BrowserRouter>
             <ScrollToTop>
                 <App />
             </ScrollToTop>
-        </BrowserRouter>,
-    // </Provider> 
+        </BrowserRouter>
+    </Provider>,
     document.getElementById('root')
 );
 // If you want your app to work offline and load faster, you can change
