@@ -1,17 +1,13 @@
 import React from 'react';
 import Button from '../../UI/Button/Button';
 import OrderInputList from '../../Input/OrderInputList/OrderInputList';
+import classes from './OrderForm.css';
 
 const OrderForm = props => {
     return (
-            <form>
-                <fieldset>
-                    <legend>
-                        <h2>Форма заказа</h2>
-                        <OrderInputList />
-                    </legend>
-                    <Button btnType="MainButton">Готово</Button> 
-                </fieldset>
+            <form className={classes.OrderForm}>
+                <OrderInputList />
+                <Button btnType="MainButton">Готово</Button> 
             </form>
     )
 }

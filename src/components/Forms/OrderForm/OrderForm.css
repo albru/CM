@@ -1,0 +1,13 @@
+.OrderForm {
+    display: flex;
+    flex-flow: column;
+}
+
+.OrderForm h2{
+    text-align: center;
+}
+
+.OrderForm button {
+    margin: 30px auto;
+    
+}

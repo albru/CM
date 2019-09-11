@@ -46,13 +46,9 @@ const ModalForm = props => {
 
     let form = (
         <form onSubmit={event => submitFormHandler(event)}>
-            <fieldset>
-                <legend>
-                    <h2>Оставьте заявку</h2>
-                    <ModalInputList />
-                </legend>
-                <Button btnType="MainButton">Отправить</Button> 
-            </fieldset>
+            <h2>Оставьте заявку</h2>
+            <ModalInputList />
+            <Button btnType="MainButton">Отправить</Button> 
         </form>
     );
 
