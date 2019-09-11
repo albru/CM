@@ -33,13 +33,13 @@ export const breadCrumbsData = (() => {
                 linkType: 'current'
             }
         ],
-        advConstructorCrumb: [
+        orderCrumb: [
             {
                 crumbName:'Главная',
                 crumbHref: '/',
                 linkType: 'prev'},
             {
-                crumbName:'Конструктор вывесок',
+                crumbName:'Конструктор рекламы',
                 crumbHref: '/constructor',
                 linkType: 'current'
             }

@@ -1,7 +1,7 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import NavigationItem from './NavigationItem/NavigationItem';
 import classes from './NavigationItems.css';
-import { navigationItemsData } from './navigationItemsDataObj/navigationItemsData';
+import { navigationItemsData } from './navigationItemsDataObj/NavigationItemsData';
 import PropTypes from 'prop-types';
 
 const NavigationItems = props => {
@@ -10,7 +10,6 @@ const NavigationItems = props => {
         navigationList.push(navigationItemsData[key])
     }
 
-    const list = useMemo(() => {
         const navigationItems = navigationList.map((item, index) => {
             return (
                 <NavigationItem 
@@ -20,11 +19,10 @@ const NavigationItems = props => {
                     />
             )
         })
-        return navigationItems
-    },[navigationList])
+
     return (
         <ul className={[classes.NavigationItems, classes[props.navType]].join(' ')}>
-            {list}
+            {navigationItems}
         </ul>
     );
 };
