@@ -1,4 +1,5 @@
-import React, { useContext, useState } from 'react';
+import React, { useEffect } from 'react';
+import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import Button from '../../UI/Button/Button';
 import { updateObject } from '../../../shared/utility';
@@ -9,65 +10,52 @@ import Spinner from '../../UI/Spinner/Spinner';
 import Aux from '../../../hoc/_Aux/_Aux';
 
 const OrderForm = props => {
-    const [fetchResult, setFetchResult] = useState({
-        error:null, 
-        success: null,
-        loading: null
-    });
-
+    useEffect(() => {
+        console.log(props.success, 'effetc')
+    })
     const submitFormHandler = event => {
         event.preventDefault();
-        setFetchResult(updateObject(fetchResult, { loading: true }))
-        const formData = {};
-        for (let key in props.orderData) {
-            Object.assign(formData, {[key]: props.orderData[key].value})
-        }
         fetch('https://cetus-media-b35fb.firebaseio.com/orders.json', {
             method: 'POST',
-            body: JSON.stringify({ order: formData}),
+            body: JSON.stringify({ order: props.orderData}),
             headers: {'Content-Type': 'application/json'}
         }).then(response => {
             return response.json();
         }).then(responseData => {
-            setFetchResult({
-                ...fetchResult,
-                success: true,
-                loading: false
-            });
+            props.fetchSuccess()
         }).catch(error => {
-            setFetchResult({
-                ...fetchResult,
-                error: error.toString()
-            });
+            props.fetchError(error.toString())
         })
     }
-
-    const errorSubmitHandler = () => {
-        setFetchResult({
-            ...fetchResult,
-            error: false
-        });
-    }
     
-    let spinner = fetchResult.loading ? <Spinner /> : null;
+    // let spinner = fetchResult.loading ? <Spinner /> : null;
+    const succesConfirmHandler = () => {
+        props.history.push('/');
+        props.clearSuccess();
+    }
+
 
     let form = (
         <form className={classes.OrderForm} onSubmit={(event) => submitFormHandler(event)}>
             <OrderInputList />
             <Button btnType="MainButton">Готово</Button> 
-            {spinner}
+            {/* {spinner} */}
         </form>
     )
 
-    if (fetchResult.error) {
+    if(props.error) {
         form = (
-            <ErrorMessage errorMessage={fetchResult.error} btnClick={errorSubmitHandler}/>
+            <ErrorMessage errorMessage={props.error} btnClick={props.clearError}/>
         )
     }
 
-    if (fetchResult.success) {
+    if(props.success) {
         form = (
-            <h2>Благодарим за заказ! Информацию о своих заказах вы сможете найти в личном кабинете</h2>
+            <Aux>
+                <h2>Благодарим за заказ! Информацию о своих заказах вы сможете найти в личном кабинете</h2>
+                <Button btnType="MainButton" clicked={succesConfirmHandler}>Ок</Button>
+            </Aux>
+           
         )
     }
 
@@ -80,8 +68,19 @@ const OrderForm = props => {
 
 const mapStateToProps = state => {
     return {
-        orderData: state.order.orderInputData
+        success: state.orderForm.fetchResult.success,
+        error: state.orderForm.fetchResult.error,
+        orderData: state.orderForm.data
     }
 }
 
-export default connect(mapStateToProps, null)(OrderForm);
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchSuccess: () => dispatch({ type: 'ORDER_FORM_SUCCESS' }),
+        fetchError: (error) => dispatch({ type: 'ORDER_FORM_ERROR', error: error }),
+        clearError: () => dispatch({ type: 'ORDER_CLEAR_FETCH_ERROR' }),
+        clearSuccess: () => dispatch({ type: 'ORDER_CLEAR_FETCH_SUCCESS'})
+    }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(OrderForm));

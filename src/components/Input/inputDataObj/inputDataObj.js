@@ -78,11 +78,8 @@ export const inputData = (() => {
                   placeholder: 'Укажите дополнительную информацию'
                 },
                 value: '',
-                validation: {
-                  required: false
-                },
-                valid: true,
-                touched: false
+                validation: {},
+                valid: true
               },
         }
     return {orderInputData, modalInputData}
