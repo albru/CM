@@ -5,18 +5,18 @@ import { inputData } from '../../components/Input/inputDataObj/inputDataObj';
 const initialState = inputData;
 
 const orderDataHandler = (state, action) => {
-    return updateObject ( state, { 
-        action
-    })
+    return updateObject( state, { action })
 }
 
-const orderReducer = (state = initialState, action) => {
+const orderFormReducer = (state = initialState, action) => {
     switch(action.type) {
-        case actionTypes.UPDATE_ORDER_DATA:
-            return order(state, action)
+        case actionTypes:
+            return orderDataHandler(updateObject(state, {
+                new: 'newstate'
+            }))
         default:
             return state;
     }
 };
 
-export default orderInputHandler;
+export default orderFormReducer;

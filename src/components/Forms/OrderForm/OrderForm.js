@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { connect } from 'react-redux';
 import Button from '../../UI/Button/Button';
 import { updateObject } from '../../../shared/utility';
 import OrderInputList from '../../Input/OrderInputList/OrderInputList';
@@ -18,8 +19,8 @@ const OrderForm = props => {
         event.preventDefault();
         setFetchResult(updateObject(fetchResult, { loading: true }))
         const formData = {};
-        for (let key in inputContext) {
-            Object.assign(formData, {[key]: inputContext[key].value})
+        for (let key in props.orderData) {
+            Object.assign(formData, {[key]: props.orderData[key].value})
         }
         fetch('https://cetus-media-b35fb.firebaseio.com/orders.json', {
             method: 'POST',
@@ -77,4 +78,10 @@ const OrderForm = props => {
     )
 }
 
-export default OrderForm;
+const mapStateToProps = state => {
+    return {
+        orderData: state.order.orderInputData
+    }
+}
+
+export default connect(mapStateToProps, null)(OrderForm);

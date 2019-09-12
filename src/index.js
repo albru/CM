@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
-import orderReducer from './store/reducers/order';
+import orderFormReducer from './store/reducers/orderForm';
+import modalFormReducer from './store/reducers/modalForm';
 // import sideDrawerReducer from './store/reducers/sideDrawer';
 // import modalReducer from './store/reducers/modal';
 import ScrollToTop from './hoc/ScrollToTop/ScrollToTop';
@@ -13,7 +14,8 @@ import * as serviceWorker from './serviceWorker';
 
 
 const rootReducer = combineReducers({
-    order: orderReducer
+    orderForm: orderFormReducer,
+    modalForm: modalFormReducer
 });
 
 const store = createStore(

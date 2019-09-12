@@ -1,25 +1,26 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import Aux from '../../../hoc/_Aux/_Aux';
 import Backdrop from '../Backdrop/Backdrop';
 import classes from './Modal.css';
-import { ModalContext } from '../../../context/modal-context';
 
 const Modal = props => {
-    const modalContext = useContext(ModalContext);
     useEffect(() => {
         console.log('MODAL RENDER')
     })
     
     return (
         <Aux>
-            <Backdrop/>
+            <Backdrop modal={props.modalIsShow}
+                      modalClose={props.modalCLose}
+            />
             <div className={classes.Modal}
                 style={{
-                        transform: modalContext.isShow ? 'translateY(0)' : 'translateY(-100vh)',
-                        opacity: modalContext.isShow ? '1' : '0'
+                        transform: props.modalIsShow ? 'translateY(0)' : 'translateY(-100vh)',
+                        opacity: props.modalIsShow ? '1' : '0'
                     }}>
                 <div className={classes.CloseBtn}
-                    onClick={modalContext.close}>
+                    onClick={props.modalClose}>
                     <div className={classes.Stick1}></div>
                     <div className={classes.Stick2}></div>
                 </div>
@@ -29,4 +30,15 @@ const Modal = props => {
     )
 }
 
-export default Modal;
+const mapStateToProps = state => {
+    return {
+        modalIsShow: state.modalForm.showModal
+    }
+}
+const mapDispatchToProps = dispatch => {
+    return {
+        modalClose: () => dispatch({type: 'MODAL_CLOSE'})
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Modal);

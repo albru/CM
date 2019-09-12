@@ -6,7 +6,7 @@ import { inputData } from '../../Input/inputDataObj/inputDataObj';
 
 const OrderInputList = props => {
     
-    const [ orderInputData, setOrderInputData ] = useState(inputData).orderInputData
+    const [ orderInputData, setOrderInputData ] = useState(inputData.orderInputData)
     
     const formElementsArray = [];
     for (let key in orderInputData) {

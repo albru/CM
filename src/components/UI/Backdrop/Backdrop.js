@@ -1,29 +1,27 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import classes from './Backdrop.css';
 import Aux from '../../../hoc/_Aux/_Aux';
-import { ModalContext } from '../../../context/modal-context';
 import PropTypes from 'prop-types';
 
 const Backdrop = props => {
-    const modalContext = useContext(ModalContext)
     let showBackdrop = null;
     if (props.backdropMobile) {
         showBackdrop = (
         <div 
             className={classes.Backdrop}
-            onClick={props.close}>
+            onClick={props.closeForMobile}>
         </div>
         )
     }
-    if (modalContext.isShow) {
+    if (props.modal) {
         showBackdrop = 
         <div 
             className={classes.Backdrop}
-            onClick={() => modalContext.close()}>
+            onClick={props.modalClose}>
         </div> 
     }
 
-    props.backdropMobile || modalContext.isShow ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'inherit';
+    props.backdropMobile || props.modal ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'inherit';
         
     return (
         <Aux>

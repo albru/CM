@@ -6,14 +6,12 @@ import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import Footer from '../../components/Navigation/Footer/Footer';
 import Modal from '../../components/UI/Modal/Modal';
 import ModalContextProvider from '../../context/modal-context';
-import InputContextProvider from '../../context/input-context';
 
 const Layout = props => {
 
     return (
         <Aux>
             <ModalContextProvider>
-                    <InputContextProvider>
                         <Modal>
                                 <ModalForm />
                         </Modal>
@@ -21,7 +19,6 @@ const Layout = props => {
                         <main className={classes.Content}>
                             {props.children}
                         </main>
-                    </InputContextProvider>
             </ModalContextProvider>
             <Footer/>
         </Aux>
