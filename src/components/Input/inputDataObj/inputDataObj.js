@@ -41,8 +41,7 @@ export const inputData = (() => {
                 },
                 label: 'Место размещения',
                 value: 'ТК Галерея',
-                validation: {},
-                valid: true
+                validation: {}
             },
             size: {
                 elementType: 'select',

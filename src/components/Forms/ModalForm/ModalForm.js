@@ -1,48 +1,29 @@
-import React, { useState, useContext } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
 import Aux from '../../../hoc/_Aux/_Aux';
 import ErrorMessage from '../../UI/ErrorMessage/ErrorMessage';
 import Button from '../../UI/Button/Button';
 import ModalInputList from '../../Input/ModalInputList/ModalInputList';
-import { InputContext } from '../../../context/input-context.js';
-import { ModalContext } from '../../../context/modal-context';
 
 const ModalForm = props => {
-    const [fetchResult, setFetchResult] = useState({
-        error:null, 
-        success: null, 
-        username: ''
-    });
-
-    const inputContext = useContext(InputContext).modalInputData;
-    const modalContext = useContext(ModalContext);
     
     const submitFormHandler = event => {
-        const valid = inputContext.name.valid && inputContext.phone.valid;
-        const name = inputContext.name.value;
-        const phone = inputContext.phone.value;
         event.preventDefault();
-        if(valid) {
+        console.log(props.valid)
+        if(props.valid) {
             fetch('https://cetus-media-b35fb.firebaseio.com/customers.json', {
                 method: 'POST',
-                body: JSON.stringify({ name: name, phone: phone}),
+                body: JSON.stringify({ name: props.name, phone: props.phone}),
                 headers: {'Content-Type': 'application/json'}
             }).then(response => {
                 return response.json();
             }).then(responseData => {
-                setFetchResult({
-                    ...fetchResult,
-                    success: true,
-                    username: name
-                });
+                props.fetchSuccess()
             }).catch(error => {
-                setFetchResult({
-                    ...fetchResult,
-                    error: error.toString()
-                });
+                props.fetchError(error.toString())
             })
         }
     }
-
 
     let form = (
         <form onSubmit={event => submitFormHandler(event)}>
@@ -52,18 +33,18 @@ const ModalForm = props => {
         </form>
     );
 
-    if(fetchResult.error) {
+    if(props.error) {
         form = (
-            <ErrorMessage errorMessage={fetchResult.errorMsg}
-               btnClick={modalContext.close} />
+            <ErrorMessage errorMessage={props.error}
+                          btnClick={props.modalClose} />
         )
     }
-    if(fetchResult.success) {
+    if(props.success) {
         form = (
             <Aux>
-                <h2>{fetchResult.username} ваша заявка отправлена. Менеджер свяжется с вами в ближайшее время</h2>
+                <h2>{props.name} ваша заявка отправлена. Менеджер свяжется с вами в ближайшее время</h2>
                 <Button btnType="MainButton"
-                        clicked={modalContext.close}>Ок</Button>
+                        clicked={props.modalClose}>Ок</Button>
             </Aux>
         )
     }
@@ -75,4 +56,22 @@ const ModalForm = props => {
     )
 }
 
-export default ModalForm;
+const mapStateToProps = state => {
+    return {
+        valid: state.modalForm.data.phone.valid && state.modalForm.data.name.valid,
+        error: state.modalForm.fetchResult.error,
+        success: state.modalForm.fetchResult.success,
+        name: state.modalForm.data.name.value
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        modalClose: () => dispatch({type: 'MODAL_CLOSE'}),
+        fetchSuccess: () => dispatch({type: 'MODAL_FETCH_SUCCESS'}),
+        fetchError: (error) => dispatch({type: 'MODAL_FETCH_ERROR', error: error}),
+        clearError: () => dispatch({type: 'MODAL_CLEAR_FETCH_ERROR'})
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ModalForm);
