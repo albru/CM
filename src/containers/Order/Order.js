@@ -14,7 +14,7 @@ const AdvConstructor = props => {
     return (
         <Section sectionType="Order"> 
             <BreadCrumbs crumbs={crumbs} />
-            <h1> Конструктор рекламы </h1>
+            <h1> Конструктор рекламы  </h1>
             {/* <Button 
                 btnType='MainButton'
                 clicked={buttonRedirectHandler}> На главную </Button> */}
