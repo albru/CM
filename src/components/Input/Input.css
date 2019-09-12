@@ -29,3 +29,15 @@
   .Invalid {
     border: 1px solid red;
   }
+
+  @media (min-width: 500px) {
+    .InputElement {
+      max-width: 500px;
+    }
+    .Input {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      justify-content: center;
+    }
+}

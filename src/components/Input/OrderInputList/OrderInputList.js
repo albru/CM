@@ -1,6 +1,7 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import Input from '../Input';
-import { updateObject, checkValidity } from '../../../shared/utility';
+import { updateObject } from '../../../shared/utility';
 import Aux from '../../../hoc/_Aux/_Aux';
 import { inputData } from '../../Input/inputDataObj/inputDataObj';
 
@@ -22,7 +23,8 @@ const OrderInputList = props => {
             value: event.target.value
         })
     })
-        setOrderInputData(updatedValue)
+        setOrderInputData(updatedValue);
+        props.orderFormHandler(inputName, updatedValue[inputName].value)
     })
 
     const formContent = formElementsArray.map(formElement => {
@@ -47,4 +49,10 @@ const OrderInputList = props => {
     )
 }
 
-export default OrderInputList;
+const mapDispatchToProps = dispatch => {
+    return {
+        orderFormHandler: (inputName, value) => dispatch({ type: 'ORDER_FORM_HANDLER', inputName: inputName, value: value })
+    }
+}
+
+export default connect(null, mapDispatchToProps)(OrderInputList);
