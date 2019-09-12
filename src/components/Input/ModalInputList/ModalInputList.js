@@ -1,32 +1,37 @@
-import React, { useContext } from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import Input from '../Input';
 import { updateObject, checkValidity } from '../../../shared/utility';
 import Aux from '../../../hoc/_Aux/_Aux';
-import { InputContext } from '../../../context/input-context';
+import { inputData } from '../inputDataObj/inputDataObj';
 
 const ModalInputList = props => {
-    const inputContext = useContext(InputContext)
+
+    const [modalInputData, setModalInputData] = useState(inputData.modalInputData)
+    
     const inputChangeHandler = ((event, inputName) => {
-        const updatedValue = updateObject(inputContext.modalInputData, {
-            [inputName]: updateObject(inputContext.modalInputData[inputName], {
+        const updatedValue = updateObject(modalInputData, {
+            [inputName]: updateObject(modalInputData[inputName], {
             value: event.target.value,
             valid: checkValidity(
                 event.target.value,
-                inputContext.modalInputData[inputName].validation
+                modalInputData[inputName].validation
             ),
             touched: true
             })
         })
-        inputContext.setModalInputData(updatedValue)
+        setModalInputData(updatedValue)
+        props.modalHandler(inputName, updatedValue)
     })
 
     const formElementsArray = [];
-    for (let key in inputContext.modalInputData) {
+    for (let key in modalInputData) {
         formElementsArray.push({
             id: key,
-            config: inputContext.modalInputData[key]
+            config: modalInputData[key]
         })
     } 
+
     const formContent = formElementsArray.map(formElement => {
             return (
                 <Input 
@@ -49,4 +54,10 @@ const ModalInputList = props => {
     )
 }
 
-export default ModalInputList;
+const mapDispatchToProps = dispatch => {
+    return {
+        modalHandler: (inputName, updatedState) => dispatch({type: 'MODAL_FORM_HANDLER', inputName: inputName, updatedState: updatedState})
+    }
+}
+
+export default connect(null, mapDispatchToProps)(ModalInputList);
