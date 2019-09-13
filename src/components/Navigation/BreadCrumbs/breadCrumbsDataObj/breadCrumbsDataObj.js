@@ -39,7 +39,7 @@ export const breadCrumbsData = (() => {
                 crumbHref: '/',
                 linkType: 'prev'},
             {
-                crumbName:'Конструктор рекламы',
+                crumbName:'Размещение рекламы',
                 crumbHref: '/constructor',
                 linkType: 'current'
             }

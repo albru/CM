@@ -1,23 +1,18 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import Button from '../../UI/Button/Button';
-import { updateObject } from '../../../shared/utility';
 import OrderInputList from '../../Input/OrderInputList/OrderInputList';
 import classes from './OrderForm.css';
 import ErrorMessage from '../../UI/ErrorMessage/ErrorMessage';
-import Spinner from '../../UI/Spinner/Spinner';
 import Aux from '../../../hoc/_Aux/_Aux';
 
 const OrderForm = props => {
-    useEffect(() => {
-        console.log(props.success, 'effetc')
-    })
     const submitFormHandler = event => {
         event.preventDefault();
         fetch('https://cetus-media-b35fb.firebaseio.com/orders.json', {
             method: 'POST',
-            body: JSON.stringify({ order: props.orderData}),
+            body: JSON.stringify( props.orderData ),
             headers: {'Content-Type': 'application/json'}
         }).then(response => {
             return response.json();

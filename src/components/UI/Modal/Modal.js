@@ -1,13 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import Aux from '../../../hoc/_Aux/_Aux';
 import Backdrop from '../Backdrop/Backdrop';
 import classes from './Modal.css';
 
 const Modal = props => {
-    useEffect(() => {
-        console.log('MODAL RENDER')
-    })
+
+    props.modalIsShow ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'inherit';
     
     return (
         <Aux>

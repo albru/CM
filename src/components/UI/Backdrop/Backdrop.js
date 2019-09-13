@@ -20,8 +20,6 @@ const Backdrop = props => {
             onClick={props.modalClose}>
         </div> 
     }
-
-    props.backdropMobile || props.modal ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'inherit';
         
     return (
         <Aux>

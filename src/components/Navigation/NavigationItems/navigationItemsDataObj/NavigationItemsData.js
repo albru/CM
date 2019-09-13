@@ -9,7 +9,7 @@ export const navigationItemsData = (() => {
             route: "/portfolio"
         },
         advConstructor: {
-            name: "Конструктор рекламы", 
+            name: "Размещение рекламы", 
             route: "/constructor"
         },
         contacts: {
