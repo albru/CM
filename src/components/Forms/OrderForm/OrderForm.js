@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import Button from '../../UI/Button/Button';
@@ -76,6 +77,19 @@ const mapDispatchToProps = dispatch => {
         clearError: () => dispatch({ type: 'ORDER_CLEAR_FETCH_ERROR' }),
         clearSuccess: () => dispatch({ type: 'ORDER_CLEAR_FETCH_SUCCESS'})
     }
+}
+
+OrderForm.propTypes = {
+    success: PropTypes.bool,
+    error:   PropTypes.oneOfType([
+             PropTypes.bool,
+             PropTypes.string
+    ]),
+    orderData:    PropTypes.object,
+    fetchSuccess: PropTypes.func,
+    fetchError:   PropTypes.func,
+    clearError:   PropTypes.func,
+    clearSuccess: PropTypes.func
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(OrderForm));

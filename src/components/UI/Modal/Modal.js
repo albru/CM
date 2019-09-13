@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Aux from '../../../hoc/_Aux/_Aux';
 import Backdrop from '../Backdrop/Backdrop';
@@ -38,6 +39,11 @@ const mapDispatchToProps = dispatch => {
     return {
         modalClose: () => dispatch({type: 'MODAL_CLOSE'})
     }
+}
+
+Modal.propTypes = {
+    modalClose: PropTypes.func,
+    modalIsShow: PropTypes.bool
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Modal);

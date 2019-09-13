@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Input from '../Input';
 import { updateObject, checkValidity } from '../../../shared/utility';
@@ -58,6 +59,10 @@ const mapDispatchToProps = dispatch => {
     return {
         modalHandler: (inputName, updatedState) => dispatch({type: 'MODAL_FORM_HANDLER', inputName: inputName, updatedState: updatedState})
     }
+}
+
+ModalInputList.propTypes = {
+    modalHandler: PropTypes.func
 }
 
 export default connect(null, mapDispatchToProps)(ModalInputList);
