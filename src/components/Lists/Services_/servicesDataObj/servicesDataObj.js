@@ -32,27 +32,27 @@ export const servicesListData = (() => {
     return [
         {
             name: 'Зоны ресепшн',
-            href: '',
+            desc: 'Aute qui cupidatat elit reprehenderit culpa culpa non officia quis. Do irure id irure sit dolore eiusmod amet eu incididunt nostrud. Adipisicing sit amet ipsum dolor eu incididunt ut consequat ad elit aliqua veniam consequat consectetur. Id enim id anim velit esse magna ea labore adipisicing.'
         },
         {
             name: 'Выставочные стенды',
-            href: '',
+            desc: 'Eiusmod est elit exercitation eiusmod labore aute aliquip eiusmod cupidatat duis occaecat do. Aliquip adipisicing velit in labore voluptate voluptate ullamco. Lorem aute ullamco aliquip ad duis qui ad laborum laborum.',
         },
         { 
             name: 'Неоновые вывески',
-            href: '',
+            desc: 'Mollit laborum labore adipisicing et sint ipsum irure anim ad ex ea. Tempor cupidatat elit ex veniam non veniam aute nisi et sunt. Cupidatat in incididunt amet pariatur.',
         },
         {
             name: 'Световые панели',
-            href: '',
+            desc: 'Labore occaecat amet non occaecat adipisicing ipsum proident aliquip. In deserunt deserunt magna laboris. Pariatur excepteur enim excepteur ullamco nostrud labore enim aute minim commodo reprehenderit qui. Aute nisi nostrud eu id. Officia elit labore velit anim adipisicing enim mollit ut aliquip velit culpa quis ea eu. Culpa sit veniam dolore laboris cupidatat laborum ut aliqua esse.',
         },
         {
             name: 'Изготовление табличек',
-            href: '',
+            desc: 'Veniam velit proident reprehenderit elit. Non sint ipsum sint quis fugiat sint incididunt ad voluptate. Incididunt fugiat do nostrud elit ullamco in pariatur aute laboris. Culpa occaecat ea ut pariatur et. Mollit mollit excepteur officia id veniam dolor. Elit amet laboris do est culpa in veniam reprehenderit reprehenderit et.',
         },
         {
             name: 'Информационные стенды',
-            href: '',
+            desc: 'Magna ex amet aliqua laboris voluptate velit exercitation fugiat labore. Lorem adipisicing non voluptate aliqua ut nulla aliquip est. Officia qui laboris veniam cupidatat. Aliquip ex irure fugiat est elit mollit velit consequat est. Enim quis qui reprehenderit sint laboris veniam commodo in reprehenderit. Consequat Lorem adipisicing eu fugiat aute esse reprehenderit commodo duis aliqua veniam id exercitation pariatur. Non deserunt Lorem eiusmod adipisicing eu esse adipisicing dolor.',
         }
     ]
 })();

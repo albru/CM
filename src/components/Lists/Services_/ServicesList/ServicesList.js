@@ -11,11 +11,13 @@ const ServicesList = props => {
             return <ServicesListItem 
                 key={item.name}
                 name={item.name}
-                href={item.href}
+                desc={item.desc}
             />
         })
         return servicesItems;
     },[])
+
+    console.log(classes)
 
     return (
         <ul className={classes.ServicesList}>

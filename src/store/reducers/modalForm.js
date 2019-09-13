@@ -61,6 +61,7 @@ const modalClearFetchError = (state, action) => {
     }) })
 }
 
+
 const modalFormReducer = (state = initialState, action) => {
     switch(action.type) {
         case actionTypes.MODAL_FORM_HANDLER:

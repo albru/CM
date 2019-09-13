@@ -1,27 +1,28 @@
 import React from 'react';
-import classes from './Order.css';
+import { connect } from 'react-redux';
 import Section from '../../components/Section/Section';
-import Button from '../../components/UI/Button/Button';
 import BreadCrumbs from '../../components/Navigation/BreadCrumbs/BreadCrumbs';
 import { breadCrumbsData } from '../../components/Navigation/BreadCrumbs/breadCrumbsDataObj/breadCrumbsDataObj';
 import OrderForm from '../../components/Forms/OrderForm/OrderForm';
 
 const AdvConstructor = props => {
-    const buttonRedirectHandler = () => {
-        props.history.push('/');
-    }
     const crumbs = breadCrumbsData.orderCrumb;
+    console.log(props)
     return (
         <Section sectionType="Order"> 
             <BreadCrumbs crumbs={crumbs} />
-            <h1> Конструктор рекламы  </h1>
-            {/* <Button 
-                btnType='MainButton'
-                clicked={buttonRedirectHandler}> На главную </Button> */}
+            {props.error || props.success ?  null : <h1> Размещение рекламы </h1> }
             <OrderForm {...props}/>
         </Section>
         
     )
 };
 
-export default AdvConstructor;
+const mapStateToProps = state => {
+    return {
+        error: state.orderForm.fetchResult.error,
+        success: state.orderForm.fetchResult.success,
+    }
+}
+
+export default connect(mapStateToProps, null)(AdvConstructor);
