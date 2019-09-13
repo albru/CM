@@ -9,7 +9,7 @@ const Backdrop = props => {
         showBackdrop = (
         <div 
             className={classes.Backdrop}
-            onClick={props.closeForMobile}>
+            onClick={props.modalClose}>
         </div>
         )
     }

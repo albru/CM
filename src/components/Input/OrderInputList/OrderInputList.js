@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Input from '../Input';
 import { updateObject } from '../../../shared/utility';
@@ -53,6 +54,10 @@ const mapDispatchToProps = dispatch => {
     return {
         orderFormHandler: (inputName, value) => dispatch({ type: 'ORDER_FORM_HANDLER', inputName: inputName, value: value })
     }
+}
+
+OrderInputList.propTypes = {
+    orderFormHandler: PropTypes.func
 }
 
 export default connect(null, mapDispatchToProps)(OrderInputList);

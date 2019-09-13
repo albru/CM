@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Aux from '../../../hoc/_Aux/_Aux';
 import ErrorMessage from '../../UI/ErrorMessage/ErrorMessage';
@@ -9,7 +10,6 @@ const ModalForm = props => {
     
     const submitFormHandler = event => {
         event.preventDefault();
-        console.log(props.valid)
         if(props.valid) {
             fetch('https://cetus-media-b35fb.firebaseio.com/customers.json', {
                 method: 'POST',
@@ -72,6 +72,20 @@ const mapDispatchToProps = dispatch => {
         fetchError: (error) => dispatch({type: 'MODAL_FETCH_ERROR', error: error}),
         clearError: () => dispatch({type: 'MODAL_CLEAR_FETCH_ERROR'})
     }
+}
+
+ModalForm.propTypes = {
+    modalClose:   PropTypes.func,
+    fetchSuccess: PropTypes.func,
+    fetchError:   PropTypes.func,
+    clearError:   PropTypes.func,
+    valid:        PropTypes.bool,
+    success:      PropTypes.bool,
+    name:         PropTypes.string,
+    error: PropTypes.oneOfType([
+                  PropTypes.bool,
+                  PropTypes.string
+    ])
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ModalForm);
