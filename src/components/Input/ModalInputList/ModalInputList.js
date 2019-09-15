@@ -22,7 +22,7 @@ const ModalInputList = props => {
             })
         })
         setModalInputData(updatedValue)
-        props.modalHandler(inputName, updatedValue)
+        // props.modalHandler(inputName, updatedValue)
     })
 
     const formElementsArray = [];

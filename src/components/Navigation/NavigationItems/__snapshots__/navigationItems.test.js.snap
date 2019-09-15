@@ -15,8 +15,8 @@ exports[`NavigationItems should render correctly 1`] = `
     route="/portfolio"
   />
   <NavigationItem
-    key="Конструктор рекламы"
-    name="Конструктор рекламы"
+    key="Размещение рекламы"
+    name="Размещение рекламы"
     route="/constructor"
   />
   <NavigationItem
