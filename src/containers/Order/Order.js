@@ -7,7 +7,6 @@ import OrderForm from '../../components/Forms/OrderForm/OrderForm';
 
 const AdvConstructor = props => {
     const crumbs = breadCrumbsData.orderCrumb;
-    console.log(props)
     return (
         <Section sectionType="Order"> 
             <BreadCrumbs crumbs={crumbs} />

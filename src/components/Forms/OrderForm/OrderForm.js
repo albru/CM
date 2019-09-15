@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
@@ -7,29 +7,22 @@ import OrderInputList from '../../Input/OrderInputList/OrderInputList';
 import classes from './OrderForm.css';
 import ErrorMessage from '../../UI/ErrorMessage/ErrorMessage';
 import Aux from '../../../hoc/_Aux/_Aux';
+import { updateObject } from '../../../shared/utility.js';
+import * as actions from '../../../store/actions/index';
 
 const OrderForm = props => {
-    const submitFormHandler = event => {
+
+
+    const submitFormHandler = (event) => {
         event.preventDefault();
-        fetch('https://cetus-media-b35fb.firebaseio.com/orders.json', {
-            method: 'POST',
-            body: JSON.stringify( props.orderData ),
-            headers: {'Content-Type': 'application/json'}
-        }).then(response => {
-            return response.json();
-        }).then(responseData => {
-            props.fetchSuccess()
-        }).catch(error => {
-            props.fetchError(error.toString())
-        })
+        props.submitOrderForm(props.orderData);
     }
-    
+
     // let spinner = fetchResult.loading ? <Spinner /> : null;
     const succesConfirmHandler = () => {
         props.history.push('/');
-        props.clearSuccess();
+        props.clearFetchOrderSuccess();
     }
-
 
     let form = (
         <form className={classes.OrderForm} onSubmit={(event) => submitFormHandler(event)}>
@@ -41,7 +34,7 @@ const OrderForm = props => {
 
     if(props.error) {
         form = (
-            <ErrorMessage errorMessage={props.error} btnClick={props.clearError}/>
+            <ErrorMessage errorMessage={props.error} btnClick={props.clearFetchOrderError}/>
         )
     }
 
@@ -72,12 +65,11 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchSuccess: () => dispatch({ type: 'ORDER_FORM_SUCCESS' }),
-        fetchError: (error) => dispatch({ type: 'ORDER_FORM_ERROR', error: error }),
-        clearError: () => dispatch({ type: 'ORDER_CLEAR_FETCH_ERROR' }),
-        clearSuccess: () => dispatch({ type: 'ORDER_CLEAR_FETCH_SUCCESS'})
+        submitOrderForm: ( orderData ) => dispatch(actions.sendOrder( orderData )),
+        clearFetchOrderSuccess: () => dispatch(actions.fetchOrderSuccessClear()),
+        clearFetchOrderError: () => dispatch(actions.fetchOrderErrorClear())
     }
-}
+};
 
 OrderForm.propTypes = {
     success: PropTypes.bool,
@@ -86,10 +78,8 @@ OrderForm.propTypes = {
              PropTypes.string
     ]),
     orderData:    PropTypes.object,
-    fetchSuccess: PropTypes.func,
-    fetchError:   PropTypes.func,
-    clearError:   PropTypes.func,
-    clearSuccess: PropTypes.func
+    submitOrderForm: PropTypes.func,
+    clearFetchOrderSuccess:   PropTypes.func
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(OrderForm));
