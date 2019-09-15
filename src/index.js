@@ -2,9 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+
 import orderFormReducer from './store/reducers/orderForm';
 import modalFormReducer from './store/reducers/modalForm';
+import authReducer from './store/reducers/auth';
 // import sideDrawerReducer from './store/reducers/sideDrawer';
 // import modalReducer from './store/reducers/modal';
 import ScrollToTop from './hoc/ScrollToTop/ScrollToTop';
@@ -12,15 +15,16 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-
 const rootReducer = combineReducers({
     orderForm: orderFormReducer,
-    modalForm: modalFormReducer
+    modalForm: modalFormReducer,
+    auth: authReducer
 });
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
     rootReducer, /* preloadedState, */
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    composeEnhancers(applyMiddleware(thunk))
   );
 
 ReactDOM.render(

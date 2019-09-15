@@ -15,6 +15,10 @@ export const navigationItemsData = (() => {
         contacts: {
             name: "Контакты", 
             route: "/contacts"
+        },
+        auth: {
+            name: "Вход", 
+            route: "/auth"
         }
     }
 })();

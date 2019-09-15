@@ -1,0 +1,23 @@
+.Auth {
+    min-height: 650px;
+    width: 90%;
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+}
+
+
+.Auth form {
+    margin: 20px auto;
+    width: 80%;
+    text-align: center;
+    box-shadow: 0px 0px 16px 1px var(--color-lightgray);
+    border: 1px solid #eee;
+    padding: 10px;
+}
+
+@media (min-width: 600px) {
+    .Auth form  {
+        max-width: 500px;
+    }
+}
