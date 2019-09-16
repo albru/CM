@@ -15,7 +15,7 @@ const Contacts = React.lazy(() => {
   return import('./containers/Contacts/Contacts');
 });
 
-const Orders = React.lazy(() => {
+const Order = React.lazy(() => {
   return import('./containers/Order/Order');
 });
 
@@ -27,13 +27,18 @@ const Auth = React.lazy(() => {
   return import('./containers/Auth/Auth');
 });
 
+const Orders = React.lazy(() => {
+  return import('./containers/Orders/Orders');
+});
+
 let routes = (
   <Switch>
     <Route path="/portfolio" exact render={(props) => <Portfolio {...props}/>} />
     <Route path="/services" exact render={(props) => <Services {...props}/>} />
     <Route path="/contacts" exact render={(props) => <Contacts {...props}/>} />
     <Route path="/auth" exact render={(props) => <Auth {...props}/>} />
-    <Route path="/constructor" exact render={(props) => <Orders {...props}/>} />
+    <Route path="/order" exact render={(props) => <Order {...props}/>} />
+    <Route path="/orders" exact render={(props) => <Orders {...props}/>} />
     <Route path="/" exact render={(props) => <MainPage {...props}/>} />
     <Redirect to="/" />
   </Switch>

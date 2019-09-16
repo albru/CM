@@ -3,6 +3,8 @@ export {
 } from './auth';
 export {
     sendOrder,
-    fetchOrders,
     fetchOrderClear
 } from './orderForm';
+export {
+    fetchOrders
+} from './orders';

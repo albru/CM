@@ -8,9 +8,13 @@ export const navigationItemsData = (() => {
             name: "Портфолио", 
             route: "/portfolio"
         },
-        advConstructor: {
+        order: {
             name: "Размещение рекламы", 
-            route: "/constructor"
+            route: "/order"
+        },
+        orders: {
+            name: "Мои заказы", 
+            route: "/orders"
         },
         contacts: {
             name: "Контакты", 

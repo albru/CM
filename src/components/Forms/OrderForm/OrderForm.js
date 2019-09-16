@@ -30,12 +30,19 @@ const OrderForm = props => {
             value: event.target.value
         })
     })
+
         setOrderInputData(updatedValue);
     })
 
     const submitFormHandler = (event) => {
+        const data = {};
+
+        for (let key in orderInputData) {
+            data[key] = orderInputData[key].value
+        }
+        
         event.preventDefault();
-        props.submitOrderForm(orderInputData);
+        props.submitOrderForm(data);
     }
 
     const succesConfirmHandler = () => {
@@ -52,7 +59,6 @@ const OrderForm = props => {
             />
             <Button btnType="MainButton">Готово</Button> 
             {spinner}
-            {/* {spinner} */}
         </form>
     )
 

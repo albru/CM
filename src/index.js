@@ -8,6 +8,7 @@ import thunk from 'redux-thunk';
 import orderFormReducer from './store/reducers/orderForm';
 import modalFormReducer from './store/reducers/modalForm';
 import authReducer from './store/reducers/auth';
+import ordersReducer from './store/reducers/orders';
 // import sideDrawerReducer from './store/reducers/sideDrawer';
 // import modalReducer from './store/reducers/modal';
 import ScrollToTop from './hoc/ScrollToTop/ScrollToTop';
@@ -18,7 +19,8 @@ import * as serviceWorker from './serviceWorker';
 const rootReducer = combineReducers({
     orderForm: orderFormReducer,
     modalForm: modalFormReducer,
-    auth: authReducer
+    auth: authReducer,
+    orders: ordersReducer
 });
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
