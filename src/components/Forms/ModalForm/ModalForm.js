@@ -5,24 +5,13 @@ import Aux from '../../../hoc/_Aux/_Aux';
 import ErrorMessage from '../../UI/ErrorMessage/ErrorMessage';
 import Button from '../../UI/Button/Button';
 import ModalInputList from '../../Input/ModalInputList/ModalInputList';
+import * as actions from '../../../store/actions/index';
 
 const ModalForm = props => {
     
     const submitFormHandler = event => {
-        event.preventDefault();
-        if(props.valid) {
-            fetch('https://cetus-media-b35fb.firebaseio.com/customers.json', {
-                method: 'POST',
-                body: JSON.stringify({ name: props.name, phone: props.phone}),
-                headers: {'Content-Type': 'application/json'}
-            }).then(response => {
-                return response.json();
-            }).then(responseData => {
-                props.fetchSuccess()
-            }).catch(error => {
-                props.fetchError(error.toString())
-            })
-        }
+        event.preventDefault()
+        props.submitModalForm()
     }
 
     let form = (
@@ -58,19 +47,16 @@ const ModalForm = props => {
 
 const mapStateToProps = state => {
     return {
-        valid: state.modalForm.data.phone.valid && state.modalForm.data.name.valid,
         error: state.modalForm.fetchResult.error,
-        success: state.modalForm.fetchResult.success,
-        name: state.modalForm.data.name.value
+        success: state.modalForm.fetchResult.success
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        modalClose: () => dispatch({type: 'MODAL_CLOSE'}),
-        fetchSuccess: () => dispatch({type: 'MODAL_FETCH_SUCCESS'}),
-        fetchError: (error) => dispatch({type: 'MODAL_FETCH_ERROR', error: error}),
-        clearError: () => dispatch({type: 'MODAL_CLEAR_FETCH_ERROR'})
+        modalClose: () => dispatch(actions.modalClose()),
+        submitModalForm: (data) => dispatch(actions.fetchUserData(data)),
+        clearError: () => dispatch(actions.clearModalError())
     }
 }
 

@@ -10,3 +10,8 @@ export {
 export {
     fetchOrders
 } from './orders';
+export {
+    fetchUserData,
+    modalClose,
+    clearModalError
+} from './modalForm';

@@ -34,6 +34,7 @@ export const sendOrder = ( orderData, token ) => {
             body: JSON.stringify( orderData ),
             headers: {'Content-Type': 'application/json'}
         }).then(response => {
+            if(!response.ok) { throw response }
             return response.json();
         }).then(responseData => {
             dispatch(fetchOrderSuccess(orderData))

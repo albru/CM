@@ -11,7 +11,6 @@ for (let key in inputData.modalInputData) {
 }
 
 const initialState = {
-    data: changedState,
     fetchResult: {
         error: null,
         success: null,
@@ -19,19 +18,6 @@ const initialState = {
     },
     showModal: false
 };
-
-const modalFormDataHandler = (state, action) => {
-    const inputName = action.inputName;
-    const newState = action.updatedState
-    return updateObject(state, {
-        data: updateObject(state.data, {
-            [inputName]: updateObject(state.data[inputName], {
-                value: newState[inputName].value,
-                valid: newState[inputName].valid})
-            })
-        }
-    )
-}
 
 const modalToggleHandler = (state, action) => {
     return updateObject(state, {showModal: !state.showModall})
@@ -44,20 +30,30 @@ const modalCloseHandler = (state, action) => {
 const modalFetchSuccessHandler = (state, action) => {
     return updateObject(state, { fetchResult: 
         updateObject(state.fetchResult, {
-        success: true
+        success: true,
+        loading: false
     }) })
 }
 const modalFetchErrorHandler = (state, action) => {
     return updateObject(state, { fetchResult: 
         updateObject(state.fetchResult, {
-        error: action.error
+        error: action.error,
+        loading: false
     }) })
 }
 
 const modalClearFetchError = (state, action) => {
     return updateObject(state, { fetchResult: 
         updateObject(state.fetchResult, {
-        error: null
+        error: null,
+        success: null
+    }) })
+}
+
+const modalFetchStart = (state, action) => {
+    return updateObject(state, { fetchResult: 
+        updateObject(state.fetchResult, {
+        loading: true
     }) })
 }
 
@@ -68,11 +64,13 @@ const modalFormReducer = (state = initialState, action) => {
             return modalToggleHandler(state, action)
         case actionTypes.MODAL_CLOSE:
             return modalCloseHandler(state, action)
+        case actionTypes.MODAL_FETCH_START:
+            return modalFetchStart(state, action)
         case actionTypes.MODAL_FETCH_SUCCESS:
             return modalFetchSuccessHandler(state, action)
         case actionTypes.MODAL_FETCH_ERROR:
             return modalFetchErrorHandler(state, action)
-        case actionTypes.MODAL_CLEAR_FETCH_ERROR:
+        case actionTypes.MODAL_FETCH_CLEAR_ERROR:
             return modalClearFetchError(state, action)
         default:
             return state;
