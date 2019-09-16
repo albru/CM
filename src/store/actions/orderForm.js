@@ -26,10 +26,10 @@ export const fetchOrderClear = () => {
     }
 }
 
-export const sendOrder = ( orderData ) => {
+export const sendOrder = ( orderData, token ) => {
     return dispatch => {
         dispatch(fetchOrderStart())
-        fetch('https://cetus-media-b35fb.firebaseio.com/orders.json', {
+        fetch('https://cetus-media-b35fb.firebaseio.com/orders.json?auth=' + token, {
             method: 'POST',
             body: JSON.stringify( orderData ),
             headers: {'Content-Type': 'application/json'}

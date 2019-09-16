@@ -1,28 +1,32 @@
 import React  from 'react';
+import { connect } from 'react-redux'
 import classes from './Layout.css';
 import Aux from '../_Aux/_Aux';
 import ModalForm from '../../components/Forms/ModalForm/ModalForm';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import Footer from '../../components/Navigation/Footer/Footer';
 import Modal from '../../components/UI/Modal/Modal';
-import ModalContextProvider from '../../context/modal-context';
 
 const Layout = props => {
 
     return (
         <Aux>
-            <ModalContextProvider>
-                        <Modal>
-                                <ModalForm />
-                        </Modal>
-                        <Toolbar />
-                        <main className={classes.Content}>
-                            {props.children}
-                        </main>
-            </ModalContextProvider>
+            <Modal>
+                    <ModalForm />
+            </Modal>
+            <Toolbar auth={props.isAuth}/>
+            <main className={classes.Content}>
+                {props.children}
+            </main>
             <Footer/>
         </Aux>
     )
 };
 
-export default Layout;
+const mapStateToProps = state => {
+    return {
+        isAuth: state.auth.token !== null
+    }
+}
+
+export default connect(mapStateToProps, null)(Layout);

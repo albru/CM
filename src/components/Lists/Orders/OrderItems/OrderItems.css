@@ -1,0 +1,12 @@
+.OrderItems {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@media (max-width: 499px) {
+    .OrderItems {
+        flex-flow: column;
+    }
+}

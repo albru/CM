@@ -1,28 +1,19 @@
 import React from 'react';
 import NavigationItem from './NavigationItem/NavigationItem';
 import classes from './NavigationItems.css';
-import { navigationItemsData } from './navigationItemsDataObj/NavigationItemsData';
 import PropTypes from 'prop-types';
 
 const NavigationItems = props => {
-    let navigationList = [];
-    for (let key in navigationItemsData) {
-        navigationList.push(navigationItemsData[key])
-    }
-
-        const navigationItems = navigationList.map((item, index) => {
-            return (
-                <NavigationItem 
-                    key={item.name}
-                    route={item.route}
-                    name={item.name}
-                    />
-            )
-        })
-
     return (
         <ul className={[classes.NavigationItems, classes[props.navType]].join(' ')}>
-            {navigationItems}
+            <NavigationItem route={'/services'}>Услуги</NavigationItem>
+            <NavigationItem route={'/portfolio'}>Портфолио</NavigationItem>
+            <NavigationItem route={'/order'}>Размещение рекламы</NavigationItem>
+            <NavigationItem route={'/contacts'}>Контакты</NavigationItem>
+            {props.auth ? <NavigationItem route={'/orders'}>Мои заказы</NavigationItem> : null}
+            {props.auth 
+                ? <NavigationItem route={'/logout'}>Выйти</NavigationItem>
+                : <NavigationItem route={'/auth'}>Войти</NavigationItem>}
         </ul>
     );
 };

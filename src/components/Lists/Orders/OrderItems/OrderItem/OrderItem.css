@@ -1,0 +1,23 @@
+.OrderItem {
+    border: 1px solid #ccc;
+    margin: 40px 0;
+    padding: 15px;
+    background-color: white;
+    box-shadow: 0px 0px 16px 1px var(--color-lightgray);
+    border-radius: 16px;
+    width: 100%;
+}
+
+.OrderItem span {
+    color: var(--color-main);
+    display: block;
+    width: 100%;
+    padding: 10px;
+
+}
+
+@media (min-width: 500px) {
+    .OrderItem {
+        max-width: 300px;
+    }
+}

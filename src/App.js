@@ -4,8 +4,8 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 import Layout from './hoc/Layout/Layout';
 import MainPage from './containers/MainPage/MainPage';
-
 import Spinner from './components/UI/Spinner/Spinner';
+import Logout from './containers/Auth/Logout/Logout';
 
 const Portfolio = React.lazy(() => {
   return import('./containers/Portfolio/Portfolio');
@@ -37,6 +37,7 @@ let routes = (
     <Route path="/services" exact render={(props) => <Services {...props}/>} />
     <Route path="/contacts" exact render={(props) => <Contacts {...props}/>} />
     <Route path="/auth" exact render={(props) => <Auth {...props}/>} />
+    <Route path="/logout" exact render={(props) => <Logout/>} />
     <Route path="/order" exact render={(props) => <Order {...props}/>} />
     <Route path="/orders" exact render={(props) => <Orders {...props}/>} />
     <Route path="/" exact render={(props) => <MainPage {...props}/>} />

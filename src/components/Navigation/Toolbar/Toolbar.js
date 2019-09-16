@@ -19,12 +19,14 @@ const Toolbar = props => {
                 <SideDrawer backdropMoblie={showMobMenu}
                             openForMobile={showMobMenu}
                             closeForMobile={() => setShowMobMenu(false)}
+                            auth={props.auth}
                 />
                 <Logo 
                     header={true}
                     logoType='LogoHeader' />
                 <nav className={media.DesktopOnly}>
-                    <NavigationItems navType="NavToolbar" />
+                    <NavigationItems navType="NavToolbar"
+                                     auth={props.auth} />
                 </nav>
                 <Button clicked={props.modalToggle} btnType="ToolbarButton">
                     <PhoneIcon />

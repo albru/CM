@@ -35,14 +35,16 @@ const OrderForm = props => {
     })
 
     const submitFormHandler = (event) => {
-        const data = {};
-
-        for (let key in orderInputData) {
-            data[key] = orderInputData[key].value
-        }
-        
         event.preventDefault();
-        props.submitOrderForm(data);
+        if (props.isAuth) {
+            const data = {};
+            for (let key in orderInputData) {
+                data[key] = orderInputData[key].value
+            }
+            props.submitOrderForm(data, props.token);
+        } else {
+            props.history.push('/auth')
+        }
     }
 
     const succesConfirmHandler = () => {
@@ -90,13 +92,14 @@ const mapStateToProps = state => {
         success: state.orderForm.fetchResult.success,
         error: state.orderForm.fetchResult.error,
         orderData: state.orderForm.data,
-        loading: state.orderForm.fetchResult.loading
+        loading: state.orderForm.fetchResult.loading,
+        token: state.auth.token
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        submitOrderForm: ( orderData ) => dispatch(actions.sendOrder( orderData )),
+        submitOrderForm: ( orderData, token ) => dispatch(actions.sendOrder( orderData, token )),
         fetchOrderClear: () => dispatch(actions.fetchOrderClear())
     }
 };
