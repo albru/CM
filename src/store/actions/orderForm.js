@@ -1,6 +1,6 @@
 import * as actionTypes from './actionTypes';
 
-// THIS PART FOR SEND ORDERS
+// THIS PART FOR SEND ORDERS------------------------------------------------------------------
 
 export const fetchOrderSuccess = () => {
     return {
@@ -21,38 +21,33 @@ export const fetchOrderStart = () => {
     }
 }
 
-export const fetchOrderSuccessClear = () => {
+export const fetchOrderClear = () => {
     return {
-        type: actionTypes.ORDER_FETCH_POST_CLEAR_SUCCESS
-    }
-}
-
-export const fetchOrderErrorClear = () => {
-    return {
-        type: actionTypes.ORDER_FETCH_POST_CLEAR_ERROR
+        type: actionTypes.ORDER_FETCH_POST_CLEAR
     }
 }
 
 export const sendOrder = ( orderData ) => {
     return dispatch => {
+        console.log(orderData, 'POST data')
         dispatch(fetchOrderStart())
-        fetch('https://cetus-media-b35fb.firebaseio.com/orders.jso', {
+        fetch('https://cetus-media-b35fb.firebaseio.com/orders.json', {
             method: 'POST',
             body: JSON.stringify( orderData ),
             headers: {'Content-Type': 'application/json'}
         }).then(response => {
             return response.json();
         }).then(responseData => {
-            console.log(responseData, 'RESPONSE DATA')
+            console.log(responseData , 'POST res')
             dispatch(fetchOrderSuccess())
         }).catch(error => {
-            console.log(error, 'ERROR')
+            console.log(error , 'POST err')
             dispatch(fetchOrderError(error.toString()))
         })
     }
 };
 
-// THIS PART FOR GET ORDERS
+// THIS PART FOR GET ORDERS-----------------------------------------------------------------------
 
 export const fetchOrdersSuccess = () => {
     return {

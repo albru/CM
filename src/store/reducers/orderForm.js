@@ -13,42 +13,38 @@ const initialState = {
     fetchResult: {
         error: null,
         success: null,
-        loading: null
+        loading: false
     }
 }
 
 const orderFetchStartHandler = (state, action) => {
     return updateObject(state, { 
-        data: updateObject( state.data, {
-            ...action.orderData
-        })
-    })
+        fetchResult: updateObject(state.fetchResult, {
+            loading: true
+    }) })
 }
 
 const orderFetchSuccessHandler = (state, action) => {
     return updateObject(state, { 
         fetchResult: updateObject(state.fetchResult, {
-            success: true
+            success: true,
+            loading: false
     }) })
 }
 const orderFetchErrorHandler = (state, action) => {
     return updateObject(state, { fetchResult: 
         updateObject(state.fetchResult, {
-        error: action.error
+        error: action.error,
+        loading: false
     }) })
 }
 
-const orderClearFetchError = (state, action) => {
+const orderClearFetchRes = (state, action) => {
     return updateObject(state, { fetchResult: 
         updateObject(state.fetchResult, {
-        error: null
-    }) })
-}
-
-const orderClearFetchSuccess = (state, action) => {
-    return updateObject(state, { fetchResult: 
-        updateObject(state.fetchResult, {
-        success: null
+        error: null,
+        success: null,
+        loading: false
     }) })
 }
 
@@ -57,9 +53,7 @@ const orderFormReducer = (state = initialState, action) => {
         case actionTypes.ORDER_FETCH_POST_START: return orderFetchStartHandler(state, action)
         case actionTypes.ORDER_FETCH_POST_SUCCESS: return orderFetchSuccessHandler(state, action)
         case actionTypes.ORDER_FETCH_POST_ERROR: return orderFetchErrorHandler(state, action)
-        case actionTypes.ORDER_FETCH_POST_LOADING: return orderClearFetchError(state, action)
-        case actionTypes.ORDER_FETCH_POST_CLEAR_ERROR: return orderClearFetchError(state, action)
-        case actionTypes.ORDER_FETCH_POST_CLEAR_SUCCESS: return orderClearFetchSuccess(state, action)
+        case actionTypes.ORDER_FETCH_POST_CLEAR: return orderClearFetchRes(state, action) 
         default: return state;
     }
 };

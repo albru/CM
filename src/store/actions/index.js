@@ -4,6 +4,5 @@ export {
 export {
     sendOrder,
     fetchOrders,
-    fetchOrderSuccessClear,
-    fetchOrderErrorClear
+    fetchOrderClear
 } from './orderForm';
