@@ -1,34 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Input from '../Input';
-import { updateObject } from '../../../shared/utility';
 import Aux from '../../../hoc/_Aux/_Aux';
-import { inputData } from '../../Input/inputDataObj/inputDataObj';
 
 const OrderInputList = props => {
-    
-    const [ orderInputData, setOrderInputData ] = useState(inputData.orderInputData)
-    
-    const formElementsArray = [];
-    for (let key in orderInputData) {
-        formElementsArray.push({
-            id: key,
-            config: orderInputData[key]
-        })
-    } 
-    
-    const inputChangeHandler = ((event, inputName) => {
-        const updatedValue = updateObject(orderInputData, {
-            [inputName]: updateObject(orderInputData[inputName], {
-            value: event.target.value
-        })
-    })
-        setOrderInputData(updatedValue);
-        props.orderFormHandler(inputName, updatedValue[inputName].value)
-    })
 
-    const formContent = formElementsArray.map(formElement => {
+    const formContent = props.array.map(formElement => {
             return (
                 <Input 
                     key={formElement.id}
@@ -39,7 +17,7 @@ const OrderInputList = props => {
                     shouldValidate={formElement.config.validation}
                     touched={formElement.config.touched}
                     label={formElement.config.label}
-                    changed={event => inputChangeHandler(event, formElement.id)}
+                    changed={(event) => props.inputChangeHandler(event, formElement.id)}
                 />
             )
         })

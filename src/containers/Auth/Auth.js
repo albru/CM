@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { authData } from './authData/authData';
 import Input from '../../components/Input/Input';
@@ -74,9 +75,15 @@ const Auth = props => {
             <p>{props.error}</p>
         )
     }
+
+    let authRedirect = null;
+    if (props.isAuth) {
+        authRedirect = <Redirect to="/" />
+    }
     
     return (
         <section className={classes.Auth}>
+            {authRedirect}
             <h1> Авторизация </h1> 
             <form onSubmit={authSubmitHandler}>
                 {formContent}
@@ -92,7 +99,8 @@ const Auth = props => {
 const mapStateToProps = state => {
     return {
         loading: state.auth.loading,
-        error: state.auth.error
+        error: state.auth.error,
+        isAuth: state.auth.token !== null
     }
 };
 
