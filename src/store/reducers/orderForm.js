@@ -26,7 +26,8 @@ const orderFetchStartHandler = (state, action) => {
 
 const orderFetchSuccessHandler = (state, action) => {
     return updateObject(state, {
-        data: action.data, 
+        data: action.data,
+        userId: action.userId,
         fetchResult: updateObject(state.fetchResult, {
             success: true,
             loading: false

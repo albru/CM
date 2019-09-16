@@ -1,6 +1,6 @@
 import * as actionTypes from './actionTypes';
 
-export const fetchOrderSuccess = (data) => {
+export const fetchOrderSuccess = (data, userId) => {
     return {
         type: actionTypes.ORDER_FETCH_POST_SUCCESS,
         data: data

@@ -34,13 +34,14 @@ const OrderForm = props => {
         setOrderInputData(updatedValue);
     })
 
-    const submitFormHandler = (event) => {
+    const submitFormHandler = (event, userId) => {
         event.preventDefault();
-        if (props.isAuth) {
+        if (props.token) {
             const data = {};
             for (let key in orderInputData) {
                 data[key] = orderInputData[key].value
             }
+            data.userId = userId
             props.submitOrderForm(data, props.token);
         } else {
             props.history.push('/auth')
@@ -55,11 +56,11 @@ const OrderForm = props => {
     let spinner = props.loading ? <Spinner /> : null;
 
     let form = (
-        <form className={classes.OrderForm} onSubmit={(event) => submitFormHandler(event)}>
+        <form className={classes.OrderForm} onSubmit={(event) => submitFormHandler(event, props.userId)}>
             <OrderInputList inputChangeHandler={inputChangeHandler}
                             array={formElementsArray}
             />
-            <Button btnType="MainButton">Готово</Button> 
+            <Button btnType="MainButton">{props.token ? 'Готово' : 'Регистрация'}</Button> 
             {spinner}
         </form>
     )
@@ -93,7 +94,8 @@ const mapStateToProps = state => {
         error: state.orderForm.fetchResult.error,
         orderData: state.orderForm.data,
         loading: state.orderForm.fetchResult.loading,
-        token: state.auth.token
+        token: state.auth.token,
+        userId: state.auth.userId
     }
 }
 

@@ -20,13 +20,15 @@ export const fetchOrdersStart = () => {
     };
 };
 
-export const fetchOrders = (token) => {
+export const fetchOrders = (token, userId) => {
     return dispatch => {
         dispatch(fetchOrdersStart());
-        fetch('https://cetus-media-b35fb.firebaseio.com/orders.json?auth=' + token, {
+        const queryParams = '?auth=' + token + '&orderBy="userId"&equalTo="' + userId + '"';
+        fetch('https://cetus-media-b35fb.firebaseio.com/orders.json' + queryParams, {
             method: 'GET',
             headers: {'Content-Type': 'application/json'}
         }).then(response => {
+            if(!response.ok) { throw response }
             return response.json();
         }).then(responseData => {
             dispatch(fetchOrdersSuccess(responseData))

@@ -15,8 +15,8 @@ const OrderItems = props => {
     } = props;
 
     useEffect(() => {
-        loadOrders(props.token);
-    },[loadOrders, props.token])
+        loadOrders(props.token, props.userId);
+    },[loadOrders, props.token, props.userId])
 
     let orderList = [];
     let orders;
@@ -53,13 +53,14 @@ const mapStateToProps = state => {
         loadedOrders: state.orders.data,
         extra: state.orders.fetchResult.extra,
         loading: state.orders.fetchResult.loading,
-        token: state.auth.token
+        token: state.auth.token,
+        userId: state.auth.userId
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        loadOrders: (token) => dispatch(actions.fetchOrders(token))
+        loadOrders: (token, userId) => dispatch(actions.fetchOrders(token, userId))
     }
 }
 

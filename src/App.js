@@ -1,11 +1,12 @@
-import React, { Suspense } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
-
+import React, { Suspense, useEffect } from 'react';
+import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 import './App.css';
 import Layout from './hoc/Layout/Layout';
 import MainPage from './containers/MainPage/MainPage';
 import Spinner from './components/UI/Spinner/Spinner';
 import Logout from './containers/Auth/Logout/Logout';
+import * as actions from './store/actions/index';
 
 const Portfolio = React.lazy(() => {
   return import('./containers/Portfolio/Portfolio');
@@ -31,22 +32,33 @@ const Orders = React.lazy(() => {
   return import('./containers/Orders/Orders');
 });
 
-let routes = (
-  <Switch>
-    <Route path="/portfolio" exact render={(props) => <Portfolio {...props}/>} />
-    <Route path="/services" exact render={(props) => <Services {...props}/>} />
-    <Route path="/contacts" exact render={(props) => <Contacts {...props}/>} />
-    <Route path="/auth" exact render={(props) => <Auth {...props}/>} />
-    <Route path="/logout" exact render={(props) => <Logout/>} />
-    <Route path="/order" exact render={(props) => <Order {...props}/>} />
-    <Route path="/orders" exact render={(props) => <Orders {...props}/>} />
-    <Route path="/" exact render={(props) => <MainPage {...props}/>} />
-    <Redirect to="/" />
-  </Switch>
-)
+function App(props) {
 
+  let routes = (
+    <Switch>
+      <Route path="/portfolio" exact render={(props) => <Portfolio {...props}/>} />
+      <Route path="/services" exact render={(props) => <Services {...props}/>} />
+      <Route path="/contacts" exact render={(props) => <Contacts {...props}/>} />
+      <Route path="/auth" exact render={(props) => <Auth {...props}/>} />
+      <Route path="/order" exact render={(props) => <Order {...props}/>} />
+      
+      {props.isAuth 
+        ? <Route path="/logout" exact render={() => <Logout/>} />
+        : null}
+  
+      {props.isAuth 
+        ? <Route path="/orders" exact render={(props) => <Orders {...props}/>} />
+        : null}
+  
+      <Route path="/" exact render={(props) => <MainPage {...props}/>} />
+      <Redirect to="/" />
+    </Switch>
+  )
+  
+  useEffect(() => {
+    props.onTryAutoSignUp()
+  })
 
-function App() {
   const bigSpinnerStyles = {
     'minHeight': '100vh',
     'width': '100vw',
@@ -73,4 +85,16 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    isAuth: state.auth.token !== null
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onTryAutoSignUp: () => dispatch(actions.authCheckState())
+  }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

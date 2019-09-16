@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import OrderItems from '../../components/Lists/Orders/OrderItems/OrderItems';
 import Section from '../../components/Section/Section';
