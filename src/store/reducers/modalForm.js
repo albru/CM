@@ -16,15 +16,15 @@ const initialState = {
         success: null,
         loading: null
     },
-    showModal: false
+    modalIsVis: false
 };
 
 const modalToggleHandler = (state, action) => {
-    return updateObject(state, {showModal: !state.showModall})
+    return updateObject(state, {modalIsVis: !state.modalIsVis})
 }
 
 const modalCloseHandler = (state, action) => {
-    return updateObject(state, {showModal: false})
+    return updateObject(state, {modalIsVis: false})
 }
 
 const modalFetchSuccessHandler = (state, action) => {
