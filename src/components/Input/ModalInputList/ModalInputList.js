@@ -1,35 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Input from '../Input';
-import { updateObject, checkValidity } from '../../../shared/utility';
+
 import Aux from '../../../hoc/_Aux/_Aux';
-import { inputData } from '../inputDataObj/inputDataObj';
+
 
 const ModalInputList = props => {
 
-    const [modalInputData, setModalInputData] = useState(inputData.modalInputData)
-    
-    const inputChangeHandler = ((event, inputName) => {
-        const updatedValue = updateObject(modalInputData, {
-            [inputName]: updateObject(modalInputData[inputName], {
-            value: event.target.value,
-            valid: checkValidity(
-                event.target.value,
-                modalInputData[inputName].validation
-            ),
-            touched: true
-            })
-        })
-        setModalInputData(updatedValue)
-    })
-
     const formElementsArray = [];
-    for (let key in modalInputData) {
+    for (let key in props.inputData) {
         formElementsArray.push({
             id: key,
-            config: modalInputData[key]
+            config: props.inputData[key]
         })
     } 
-
+    
     const formContent = formElementsArray.map(formElement => {
             return (
                 <Input 
@@ -41,7 +25,7 @@ const ModalInputList = props => {
                     shouldValidate={formElement.config.validation}
                     touched={formElement.config.touched}
                     label={''}
-                    changed={event => inputChangeHandler(event, formElement.id)}
+                    changed={event => props.inputChangeHandler(event, formElement.id)}
                 />
             )
         })

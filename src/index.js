@@ -9,7 +9,7 @@ import orderFormReducer from './store/reducers/orderForm';
 import modalFormReducer from './store/reducers/modalForm';
 import authReducer from './store/reducers/auth';
 import ordersReducer from './store/reducers/orders';
-// import sideDrawerReducer from './store/reducers/sideDrawer';
+import sideDrawerReducer from './store/reducers/sideDrawer';
 // import modalReducer from './store/reducers/modal';
 import ScrollToTop from './hoc/ScrollToTop/ScrollToTop';
 import './index.css';
@@ -20,7 +20,8 @@ const rootReducer = combineReducers({
     orderForm: orderFormReducer,
     modalForm: modalFormReducer,
     auth: authReducer,
-    orders: ordersReducer
+    orders: ordersReducer,
+    sideDrawer: sideDrawerReducer
 });
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

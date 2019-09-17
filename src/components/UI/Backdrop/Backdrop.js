@@ -5,15 +5,15 @@ import PropTypes from 'prop-types';
 
 const Backdrop = props => {
     let showBackdrop = null;
-    if (props.backdropMobile) {
+    if (props.sideDrawerIsVis) {
         showBackdrop = (
         <div 
             className={classes.Backdrop}
-            onClick={props.modalClose}>
+            onClick={props.sideDrawerClose}>
         </div>
         )
     }
-    if (props.modal) {
+    if (props.modalIsVis) {
         showBackdrop = 
         <div 
             className={classes.Backdrop}

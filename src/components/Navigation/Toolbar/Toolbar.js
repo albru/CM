@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 import classes from './Toolbar.css';
 import NavigationItems from '../NavigationItems/NavigationItems';
 import Logo from '../../Logo/Logo';
@@ -11,14 +10,17 @@ import PhoneIcon from '@material-ui/icons/Phone';
 import SideDrawer from '../../Navigation/SideDrawer/SideDrawer'; 
 
 const Toolbar = props => {
-    const [showMobMenu, setShowMobMenu] = useState(false);
+    props.modalIsVis || props.sideDrawerIsVis 
+        ? document.body.style.overflow = 'hidden' 
+        : document.body.style.overflow = 'inherit';
     return (
         <Aux>
             <header className={classes.Header}>
-                <DrawerToggle toggle={() => setShowMobMenu(!showMobMenu)}/>
-                <SideDrawer backdropMoblie={showMobMenu}
-                            openForMobile={showMobMenu}
-                            closeForMobile={() => setShowMobMenu(false)}
+                <DrawerToggle toggle={props.sideDrawerToggle}/>
+                <SideDrawer sideDrawerIsVis={props.sideDrawerIsVis}
+                            sideDrawerClose={props.sideDrawerClose}
+                            modalIsVis={props.modalIsVis}
+                            modalIsClose={props.modalClose}
                             auth={props.auth}
                 />
                 <Logo 
@@ -36,15 +38,4 @@ const Toolbar = props => {
     )
 }
 
-const mapStateToProps = state => {
-    return {
-        modalIsShow: state.modalForm.showModal
-    }
-}
-const mapDispatchToProps = dispatch => {
-    return {
-        modalToggle: () => dispatch({type: 'MODAL_TOGGLE'})
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Toolbar);
+export default Toolbar;

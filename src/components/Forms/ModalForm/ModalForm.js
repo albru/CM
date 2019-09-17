@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Aux from '../../../hoc/_Aux/_Aux';
@@ -6,18 +6,43 @@ import ErrorMessage from '../../UI/ErrorMessage/ErrorMessage';
 import Button from '../../UI/Button/Button';
 import ModalInputList from '../../Input/ModalInputList/ModalInputList';
 import * as actions from '../../../store/actions/index';
+import { updateObject, checkValidity } from '../../../shared/utility';
+import { inputData } from '../../Input/inputDataObj/inputDataObj';
 
 const ModalForm = props => {
+
+    const [modalInputData, setModalInputData] = useState(inputData.modalInputData)
+    
+    const inputChangeHandler = ((event, inputName) => {
+        const updatedValue = updateObject(modalInputData, {
+            [inputName]: updateObject(modalInputData[inputName], {
+                value: event.target.value,
+                valid: checkValidity(
+                    event.target.value,
+                    modalInputData[inputName].validation
+                ),
+                touched: true
+            })
+        })
+        setModalInputData(updatedValue)
+    })
     
     const submitFormHandler = event => {
         event.preventDefault()
-        props.submitModalForm()
+        props.submitModalForm(modalInputData)
+    }
+
+    const confirmErrorHandler = () => {
+        props.modalClose()
+        props.clearError()
     }
 
     let form = (
         <form onSubmit={event => submitFormHandler(event)}>
             <h2>Оставьте заявку</h2>
-            <ModalInputList />
+            <ModalInputList inputChangeHandler={inputChangeHandler}
+                            inputData={modalInputData}
+            />
             <Button btnType="MainButton">Отправить</Button> 
         </form>
     );
@@ -25,7 +50,7 @@ const ModalForm = props => {
     if(props.error) {
         form = (
             <ErrorMessage errorMessage={props.error}
-                          btnClick={props.modalClose} />
+                          btnClick={confirmErrorHandler} />
         )
     }
     if(props.success) {

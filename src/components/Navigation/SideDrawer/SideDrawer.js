@@ -9,19 +9,21 @@ import PropTypes from 'prop-types';
 
 const SideDrawer = (props) => {
     let attachedClasses = [classes.SideDrawer, classes.Close, media.PhonesOnly];
-    if (props.openForMobile) {
+    if (props.sideDrawerIsVis) {
         attachedClasses = [classes.SideDrawer, classes.Open, media.PhonesOnly];
     }
 
     return (
         <Aux>
             <Backdrop
-                backdropMobile={props.openForMobile}
-                close={props.close}
+                sideDrawerIsVis={props.sideDrawerIsVis}
+                sideDrawerClose={props.sideDrawerClose}
+                modalIsVis={props.modalIsVis}
+                modalIsClose={props.modalClose}
             />
             <div
                 className={attachedClasses.join(' ')}
-                onClick={props.close}>
+                onClick={props.sideDrawerClose}>
                 <nav>
                     <NavigationItems auth={props.auth}/>
                 </nav>
