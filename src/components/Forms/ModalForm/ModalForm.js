@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import Aux from '../../../hoc/_Aux/_Aux';
 import ErrorMessage from '../../UI/ErrorMessage/ErrorMessage';
 import Button from '../../UI/Button/Button';
 import ModalInputList from '../../Input/ModalInputList/ModalInputList';
+
 import * as actions from '../../../store/actions/index';
-import { updateObject, checkValidity } from '../../../shared/utility';
-import { inputData } from '../../Input/inputDataObj/inputDataObj';
+import { updateObject, checkValidity, createElementsArray } from '../../../shared/utility';
+import { modalUserData } from './modalUserData/modalUserData';
 
 const ModalForm = props => {
 
-    const [modalInputData, setModalInputData] = useState(inputData.modalInputData)
+    const [modalInputData, setModalInputData] = useState(modalUserData);
+    const formElementsArray = createElementsArray(modalUserData)
     
     const inputChangeHandler = ((event, inputName) => {
         const updatedValue = updateObject(modalInputData, {
@@ -41,7 +44,7 @@ const ModalForm = props => {
         <form onSubmit={event => submitFormHandler(event)}>
             <h2>Оставьте заявку</h2>
             <ModalInputList inputChangeHandler={inputChangeHandler}
-                            inputData={modalInputData}
+                            userData={formElementsArray}
             />
             <Button btnType="MainButton">Отправить</Button> 
         </form>
@@ -86,16 +89,14 @@ const mapDispatchToProps = dispatch => {
 }
 
 ModalForm.propTypes = {
-    modalClose:   PropTypes.func,
-    fetchSuccess: PropTypes.func,
-    fetchError:   PropTypes.func,
-    clearError:   PropTypes.func,
-    valid:        PropTypes.bool,
-    success:      PropTypes.bool,
-    name:         PropTypes.string,
-    error: PropTypes.oneOfType([
-                  PropTypes.bool,
-                  PropTypes.string
+    submitModalForm: PropTypes.func,
+    modalClose:      PropTypes.func,
+    clearError:      PropTypes.func,
+    success:         PropTypes.bool,
+    name:            PropTypes.string,
+    error:           PropTypes.oneOfType([
+                            PropTypes.bool,
+                            PropTypes.string
     ])
 }
 

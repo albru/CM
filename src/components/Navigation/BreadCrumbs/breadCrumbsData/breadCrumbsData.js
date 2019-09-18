@@ -1,5 +1,4 @@
-export const breadCrumbsData = (() => {
-    return {
+export const breadCrumbsData = {
         servicesCrumb: [
             {
                 crumbName:'Главная',
@@ -44,5 +43,4 @@ export const breadCrumbsData = (() => {
                 linkType: 'current'
             }
         ]
-    }
-})();
+    };

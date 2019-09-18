@@ -1,8 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
+import PhoneImg from '@material-ui/icons/Phone';
+
 import classes from './Phone.css';
 import media from '../../../shared/css/media.css';
-import PhoneImg from '@material-ui/icons/Phone';
-import PropTypes from 'prop-types';
 
 
 const Phone = props => {

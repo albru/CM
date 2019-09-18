@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import Aux from '../../hoc/_Aux/_Aux';
 import Section from '../../components/Section/Section';
 import FeaturesItems from '../../components/Lists/Features/FeaturesItems/FeaturesItems';
@@ -34,6 +36,10 @@ const mapDispatchToProps = dispatch => {
     return {
         modalToggle: () => dispatch({ type: 'MODAL_TOGGLE' })
     }
+}
+
+MainPage.propTypes = {
+    modalToggle: PropTypes.func
 }
 
 export default connect(null, mapDispatchToProps)(MainPage);

@@ -1,15 +1,16 @@
 import React, { useMemo } from 'react';
-import { servicesListData } from '../servicesDataObj/servicesDataObj';
-import ServicesListItem from './ServicesListItem/ServicesListItem';
-import classes from './ServicesList.css';
 
+import ServicesListItem from './ServicesListItem/ServicesListItem';
+
+import { servicesListData } from '../servicesData/servicesData';
+import classes from './ServicesList.css';
 
 const ServicesList = props => {
     
     const items = useMemo(() => {
         const servicesItems = servicesListData.map((item, index) => {
             return <ServicesListItem 
-                key={item.name}
+                key={index}
                 name={item.name}
                 desc={item.desc}
             />

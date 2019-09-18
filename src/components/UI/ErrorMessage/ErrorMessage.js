@@ -1,6 +1,7 @@
 import React from 'react';
-import Button from '../Button/Button';
 import PropTypes from 'prop-types';
+
+import Button from '../Button/Button';
 
 const errorMessage = props => {
     return (

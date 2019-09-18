@@ -41,7 +41,7 @@ export const fetchUserData = (data) => {
     return dispatch => {
         dispatch(fetchModalStart());
         if (valid) {
-            fetch('https://cetus-media-b35fb.firebaseio.com/customers.jsn', {
+            fetch('https://cetus-media-b35fb.firebaseio.com/customers.json', {
                 method: 'POST',
                 body: JSON.stringify({ name: data.name.value, phone: data.phone.value }),
                 headers: { 'Content-Type': 'application/json' }

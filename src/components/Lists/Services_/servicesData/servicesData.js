@@ -2,8 +2,7 @@ import outdoorAdvImg from '../../../../assets/img/services/outdoorAdvImg.png';
 import interiorAdvImg from '../../../../assets/img/services/interiorAdvImg.png';
 import advServicesImg from '../../../../assets/img/services/advServicesImg.png';
 
-export const servicesData = (() => {
-    return [
+export const servicesData = [
         {
             title: 'Наружная реклама',
             href: '/11',
@@ -26,10 +25,8 @@ export const servicesData = (() => {
             desc: 'Дизайн рекламы • Нейминг • Широкоформатная печать • Плоттерная резка • Полиграфия • Ремонт вывесок • Промышленный альпинизм'
         }
     ];
-})();
 
-export const servicesListData = (() => {
-    return [
+export const servicesListData = [
         {
             name: 'Зоны ресепшн',
             desc: 'Aute qui cupidatat elit reprehenderit culpa culpa non officia quis. Do irure id irure sit dolore eiusmod amet eu incididunt nostrud. Adipisicing sit amet ipsum dolor eu incididunt ut consequat ad elit aliqua veniam consequat consectetur. Id enim id anim velit esse magna ea labore adipisicing.'
@@ -54,6 +51,5 @@ export const servicesListData = (() => {
             name: 'Информационные стенды',
             desc: 'Magna ex amet aliqua laboris voluptate velit exercitation fugiat labore. Lorem adipisicing non voluptate aliqua ut nulla aliquip est. Officia qui laboris veniam cupidatat. Aliquip ex irure fugiat est elit mollit velit consequat est. Enim quis qui reprehenderit sint laboris veniam commodo in reprehenderit. Consequat Lorem adipisicing eu fugiat aute esse reprehenderit commodo duis aliqua veniam id exercitation pariatur. Non deserunt Lorem eiusmod adipisicing eu esse adipisicing dolor.',
         }
-    ]
-})();
+    ];
 

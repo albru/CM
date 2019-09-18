@@ -1,8 +1,9 @@
 import React from 'react';
-import Aux from '../../../../hoc/_Aux/_Aux';
 import { Link } from 'react-router-dom';
-import classes from './BreadCrumb.css';
 import PropTypes from 'prop-types';
+
+import Aux from '../../../../hoc/_Aux/_Aux';
+import classes from './BreadCrumb.css';
 
 const breadCrumb = props => {
     return (

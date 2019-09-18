@@ -1,12 +1,12 @@
 import * as actionTypes from '../actions/actionTypes';
 import { updateObject } from '../../shared/utility';
-import { inputData } from '../../components/Input/inputDataObj/inputDataObj';
+import { modalUserData } from '../../components/Forms/ModalForm/modalUserData/modalUserData';
 
 const changedState = {}
-for (let key in inputData.modalInputData) {
+for (let key in modalUserData) {
     changedState[key] = {
-        value: inputData.modalInputData[key].value, 
-        valid: inputData.modalInputData[key].valid 
+        value: modalUserData[key].value, 
+        valid: modalUserData[key].valid 
     }
 }
 

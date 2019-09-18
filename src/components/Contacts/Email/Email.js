@@ -1,8 +1,10 @@
 import React from 'react';
-import classes from './Email.css';
-import media from '../../../shared/css/media.css';
-import EmailImg from '@material-ui/icons/Email';
 import PropTypes from 'prop-types';
+
+import EmailImg from '@material-ui/icons/Email';
+
+import media from '../../../shared/css/media.css';
+import classes from './Email.css';
 
 const Email = props => {
     return (
