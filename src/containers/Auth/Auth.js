@@ -19,7 +19,8 @@ const Auth = props => {
     const [authInputData, setAuthInputData] = useState(authData);
     const [isSignUp, setIsSignUp] = useState(true);
 
-    const inputChangeHandler = (event, inputName) => {
+
+    const inputChangeHandler = ((event, inputName) => {
         const updatedValue = updateObject(authInputData, {
             [inputName]: updateObject(authInputData[inputName], {
             value: event.target.value,
@@ -31,7 +32,7 @@ const Auth = props => {
             })
         })
         setAuthInputData(updatedValue)
-    }
+    })
 
     const authSubmitHandler = (event) => {
         event.preventDefault();
@@ -75,13 +76,13 @@ const Auth = props => {
     return (
         <section className={classes.Auth}>
             {authRedirect}
-            <h1> Авторизация </h1> 
+            <h1> {isSignUp ? "Регистрация" : "Вход"} </h1> 
             <form onSubmit={authSubmitHandler}>
                 {formContent}
                 <Button btnType="Success">ВХОД</Button>
             </form>
             <Button btnType="MainButton"
-                    clicked={switchAuthHandler}>{isSignUp ? "Регистрация" : "Войти"}</Button>
+                    clicked={switchAuthHandler}>переключатель</Button>
             {errorMessage}
         </section>
     )
