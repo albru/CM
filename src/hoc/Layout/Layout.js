@@ -1,12 +1,15 @@
 import React  from 'react';
-import { connect } from 'react-redux'
-import classes from './Layout.css';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import Aux from '../_Aux/_Aux';
 import ModalForm from '../../components/Forms/ModalForm/ModalForm';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import Footer from '../../components/Navigation/Footer/Footer';
 import Modal from '../../components/UI/Modal/Modal';
+
 import * as actions from '../../store/actions/index';
+import classes from './Layout.css';
 
 const Layout = props => {
 
@@ -47,6 +50,16 @@ const mapDispatchToProps = dispatch => {
         modalToggle: () => dispatch(actions.modalToggle()),
         modalClose: () => dispatch(actions.modalClose()),
     }
+}
+
+Layout.propTypes = {
+    isAuth:          PropTypes.bool,
+    sideDrawerIsVis: PropTypes.bool,
+    modalIsVis:      PropTypes.bool,
+    sideDrawerToggle:PropTypes.func,
+    sideDrawerClose: PropTypes.func,
+    modalToggle:     PropTypes.func,
+    modalClose:      PropTypes.func
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Layout);

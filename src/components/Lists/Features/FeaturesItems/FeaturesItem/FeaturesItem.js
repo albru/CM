@@ -1,10 +1,12 @@
 import React from 'react';
-import classes from './FeaturesItem.css';
+import PropTypes from 'prop-types';
+
 import GuaranteeIcon from '@material-ui/icons/Lock';
 import ContractIcon from '@material-ui/icons/Assignment';
 import RulesIcon from '@material-ui/icons/DoneAll';
 import TimeIcon from '@material-ui/icons/Timer';
-import PropTypes from 'prop-types';
+
+import classes from './FeaturesItem.css';
 
 const FeaturesItem = props => {
     let icon = null;

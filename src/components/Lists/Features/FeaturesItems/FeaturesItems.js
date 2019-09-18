@@ -1,15 +1,17 @@
 import React, { useMemo } from 'react';
+
 import FeaturesItem from './FeaturesItem/FeaturesItem';
-import { featuresData } from '../featuresDataObj/featuresDataObj';
+
+import { featuresData } from '../featuresData/featuresData';
 import classes from './FeaturesItems.css';
 
 
 const FeaturesItems = props => {
     const list = useMemo(() => {
-        const featuresList = featuresData.map((item) => {
+        const featuresList = featuresData.map((item, index) => {
             return (
                 <FeaturesItem 
-                    key={item.desc}
+                    key={index}
                     icon={item.icon}
                     desc={item.desc}
                     />
@@ -17,6 +19,7 @@ const FeaturesItems = props => {
         })
         return featuresList;
     },[])
+
     return (
         <ul className={classes.FeaturesItems}>
             {list}

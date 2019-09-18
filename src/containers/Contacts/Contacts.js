@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Section from '../../components/Section/Section';
 import BreadCrumbs from '../../components/Navigation/BreadCrumbs/BreadCrumbs';
 import Aux from '../../hoc/_Aux/_Aux';
@@ -7,9 +8,10 @@ import Adress from '../../components/Contacts/Adress/Adress';
 import Phone from '../../components/Contacts/Phone/Phone';
 import Email from '../../components/Contacts/Email/Email';
 import classes from './Contacts.css';
-import { breadCrumbsData } from '../../components/Navigation/BreadCrumbs/breadCrumbsDataObj/breadCrumbsDataObj';
 
-const contacts = props => {
+import { breadCrumbsData } from '../../components/Navigation/BreadCrumbs/breadCrumbsData/breadCrumbsData';
+
+const contacts = () => {
     const crumbs = breadCrumbsData.contactsCrumb;
     return (
         <Aux>
@@ -28,6 +30,5 @@ const contacts = props => {
         </Aux>
     )
 };
-// mac commit
 
 export default contacts;
