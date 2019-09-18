@@ -1,20 +1,12 @@
-import React from 'react';
-import Input from '../Input';
+import React, { useMemo } from 'react';
+import PropTypes from 'prop-types';
 
+import Input from '../Input';
 import Aux from '../../../hoc/_Aux/_Aux';
 
-
 const ModalInputList = props => {
-
-    const formElementsArray = [];
-    for (let key in props.inputData) {
-        formElementsArray.push({
-            id: key,
-            config: props.inputData[key]
-        })
-    } 
-    
-    const formContent = formElementsArray.map(formElement => {
+    const list = useMemo(() => {
+        const formContent = props.userData.map(formElement => {
             return (
                 <Input 
                     key={formElement.id}
@@ -29,11 +21,18 @@ const ModalInputList = props => {
                 />
             )
         })
+        return formContent;
+    },[props])
+    
     return (
         <Aux>
-            {formContent}
+            {list}
         </Aux>
     )
+};
+
+ModalInputList.propTypes = {
+    userData: PropTypes.array
 }
 
 

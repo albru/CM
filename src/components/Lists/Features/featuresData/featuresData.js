@@ -1,6 +1,5 @@
 
-export const featuresData = (() => {
-    return [
+export const featuresData = [
         {
             title: 'Гарантия',
             desc: 'До 3 лет гарантии на все выполненные работы и произведенные изделия',
@@ -21,5 +20,4 @@ export const featuresData = (() => {
             desc: 'Старт изготовления в день обращения',
             icon: 'TimeIcon'
         }
-    ]
-})();
+    ];

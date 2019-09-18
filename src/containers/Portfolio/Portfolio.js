@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
+
 import Aux from '../../hoc/_Aux/_Aux';
 import Section from '../../components/Section/Section';
 import PortfolioItems from '../../components/Lists/Portfolio/Portfolioitems/PortfolioItems';
 import BreadCrumbs from '../../components/Navigation/BreadCrumbs/BreadCrumbs';
 import Button from '../../components/UI/Button/Button';
-import { updateObject } from '../../shared/utility';
-import { breadCrumbsData } from '../../components/Navigation/BreadCrumbs/breadCrumbsDataObj/breadCrumbsDataObj';
-import { portfolioData } from '../../components/Lists/Portfolio/portfolioDataObj/portfolioDataObj';
 
-const Portfolio = props => {
+import { updateObject } from '../../shared/utility';
+import { breadCrumbsData } from '../../components/Navigation/BreadCrumbs/breadCrumbsData/breadCrumbsData';
+import { portfolioData } from '../../components/Lists/Portfolio/portfolioData/portfolioData';
+
+const Portfolio = () => {
     let updatedPortfolioData = [];
     for (let key in portfolioData) {
         updatedPortfolioData.push(portfolioData[key])
@@ -36,7 +38,9 @@ const Portfolio = props => {
         updatedState.portfolioData = [...updatedPortfolioData].slice(updatedState.initial, updatedState.items)
         setPortfolioState(updatedState)
     }
+    
     const crumbs = breadCrumbsData.portfolioCrumb;
+
     const showMoreButton = (
         portfolioState.maximumItems === false ?
          <Button clicked={addPortfolioItem} 

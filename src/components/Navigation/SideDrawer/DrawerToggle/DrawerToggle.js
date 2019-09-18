@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import classes from './DrawerToggle.css';
 import media from '../../../../shared/css/media.css';
-import PropTypes from 'prop-types';
 
 const DrawerToggle = props => {
     let attachedClasses = [media.PhonesOnly, classes.DrawerToggle]

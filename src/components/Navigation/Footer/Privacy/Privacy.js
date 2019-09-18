@@ -1,7 +1,8 @@
 import React from 'react';
+
 import classes from './Privacy.css';
 
-const privacy = props => {
+const privacy = () => {
     return (
         <div className={classes.Privacy}>
             <p>

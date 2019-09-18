@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import OrderItems from '../../components/Lists/Orders/OrderItems/OrderItems';
 import Section from '../../components/Section/Section';
 
 const Orders = props => {
 
-    const title = props.ordersLoaded ? <h1>Мои заказы</h1> : null
+    const title = props.ordersIsLoad ? <h1>Мои заказы</h1> : null
 
     return (
         <Section sectionType="Orders">
@@ -17,8 +19,12 @@ const Orders = props => {
 
 const mapStateToProps = state => {
     return {
-        ordersLoaded: state.orders.data
+        ordersIsLoad: state.orders.data
     }
+}
+
+Orders.propTypes = {
+    ordersIsLoad: PropTypes.object
 }
 
 export default connect(mapStateToProps,null)(Orders);

@@ -1,10 +1,14 @@
 import React from 'react';
-import classes from './Backdrop.css';
-import Aux from '../../../hoc/_Aux/_Aux';
 import PropTypes from 'prop-types';
 
+import Aux from '../../../hoc/_Aux/_Aux';
+
+import classes from './Backdrop.css';
+
 const Backdrop = props => {
+
     let showBackdrop = null;
+    
     if (props.sideDrawerIsVis) {
         showBackdrop = (
         <div 

@@ -1,22 +1,26 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../../../../store/actions/index';
+import { PropTypes } from 'prop-types';
+
 import Spinner from '../../../UI/Spinner/Spinner';
 import OrderItem from './OrderItem/OrderItem';
-import { PropTypes } from 'prop-types';
+
 import classes from './OrderItems.css';
+import * as actions from '../../../../store/actions/index';
 
 const OrderItems = props => {
     const { 
-        loadOrders, 
-        loadedOrders, 
+        fetchOrders, 
+        ordersIsLoad, 
         extra,
-        loading 
+        loading,
+        token,
+        userId 
     } = props;
 
     useEffect(() => {
-        loadOrders(props.token, props.userId);
-    },[loadOrders, props.token, props.userId])
+        fetchOrders(token, userId);
+    },[fetchOrders, token, userId])
 
     let orderList = [];
     let orders;
@@ -26,8 +30,8 @@ const OrderItems = props => {
     }
 
     if (extra) {
-        for (let key in loadedOrders) {
-            orderList.push(loadedOrders[key])
+        for (let key in ordersIsLoad) {
+            orderList.push(ordersIsLoad[key])
         }
         orders = orderList.map(( item, index ) => 
         <OrderItem 
@@ -50,7 +54,7 @@ const OrderItems = props => {
 
 const mapStateToProps = state => {
     return {
-        loadedOrders: state.orders.data,
+        ordersIsLoad: state.orders.data,
         extra: state.orders.fetchResult.extra,
         loading: state.orders.fetchResult.loading,
         token: state.auth.token,
@@ -60,16 +64,14 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        loadOrders: (token, userId) => dispatch(actions.fetchOrders(token, userId))
+        fetchOrders: (token, userId) => dispatch(actions.fetchOrders(token, userId))
     }
 }
 
 OrderItems.propTypes = {
-    loadOrders:   PropTypes.func,
-    loadedOrders: PropTypes.object,
+    ordersIsLoad: PropTypes.func,
+    fetchOrders:  PropTypes.object,
     extra:        PropTypes.bool
 }
-
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(OrderItems);
