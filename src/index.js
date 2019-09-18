@@ -10,10 +10,11 @@ import modalFormReducer from './store/reducers/modalForm';
 import authReducer from './store/reducers/auth';
 import ordersReducer from './store/reducers/orders';
 import sideDrawerReducer from './store/reducers/sideDrawer';
-// import modalReducer from './store/reducers/modal';
-import ScrollToTop from './hoc/ScrollToTop/ScrollToTop';
-import './index.css';
+
 import App from './App';
+import ScrollToTop from './hoc/ScrollToTop/ScrollToTop';
+
+import './index.css';
 import * as serviceWorker from './serviceWorker';
 
 const rootReducer = combineReducers({
@@ -43,4 +44,4 @@ ReactDOM.render(
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+serviceWorker.register();
