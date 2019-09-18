@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+
 import Input from '../Input';
 import Aux from '../../../hoc/_Aux/_Aux';
 
 const OrderInputList = props => {
 
-    const formContent = props.array.map(formElement => {
+    const list = useMemo(() => {
+        const formContent = props.userData.map(formElement => {
             return (
                 <Input 
                     key={formElement.id}
@@ -21,21 +22,19 @@ const OrderInputList = props => {
                 />
             )
         })
+        return formContent;
+    },[props])
+    
     return (
         <Aux>
-            {formContent}
+            {list}
         </Aux>
     )
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        orderFormHandler: (inputName, value) => dispatch({ type: 'ORDER_FORM_HANDLER', inputName: inputName, value: value })
-    }
-}
 
 OrderInputList.propTypes = {
-    orderFormHandler: PropTypes.func
+    userData: PropTypes.array
 }
 
-export default connect(null, mapDispatchToProps)(OrderInputList);
+export default OrderInputList;

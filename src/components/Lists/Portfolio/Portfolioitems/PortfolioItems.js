@@ -1,8 +1,10 @@
 import React, { useMemo } from 'react';
-import classes from './PortfolioItems.css';
-import PortfolioItem from './PortfolioItem/PortfolioItem';
-import { userUseApple } from '../../../../shared/utility';
 import PropTypes from 'prop-types';
+
+import PortfolioItem from './PortfolioItem/PortfolioItem';
+
+import { userUseApple } from '../../../../shared/utility';
+import classes from './PortfolioItems.css';
 
 const PortfolioItems = props => {
     
@@ -12,7 +14,7 @@ const PortfolioItems = props => {
         let portfolioList = props.dataArr.map((item, index) => {
             return (
                 <PortfolioItem 
-                    key={item.title}
+                    key={index}
                     imgSrc={isMac ? item.imgSrcJpg : item.imgSrc}
                     imgAlt={item.imgAlt}
                     title={item.title}

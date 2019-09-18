@@ -1,11 +1,11 @@
 import * as actionTypes from '../actions/actionTypes';
 import { updateObject } from '../../shared/utility';
-import { inputData } from '../../components/Input/inputDataObj/inputDataObj';
+import { orderUserData } from '../../components/Forms/OrderForm/orderUserData/orderUserData';
 
 const changedState = {};
 
-for (let key in inputData.orderInputData) {
-    changedState[key] = inputData.orderInputData[key].value
+for (let key in orderUserData) {
+    changedState[key] = orderUserData[key].value
 }
 
 const initialState = {

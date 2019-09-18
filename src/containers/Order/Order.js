@@ -1,11 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import Section from '../../components/Section/Section';
 import BreadCrumbs from '../../components/Navigation/BreadCrumbs/BreadCrumbs';
-import { breadCrumbsData } from '../../components/Navigation/BreadCrumbs/breadCrumbsDataObj/breadCrumbsDataObj';
 import OrderForm from '../../components/Forms/OrderForm/OrderForm';
 
-const AdvConstructor = props => {
+import { breadCrumbsData } from '../../components/Navigation/BreadCrumbs/breadCrumbsData/breadCrumbsData';
+
+const Order = props => {
     const crumbs = breadCrumbsData.orderCrumb;
     return (
         <Section sectionType="Order"> 
@@ -24,4 +27,12 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, null)(AdvConstructor);
+Order.propTypes = {
+    success: PropTypes.bool,
+    error:   PropTypes.oneOfType([
+                PropTypes.bool,
+                PropTypes.string
+            ])
+}
+
+export default connect(mapStateToProps, null)(Order);

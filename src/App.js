@@ -1,12 +1,15 @@
 import React, { Suspense, useEffect } from 'react';
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import './App.css';
+import PropTypes from 'prop-types';
+
 import Layout from './hoc/Layout/Layout';
 import MainPage from './containers/MainPage/MainPage';
 import Spinner from './components/UI/Spinner/Spinner';
 import Logout from './containers/Auth/Logout/Logout';
+
 import * as actions from './store/actions/index';
+import './App.css';
 
 const Portfolio = React.lazy(() => {
   return import('./containers/Portfolio/Portfolio');
@@ -95,6 +98,11 @@ const mapDispatchToProps = dispatch => {
   return {
     onTryAutoSignUp: () => dispatch(actions.authCheckState())
   }
+}
+
+App.propTypes = {
+  isAuth: PropTypes.bool,
+  onTryAutoSignUp: PropTypes.func
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

@@ -18,8 +18,6 @@ const SideDrawer = (props) => {
             <Backdrop
                 sideDrawerIsVis={props.sideDrawerIsVis}
                 sideDrawerClose={props.sideDrawerClose}
-                modalIsVis={props.modalIsVis}
-                modalIsClose={props.modalClose}
             />
             <div
                 className={attachedClasses.join(' ')}

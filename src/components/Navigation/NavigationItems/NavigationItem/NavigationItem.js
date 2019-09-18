@@ -1,6 +1,7 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
+
 import classes from './NavigationItem.css';
 
 const NavigationItem = props => {
@@ -17,7 +18,7 @@ const NavigationItem = props => {
 
 NavigationItem.propTypes = {
     route: PropTypes.string,
-    name: PropTypes.string
+    name:  PropTypes.string
 
 }
 

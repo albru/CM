@@ -1,13 +1,16 @@
 import React from 'react';
-import classes from './Toolbar.css';
+import PropTypes from 'prop-types';
+
 import NavigationItems from '../NavigationItems/NavigationItems';
 import Logo from '../../Logo/Logo';
 import Aux from '../../../hoc/_Aux/_Aux';
 import DrawerToggle from '../SideDrawer/DrawerToggle/DrawerToggle';
 import Button from '../../UI/Button/Button';
-import media from '../../../shared/css/media.css';
 import PhoneIcon from '@material-ui/icons/Phone';
 import SideDrawer from '../../Navigation/SideDrawer/SideDrawer'; 
+
+import classes from './Toolbar.css';
+import media from '../../../shared/css/media.css';
 
 const Toolbar = props => {
     props.modalIsVis || props.sideDrawerIsVis 
@@ -36,6 +39,14 @@ const Toolbar = props => {
             </header>
         </Aux>
     )
+}
+
+Toolbar.propTypes = {
+    sideDrawerClose: PropTypes.func,
+    sideDrawerIsVis: PropTypes.bool,
+    modalClose:      PropTypes.func,
+    modalIsVis:      PropTypes.bool,
+    modalToggle:     PropTypes.func
 }
 
 export default Toolbar;

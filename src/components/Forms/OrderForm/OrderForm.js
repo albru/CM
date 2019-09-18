@@ -2,27 +2,23 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
+
 import Button from '../../UI/Button/Button';
 import OrderInputList from '../../Input/OrderInputList/OrderInputList';
 import classes from './OrderForm.css';
 import ErrorMessage from '../../UI/ErrorMessage/ErrorMessage';
 import Spinner from '../../UI/Spinner/Spinner';
 import Aux from '../../../hoc/_Aux/_Aux';
+
 import * as actions from '../../../store/actions/index';
-import { inputData } from '../../Input/inputDataObj/inputDataObj';
-import { updateObject } from '../../../shared/utility';
+import { orderUserData } from './orderUserData/orderUserData';
+import { updateObject, createElementsArray } from '../../../shared/utility';
 
 const OrderForm = props => {
 
-    const [ orderInputData, setOrderInputData ] = useState(inputData.orderInputData)
+    const [ orderInputData, setOrderInputData ] = useState(orderUserData)
 
-    const formElementsArray = [];
-    for (let key in orderInputData) {
-        formElementsArray.push({
-            id: key,
-            config: orderInputData[key]
-        })
-    } 
+    const formElementsArray = createElementsArray(orderUserData)
 
     const inputChangeHandler = ((event, inputName) => {
         const updatedValue = updateObject(orderInputData, {
@@ -56,10 +52,10 @@ const OrderForm = props => {
     let spinner = props.loading ? <Spinner /> : null;
 
     let form = (
-        <form className={classes.OrderForm} onSubmit={(event) => submitFormHandler(event, props.userId)}>
+        <form className={classes.OrderForm} 
+              onSubmit={(event) => submitFormHandler(event, props.userId)}>
             <OrderInputList inputChangeHandler={inputChangeHandler}
-                            array={formElementsArray}
-            />
+                            userData={formElementsArray}/>
             <Button btnType="MainButton">{props.token ? 'Готово' : 'Регистрация'}</Button> 
             {spinner}
         </form>
@@ -109,8 +105,8 @@ const mapDispatchToProps = dispatch => {
 OrderForm.propTypes = {
     success: PropTypes.bool,
     error:   PropTypes.oneOfType([
-                PropTypes.bool,
-                PropTypes.string
+             PropTypes.bool,
+             PropTypes.string
     ]),
     orderData:              PropTypes.object,
     submitOrderForm:        PropTypes.func,

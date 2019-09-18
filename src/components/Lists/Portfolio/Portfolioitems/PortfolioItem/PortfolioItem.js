@@ -1,16 +1,23 @@
 import React from 'react';
-
-import classes from './PortfolioItem.css';
 import PropTypes from 'prop-types';
 
+import classes from './PortfolioItem.css';
+
 const portfolioItem = props => {
+    const {
+        imgSrc,
+        imgAlt,
+        title,
+        desc
+    } = props
+
     return (
         <li className={classes.PortfolioItem}>
             <div className={classes.PortfolioImgCont}>
-                <img src={props.imgSrc} alt={props.imgAlt}></img>
+                <img src={imgSrc} alt={imgAlt}></img>
             </div>
-            <h3>{props.title}</h3>
-            <p>{props.desc}</p>
+            <h3>{title}</h3>
+            <p>{desc}</p>
         </li>
     )
 };

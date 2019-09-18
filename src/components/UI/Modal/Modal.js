@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import Aux from '../../../hoc/_Aux/_Aux';
 import Backdrop from '../Backdrop/Backdrop';
+
 import classes from './Modal.css';
 
 const Modal = props => {
@@ -32,7 +34,7 @@ const Modal = props => {
 
 Modal.propTypes = {
     modalClose: PropTypes.func,
-    modalIsShow: PropTypes.bool
+    modalIsVis: PropTypes.bool
 }
 
 export default Modal;
