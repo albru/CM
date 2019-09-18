@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -8,31 +8,18 @@ import Button from '../../UI/Button/Button';
 import ModalInputList from '../../Input/ModalInputList/ModalInputList';
 
 import * as actions from '../../../store/actions/index';
-import { updateObject, checkValidity, createElementsArray } from '../../../shared/utility';
+import { createElementsArray } from '../../../shared/utility';
 import { modalUserData } from './modalUserData/modalUserData';
+import { useInputChangeHandler } from '../../../hooks/hooks.js';
 
 const ModalForm = props => {
 
-    const [modalInputData, setModalInputData] = useState(modalUserData);
-    const formElementsArray = createElementsArray(modalUserData)
-    
-    const inputChangeHandler = ((event, inputName) => {
-        const updatedValue = updateObject(modalInputData, {
-            [inputName]: updateObject(modalInputData[inputName], {
-                value: event.target.value,
-                valid: checkValidity(
-                    event.target.value,
-                    modalInputData[inputName].validation
-                ),
-                touched: true
-            })
-        })
-        setModalInputData(updatedValue)
-    })
-    
+    const { inputChangeHandler, inputData } = useInputChangeHandler(modalUserData)
+    const formElementsArray = createElementsArray(inputData)
+
     const submitFormHandler = event => {
         event.preventDefault()
-        props.submitModalForm(modalInputData)
+        props.submitModalForm(inputData)
     }
 
     const confirmErrorHandler = () => {

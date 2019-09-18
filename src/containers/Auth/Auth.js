@@ -8,66 +8,47 @@ import Button from '../../components/UI/Button/Button';
 import Spinner from '../../components/UI/Spinner/Spinner';
 
 import classes from './Auth.css';
-import { updateObject } from '../../shared/utility.js';
 import { authData } from './authData/authData';
-import { checkValidity, createElementsArray } from '../../shared/utility.js';
+import { createElementsArray } from '../../shared/utility.js';
 import * as actions from '../../store/actions/index';
+import { useInputChangeHandler } from '../../hooks/hooks';
 
 
 const Auth = props => {
 
-    const [authInputData, setAuthInputData] = useState(authData);
+    const { inputChangeHandler, inputData } = useInputChangeHandler(authData)
     const [isSignUp, setIsSignUp] = useState(true);
-
-    const inputChangeHandler = (event, inputName) => {
-        const updatedValue = updateObject(authInputData, {
-            [inputName]: updateObject(authInputData[inputName], {
-            value: event.target.value,
-            valid: checkValidity(
-                event.target.value,
-                authInputData[inputName].validation
-            ),
-            touched: true
-            })
-        })
-        setAuthInputData(updatedValue)
-    }
 
     const authSubmitHandler = (event) => {
         event.preventDefault();
-        props.onAuth(authInputData.email.value, authInputData.password.value, isSignUp)
+        props.onAuth(inputData.email.value, inputData.password.value, isSignUp)
     }
 
     const switchAuthHandler = () => {
         setIsSignUp(!isSignUp)
     }
 
-    const formElementsArray = createElementsArray(authInputData);
+    const formElementsArray = createElementsArray(inputData);
 
-    const list = () => {
-        const formContent = formElementsArray.map(formElement => {
-            return (
-                <Input 
-                    key={formElement.id}
-                    elementType={formElement.config.elementType}
-                    elementConfig={formElement.config.elementConfig}
-                    value={formElement.config.value}
-                    invalid={!formElement.config.valid}
-                    shouldValidate={formElement.config.validation}
-                    touched={formElement.config.touched}
-                    label={formElement.config.label}
-                    changed={(event) => inputChangeHandler(event, formElement.id)}
-                />
-            )
-        })
-        return formContent;
-    }
+    let formContent = formElementsArray.map(formElement => {
+        return (
+            <Input 
+                key={formElement.id}
+                elementType={formElement.config.elementType}
+                elementConfig={formElement.config.elementConfig}
+                value={formElement.config.value}
+                invalid={!formElement.config.valid}
+                shouldValidate={formElement.config.validation}
+                touched={formElement.config.touched}
+                label={formElement.config.label}
+                changed={(event) => inputChangeHandler(event, formElement.id)}
+            />
+        )
+    })
 
     let errorMessage = null;
     let authRedirect = null;
-    let formContent = null;
     
-    formContent = list;
     if(props.loading) formContent = <Spinner />
     if(props.error) errorMessage = ( <p>{props.error}</p> )
     if(props.isAuth) authRedirect = <Redirect to="/" />

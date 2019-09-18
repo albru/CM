@@ -1,4 +1,23 @@
-// import { useReducer, useCallback } from 'react';
+import { useState } from 'react';
+import { updateObject, checkValidity } from '../shared/utility';
+
+export const useInputChangeHandler = (obj) => {    
+    const [inputData, setInputData] = useState(obj);
+    function inputChangeHandler(event, inputName) {
+        const updatedValue = updateObject(inputData, {
+            [inputName]: updateObject(inputData[inputName], {
+                value: event.target.value,
+                valid: checkValidity(
+                    event.target.value,
+                    inputData[inputName].validation
+                ),
+                touched: true
+            })
+        })
+        setInputData(updatedValue)
+    }
+    return {inputChangeHandler: inputChangeHandler, inputData: inputData}
+}
 
 // const initialState = {
 //   loading: false,
