@@ -3,7 +3,6 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import Input from '../../components/Input/Input';
 import Button from '../../components/UI/Button/Button';
 import Spinner from '../../components/UI/Spinner/Spinner';
 
@@ -12,44 +11,28 @@ import { authData } from './authData/authData';
 import { createElementsArray } from '../../shared/utility.js';
 import * as actions from '../../store/actions/index';
 import { useInputChangeHandler } from '../../hooks/hooks';
-
+import { useInputFabric } from '../../hooks/hooks';
 
 const Auth = props => {
 
-    const { inputChangeHandler, inputData } = useInputChangeHandler(authData)
+    const { inputChangeHandler, inputData } = useInputChangeHandler(authData);
+    const formElementsArray = createElementsArray(inputData);
     const [isSignUp, setIsSignUp] = useState(true);
-
     const authSubmitHandler = (event) => {
         event.preventDefault();
         props.onAuth(inputData.email.value, inputData.password.value, isSignUp)
     }
-
+    
     const switchAuthHandler = () => {
         setIsSignUp(!isSignUp)
     }
 
-    const formElementsArray = createElementsArray(inputData);
-
-    let formContent = formElementsArray.map(formElement => {
-        return (
-            <Input 
-                key={formElement.id}
-                elementType={formElement.config.elementType}
-                elementConfig={formElement.config.elementConfig}
-                value={formElement.config.value}
-                invalid={!formElement.config.valid}
-                shouldValidate={formElement.config.validation}
-                touched={formElement.config.touched}
-                label={formElement.config.label}
-                changed={(event) => inputChangeHandler(event, formElement.id)}
-            />
-        )
-    })
+    let { list } = useInputFabric(formElementsArray, inputChangeHandler)
 
     let errorMessage = null;
     let authRedirect = null;
     
-    if(props.loading) formContent = <Spinner />
+    if(props.loading) list = <Spinner />
     if(props.error) errorMessage = ( <p>{props.error}</p> )
     if(props.isAuth) authRedirect = <Redirect to="/" />
     
@@ -58,7 +41,7 @@ const Auth = props => {
             {authRedirect}
             <h1> {isSignUp ? "Регистрация" : "Вход"} </h1> 
             <form onSubmit={authSubmitHandler}>
-                {formContent}
+                {list}
                 <Button btnType="Success">ВХОД</Button>
             </form>
             <Button btnType="MainButton"

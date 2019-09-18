@@ -1,29 +1,13 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-import Input from '../Input';
 import Aux from '../../../hoc/_Aux/_Aux';
+
+import { useInputFabric } from '../../../hooks/hooks';
 
 const OrderInputList = props => {
 
-    const list = useMemo(() => {
-        const formContent = props.userData.map(formElement => {
-            return (
-                <Input 
-                    key={formElement.id}
-                    elementType={formElement.config.elementType}
-                    elementConfig={formElement.config.elementConfig}
-                    value={formElement.config.value}
-                    invalid={!formElement.config.valid}
-                    shouldValidate={formElement.config.validation}
-                    touched={formElement.config.touched}
-                    label={formElement.config.label}
-                    changed={(event) => props.inputChangeHandler(event, formElement.id)}
-                />
-            )
-        })
-        return formContent;
-    },[props])
+    const { list } = useInputFabric(props.userData, props.inputChangeHandler);
     
     return (
         <Aux>

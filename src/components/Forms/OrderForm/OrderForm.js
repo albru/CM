@@ -18,7 +18,7 @@ const OrderForm = props => {
 
     const [ orderInputData, setOrderInputData ] = useState(orderUserData)
 
-    const formElementsArray = createElementsArray(orderUserData)
+    const formElementsArray = createElementsArray(orderInputData)
 
     const inputChangeHandler = ((event, inputName) => {
         const updatedValue = updateObject(orderInputData, {

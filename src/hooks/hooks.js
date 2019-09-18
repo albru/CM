@@ -1,5 +1,8 @@
+import React from 'react';
 import { useState } from 'react';
 import { updateObject, checkValidity } from '../shared/utility';
+
+import Input from '../components/Input/Input';
 
 export const useInputChangeHandler = (obj) => {    
     const [inputData, setInputData] = useState(obj);
@@ -17,6 +20,25 @@ export const useInputChangeHandler = (obj) => {
         setInputData(updatedValue)
     }
     return {inputChangeHandler: inputChangeHandler, inputData: inputData}
+}
+
+export const useInputFabric = (arr, handler) => {
+    const list = arr.map(formElement => {
+        return (
+            <Input 
+                key={formElement.id}
+                elementType={formElement.config.elementType}
+                elementConfig={formElement.config.elementConfig}
+                value={formElement.config.value}
+                invalid={!formElement.config.valid}
+                shouldValidate={formElement.config.validation}
+                touched={formElement.config.touched}
+                label={formElement.label}
+                changed={event => handler(event, formElement.id)}
+            />
+        )
+    })
+    return {list: list}
 }
 
 // const initialState = {
