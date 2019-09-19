@@ -15,7 +15,7 @@ import { useInputFabric } from '../../hooks/hooks';
 
 const Auth = props => {
 
-    const { inputChangeHandler, inputData } = useInputChangeHandler(authData);
+    const { inputChangeHandler, inputData } = useInputChangeHandler(authData)
     const formElementsArray = createElementsArray(inputData);
     const [isSignUp, setIsSignUp] = useState(true);
     const authSubmitHandler = (event) => {

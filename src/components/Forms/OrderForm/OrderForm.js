@@ -63,7 +63,8 @@ const OrderForm = props => {
 
     if(props.error) {
         form = (
-            <ErrorMessage errorMessage={props.error} btnClick={props.fetchOrderClear}/>
+            <ErrorMessage errorMessage={props.error} 
+                          btnClick={props.fetchOrderClear}/>
         )
     }
 
@@ -71,7 +72,8 @@ const OrderForm = props => {
         form = (
             <Aux>
                 <h2>Благодарим за заказ! Информацию о своих заказах вы сможете найти в личном кабинете</h2>
-                <Button btnType="MainButton" clicked={succesConfirmHandler}>Ок</Button>
+                <Button btnType="MainButton" 
+                        clicked={succesConfirmHandler}>Ок</Button>
             </Aux>
            
         )
@@ -105,8 +107,8 @@ const mapDispatchToProps = dispatch => {
 OrderForm.propTypes = {
     success: PropTypes.bool,
     error:   PropTypes.oneOfType([
-             PropTypes.bool,
-             PropTypes.string
+                PropTypes.bool,
+                PropTypes.string
     ]),
     orderData:              PropTypes.object,
     submitOrderForm:        PropTypes.func,
