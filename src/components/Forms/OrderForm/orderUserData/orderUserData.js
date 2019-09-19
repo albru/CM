@@ -48,6 +48,7 @@ export const orderUserData = {
         },
         value: '',
         validation: {},
-        valid: true
+        valid: true,
+        label: 'Комментарий'
         }
 }

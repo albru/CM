@@ -1,26 +1,37 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { PropTypes } from 'prop-types';
+import PropTypes from 'prop-types';
 
 import Spinner from '../../../UI/Spinner/Spinner';
 import OrderItem from './OrderItem/OrderItem';
+import ErrorMessage from '../../../UI/ErrorMessage/ErrorMessage';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 import classes from './OrderItems.css';
 import * as actions from '../../../../store/actions/index';
 
 const OrderItems = props => {
     const { 
-        fetchOrders, 
+        fetchOrders,
+        fetchClear,
         ordersIsLoad, 
-        extra,
+        success,
         loading,
         token,
-        userId 
+        userId,
+        error
     } = props;
 
     useEffect(() => {
         fetchOrders(token, userId);
     },[fetchOrders, token, userId])
+    
+    const filteredObjAfterDelete = (obj, id) => {
+        let res = Object.keys(obj) 
+              .filter( key => key !== id ) 
+              .reduce( (res, key) => Object.assign(res, { [key]: obj[key] }), {} ); 
+        return res
+    }
 
     let orderList = [];
     let orders;
@@ -29,9 +40,11 @@ const OrderItems = props => {
         orders = <Spinner />
     }
 
-    if (extra) {
+    if (success) {
+        let result;
         for (let key in ordersIsLoad) {
-            orderList.push(ordersIsLoad[key])
+            result = {...ordersIsLoad[key], id: key}
+            orderList.push(result)
         }
         orders = orderList.map(( item, index ) => 
         <OrderItem 
@@ -40,10 +53,16 @@ const OrderItems = props => {
             place={item.place}
             comment={item.comment}
             time={item.showTime}
+            icon={<DeleteIcon onClick={() => props.deleteOrder(item.id, token, filteredObjAfterDelete(ordersIsLoad, item.id))}/>}
         />
         )
     }
 
+    if (error) {
+        orders = <ErrorMessage errorMessage={error}
+                               btnClick={fetchClear}
+        />
+    }
 
     return (
         <ul className={classes.OrderItems}>
@@ -55,7 +74,8 @@ const OrderItems = props => {
 const mapStateToProps = state => {
     return {
         ordersIsLoad: state.orders.data,
-        extra: state.orders.fetchResult.extra,
+        success: state.orders.fetchResult.success,
+        error: state.orders.fetchResult.error,
         loading: state.orders.fetchResult.loading,
         token: state.auth.token,
         userId: state.auth.userId
@@ -64,14 +84,25 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchOrders: (token, userId) => dispatch(actions.fetchOrders(token, userId))
+        fetchOrders: (token, userId) => dispatch(actions.fetchOrders(token, userId)),
+        fetchClear: () => dispatch(actions.fetchOrdersClear()),
+        deleteOrder: (orderId, token, data) => dispatch(actions.deleteOrder(orderId, token, data))
     }
 }
 
 OrderItems.propTypes = {
-    ordersIsLoad: PropTypes.func,
-    fetchOrders:  PropTypes.object,
-    extra:        PropTypes.bool
+    ordersIsLoad: PropTypes.object,
+    fetchOrders:  PropTypes.func,
+    fetchClear:   PropTypes.func,
+    deleteOrder:  PropTypes.func,
+    token:        PropTypes.string,
+    loading:      PropTypes.bool,
+    success:      PropTypes.bool,
+    userId:       PropTypes.string,
+    error:        PropTypes.oneOfType([
+                    PropTypes.string,
+                    PropTypes.bool
+    ])
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(OrderItems);

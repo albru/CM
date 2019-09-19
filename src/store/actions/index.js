@@ -15,7 +15,9 @@ export {
 
 // ORDERS-------------------------------------------------
 export {
-    fetchOrders
+    fetchOrders,
+    fetchOrdersClear,
+    deleteOrder
 } from './orders';
 
 // MODAL FORM-------------------------------------------------

@@ -17,9 +17,8 @@ import { updateObject, createElementsArray } from '../../../shared/utility';
 const OrderForm = props => {
 
     const [ orderInputData, setOrderInputData ] = useState(orderUserData)
-
     const formElementsArray = createElementsArray(orderInputData)
-
+    
     const inputChangeHandler = ((event, inputName) => {
         const updatedValue = updateObject(orderInputData, {
             [inputName]: updateObject(orderInputData[inputName], {
@@ -49,16 +48,16 @@ const OrderForm = props => {
         props.fetchOrderClear();
     }
 
-    let spinner = props.loading ? <Spinner /> : null;
-
     let form = (
-        <form className={classes.OrderForm} 
-              onSubmit={(event) => submitFormHandler(event, props.userId)}>
-            <OrderInputList inputChangeHandler={inputChangeHandler}
-                            userData={formElementsArray}/>
+        <Aux>
+            <form className={classes.OrderForm} 
+                  onSubmit={(event) => submitFormHandler(event, props.userId)}>
+                <OrderInputList inputChangeHandler={inputChangeHandler}
+                                userData={formElementsArray}/>
             <Button btnType="MainButton">{props.token ? 'Готово' : 'Регистрация'}</Button> 
-            {spinner}
-        </form>
+            </form>
+            {props.loading ? <Spinner /> : null}
+        </Aux>
     )
 
     if(props.error) {

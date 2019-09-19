@@ -5,19 +5,25 @@ import PropTypes from 'prop-types';
 
 import Button from '../../components/UI/Button/Button';
 import Spinner from '../../components/UI/Spinner/Spinner';
+import BreadCrumbs from '../../components/Navigation/BreadCrumbs/BreadCrumbs';
+import Section from '../../components/Section/Section';
 
 import classes from './Auth.css';
 import { authData } from './authData/authData';
 import { createElementsArray } from '../../shared/utility.js';
 import * as actions from '../../store/actions/index';
+import { breadCrumbsData } from '../../components/Navigation/BreadCrumbs/breadCrumbsData/breadCrumbsData';
 import { useInputChangeHandler } from '../../hooks/hooks';
 import { useInputFabric } from '../../hooks/hooks';
 
 const Auth = props => {
 
-    const { inputChangeHandler, inputData } = useInputChangeHandler(authData)
-    const formElementsArray = createElementsArray(inputData);
+    const { inputChangeHandler, inputData } = useInputChangeHandler(authData);
     const [isSignUp, setIsSignUp] = useState(true);
+    const formElementsArray = createElementsArray(inputData);
+    const { list } = useInputFabric(formElementsArray, inputChangeHandler);
+    const crumbs = breadCrumbsData.authCrumb;
+
     const authSubmitHandler = (event) => {
         event.preventDefault();
         props.onAuth(inputData.email.value, inputData.password.value, isSignUp)
@@ -26,28 +32,25 @@ const Auth = props => {
     const switchAuthHandler = () => {
         setIsSignUp(!isSignUp)
     }
-
-    let { list } = useInputFabric(formElementsArray, inputChangeHandler)
-
-    let errorMessage = null;
-    let authRedirect = null;
-    
-    if(props.loading) list = <Spinner />
-    if(props.error) errorMessage = ( <p>{props.error}</p> )
-    if(props.isAuth) authRedirect = <Redirect to="/" />
     
     return (
-        <section className={classes.Auth}>
-            {authRedirect}
+        <Section sectionType='Auth'>
+            <BreadCrumbs crumbs={crumbs} />
+            {props.isAuth ?  <Redirect to="/" /> : null}
             <h1> {isSignUp ? "Регистрация" : "Вход"} </h1> 
-            <form onSubmit={authSubmitHandler}>
+            <form onSubmit={authSubmitHandler}
+                  className={classes.AuthForm}>
+                <h3>Пожалуйста, заполните форму</h3>
                 {list}
-                <Button btnType="Success">ВХОД</Button>
+                <Button btnType="MainButton">
+                    {!isSignUp && !props.loading ? 'Войти' : 'Зарегистрироваться'}</Button>
+                <span onClick={switchAuthHandler}
+                      className={classes.SwitchSignIn}>
+                      {isSignUp ? 'Вход' : 'Регистрация'}</span>
             </form>
-            <Button btnType="MainButton"
-                    clicked={switchAuthHandler}>переключатель</Button>
-            {errorMessage}
-        </section>
+            {props.loading ? <Spinner /> : null}
+            {props.error ? <p>{props.error}</p> : null}
+        </Section>
     )
 }
 

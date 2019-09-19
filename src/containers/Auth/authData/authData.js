@@ -12,7 +12,8 @@ export const authData = (() => {
                         isEmail: true
                     },
                     valid: false,
-                    touched: false
+                    touched: false,
+                    label: 'Почта'
                 },
                 password: {
                     elementType: 'input',
@@ -26,7 +27,8 @@ export const authData = (() => {
                         minLength: 6
                     },
                     valid: false,
-                    touched: false
+                    touched: false,
+                    label: 'Пароль'
             }
         }
 })();
