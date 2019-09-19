@@ -33,7 +33,7 @@ export const useInputFabric = (arr, handler) => {
                 invalid={!formElement.config.valid}
                 shouldValidate={formElement.config.validation}
                 touched={formElement.config.touched}
-                label={formElement.label}
+                label={formElement.config.label}
                 changed={event => handler(event, formElement.id)}
             />
         )

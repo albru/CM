@@ -4,18 +4,21 @@ import { PropTypes } from 'prop-types';
 
 import Spinner from '../../../UI/Spinner/Spinner';
 import OrderItem from './OrderItem/OrderItem';
+import ErrorMessage from '../../../UI/ErrorMessage/ErrorMessage';
 
 import classes from './OrderItems.css';
 import * as actions from '../../../../store/actions/index';
 
 const OrderItems = props => {
     const { 
-        fetchOrders, 
+        fetchOrders,
+        fetchClear,
         ordersIsLoad, 
-        extra,
+        success,
         loading,
         token,
-        userId 
+        userId,
+        error
     } = props;
 
     useEffect(() => {
@@ -29,7 +32,7 @@ const OrderItems = props => {
         orders = <Spinner />
     }
 
-    if (extra) {
+    if (success) {
         for (let key in ordersIsLoad) {
             orderList.push(ordersIsLoad[key])
         }
@@ -44,6 +47,12 @@ const OrderItems = props => {
         )
     }
 
+    if (error) {
+        orders = <ErrorMessage errorMessage={error}
+                               btnClick={fetchClear}
+        />
+    }
+
 
     return (
         <ul className={classes.OrderItems}>
@@ -55,7 +64,8 @@ const OrderItems = props => {
 const mapStateToProps = state => {
     return {
         ordersIsLoad: state.orders.data,
-        extra: state.orders.fetchResult.extra,
+        success: state.orders.fetchResult.success,
+        error: state.orders.fetchResult.error,
         loading: state.orders.fetchResult.loading,
         token: state.auth.token,
         userId: state.auth.userId
@@ -64,12 +74,13 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchOrders: (token, userId) => dispatch(actions.fetchOrders(token, userId))
+        fetchOrders: (token, userId) => dispatch(actions.fetchOrders(token, userId)),
+        fetchClear: () => dispatch(actions.fetchOrdersClear())
     }
 }
 
 OrderItems.propTypes = {
-    ordersIsLoad: PropTypes.func,
+    ordersIsLoad: PropTypes.object,
     fetchOrders:  PropTypes.object,
     extra:        PropTypes.bool
 }

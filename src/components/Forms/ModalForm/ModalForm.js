@@ -6,6 +6,7 @@ import Aux from '../../../hoc/_Aux/_Aux';
 import ErrorMessage from '../../UI/ErrorMessage/ErrorMessage';
 import Button from '../../UI/Button/Button';
 import ModalInputList from '../../Input/ModalInputList/ModalInputList';
+import Spinner from '../../UI/Spinner/Spinner';
 
 import * as actions from '../../../store/actions/index';
 import { createElementsArray } from '../../../shared/utility';
@@ -14,8 +15,9 @@ import { useInputChangeHandler } from '../../../hooks/hooks.js';
 
 const ModalForm = props => {
 
-    const { inputChangeHandler, inputData } = useInputChangeHandler(modalUserData)
-    const formElementsArray = createElementsArray(inputData)
+    const { inputChangeHandler, inputData } = useInputChangeHandler(modalUserData);
+    const formElementsArray = createElementsArray(inputData);
+    const spinner = <Spinner />
 
     const submitFormHandler = event => {
         event.preventDefault()
@@ -28,13 +30,16 @@ const ModalForm = props => {
     }
 
     let form = (
-        <form onSubmit={event => submitFormHandler(event)}>
-            <h2>Оставьте заявку</h2>
-            <ModalInputList inputChangeHandler={inputChangeHandler}
-                            userData={formElementsArray}
-            />
-            <Button btnType="MainButton">Отправить</Button> 
-        </form>
+        <Aux>
+            <form onSubmit={event => submitFormHandler(event)}>
+                <h2>Оставьте заявку</h2>
+                <ModalInputList inputChangeHandler={inputChangeHandler}
+                                userData={formElementsArray}
+                />
+                <Button btnType="MainButton">Отправить</Button> 
+                </form>
+            {props.loading ? spinner : null}
+        </Aux>
     );
 
     if(props.error) {
@@ -46,7 +51,7 @@ const ModalForm = props => {
     if(props.success) {
         form = (
             <Aux>
-                <h2>{props.name} ваша заявка отправлена. Менеджер свяжется с вами в ближайшее время</h2>
+                <h3>{props.name} Спасибо! Ваша заявка отправлена. Менеджер свяжется с вами в ближайшее время</h3>
                 <Button btnType="MainButton"
                         clicked={props.modalClose}>Ок</Button>
             </Aux>
@@ -63,7 +68,8 @@ const ModalForm = props => {
 const mapStateToProps = state => {
     return {
         error: state.modalForm.fetchResult.error,
-        success: state.modalForm.fetchResult.success
+        success: state.modalForm.fetchResult.success,
+        loading: state.modalForm.fetchResult.loading
     }
 }
 

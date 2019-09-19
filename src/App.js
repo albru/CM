@@ -70,6 +70,7 @@ function App(props) {
     'alignItems': 'center',
     'transform': 'translateY(-100px)'
   }
+  
   const bigSpinner = (
     <div style={bigSpinnerStyles}>
       <Spinner />

@@ -11,7 +11,8 @@ export const modalUserData = {
             isPhone: true,
         },
         valid: false,
-        touched: false
+        touched: false,
+        label: 'Ваш телефон'
     },
     name: {
         elementType: 'input',
@@ -25,6 +26,7 @@ export const modalUserData = {
             isUserName: true
         },
         valid: false,
-        touched: false
+        touched: false,
+        label: 'Ваше имя'
     }
 }

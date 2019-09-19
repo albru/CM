@@ -85,6 +85,14 @@
     padding: 0 0 40px 0;
 }
 
+.Auth {
+    text-align: center;
+    padding: 0;
+    position: relative;
+    width: 90%;
+    padding: 0 0 40px 0;
+}
+
 @media (max-width: 499px) {
     .Services {
         padding-top: 15px;

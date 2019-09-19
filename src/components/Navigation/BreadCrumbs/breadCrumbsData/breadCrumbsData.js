@@ -39,7 +39,29 @@ export const breadCrumbsData = {
                 linkType: 'prev'},
             {
                 crumbName:'Размещение рекламы',
-                crumbHref: '/constructor',
+                crumbHref: '/order',
+                linkType: 'current'
+            }
+        ],
+        ordersCrumb: [
+            {
+                crumbName:'Главная',
+                crumbHref: '/',
+                linkType: 'prev'},
+            {
+                crumbName:'Мои заказы',
+                crumbHref: '/orders',
+                linkType: 'current'
+            }
+        ],
+        authCrumb: [
+            {
+                crumbName:'Главная',
+                crumbHref: '/',
+                linkType: 'prev'},
+            {
+                crumbName:'Авторизация',
+                crumbHref: '/auth',
                 linkType: 'current'
             }
         ]

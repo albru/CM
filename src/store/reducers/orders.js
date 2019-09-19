@@ -5,7 +5,6 @@ import { updateObject } from '../../shared/utility';
 const initialState = {
     data: null,
     fetchResult: {
-        extra: null,
         error: null,
         success: null,
         loading: false
@@ -24,8 +23,7 @@ const ordersFetchSuccessHandler = (state, action) => {
         data: action.data,
         fetchResult: updateObject(state.fetchResult, {
             success: true,
-            loading: false,
-            extra: true
+            loading: false
         }) 
     })
 

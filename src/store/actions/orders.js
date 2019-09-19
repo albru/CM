@@ -20,6 +20,12 @@ export const fetchOrdersStart = () => {
     };
 };
 
+export const fetchOrdersClear = () => {
+    return {
+        type: actionTypes.ORDERS_FETCH_GET_CLEAR
+    };
+};
+
 export const fetchOrders = (token, userId) => {
     return dispatch => {
         dispatch(fetchOrdersStart());
@@ -33,7 +39,7 @@ export const fetchOrders = (token, userId) => {
         }).then(responseData => {
             dispatch(fetchOrdersSuccess(responseData))
         }).catch(error => {
-            dispatch(fetchOrdersError(error))
+            dispatch(fetchOrdersError(error.toString()))
         })
     };
 };

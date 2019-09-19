@@ -4,14 +4,23 @@ import PropTypes from 'prop-types';
 
 import OrderItems from '../../components/Lists/Orders/OrderItems/OrderItems';
 import Section from '../../components/Section/Section';
+import BreadCrumbs from '../../components/Navigation/BreadCrumbs/BreadCrumbs';
+
+import { breadCrumbsData } from '../../components/Navigation/BreadCrumbs/breadCrumbsData/breadCrumbsData';
 
 const Orders = props => {
+    const ordersIsEmpty = props.ordersIsLoad === null 
+                          || Object.keys(props.ordersIsLoad).length === 0 
+                          ? true : false
 
-    const title = props.ordersIsLoad ? <h1>Мои заказы</h1> : null
+    const crumbs = breadCrumbsData.ordersCrumb;                      
+    let title = 'Мои заказы';
+    if(ordersIsEmpty && props.error === null) title = 'У вас нет заказов';
 
     return (
         <Section sectionType="Orders">
-            {title}
+            <BreadCrumbs crumbs={crumbs}/>
+            <h1>{title}</h1>
             <OrderItems />
         </Section>
     )
@@ -19,7 +28,8 @@ const Orders = props => {
 
 const mapStateToProps = state => {
     return {
-        ordersIsLoad: state.orders.data
+        ordersIsLoad: state.orders.data,
+        success: state.orders.fetchResult.success
     }
 }
 
