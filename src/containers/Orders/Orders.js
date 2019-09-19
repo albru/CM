@@ -12,10 +12,8 @@ const Orders = props => {
     const ordersIsEmpty = props.ordersIsLoad === null 
                           || Object.keys(props.ordersIsLoad).length === 0 
                           ? true : false
-
     const crumbs = breadCrumbsData.ordersCrumb;                      
-    let title = 'Мои заказы';
-    if(ordersIsEmpty && props.error === null) title = 'У вас нет заказов';
+    let title = ordersIsEmpty ? 'У вас нет заказов' : 'Мои заказы';
 
     return (
         <Section sectionType="Orders">

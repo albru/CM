@@ -81,7 +81,7 @@ const mapDispatchToProps = dispatch => {
 
 OrderItems.propTypes = {
     ordersIsLoad: PropTypes.object,
-    fetchOrders:  PropTypes.object,
+    fetchOrders:  PropTypes.func,
     extra:        PropTypes.bool
 }
 
