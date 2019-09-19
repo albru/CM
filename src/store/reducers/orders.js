@@ -5,7 +5,6 @@ import { updateObject } from '../../shared/utility';
 const initialState = {
     data: null,
     fetchResult: {
-        extra: null,
         error: null,
         success: null,
         loading: false
@@ -24,37 +23,47 @@ const ordersFetchSuccessHandler = (state, action) => {
         data: action.data,
         fetchResult: updateObject(state.fetchResult, {
             success: true,
-            loading: false,
-            extra: true
+            loading: false
         }) 
     })
-
 }
+
 
 
 const ordersFetchErrorHandler = (state, action) => {
     return updateObject(state, { fetchResult: 
         updateObject(state.fetchResult, {
-        error: action.error,
-        loading: false
-    }) })
-}
-
-const ordersClearFetchRes = (state, action) => {
-    return updateObject(state, { fetchResult: 
-        updateObject(state.fetchResult, {
-        error: null,
-        success: null,
-        loading: false
-    }) })
-}
-
-const ordersReducer = (state = initialState, action) => {
-    switch(action.type) {
-        case actionTypes.ORDERS_FETCH_GET_START: return ordersFetchStartHandler(state, action)
-        case actionTypes.ORDERS_FETCH_GET_SUCCESS: return ordersFetchSuccessHandler(state, action)
-        case actionTypes.ORDERS_FETCH_GET_ERROR: return ordersFetchErrorHandler(state, action)
-        case actionTypes.ORDERS_FETCH_GET_CLEAR: return ordersClearFetchRes(state, action) 
+            error: action.error,
+            loading: false
+        }) })
+    }
+    
+    const ordersClearFetchRes = (state, action) => {
+        return updateObject(state, { fetchResult: 
+            updateObject(state.fetchResult, {
+                error: null,
+                success: null,
+                loading: false
+            }) })
+        }
+        
+    const ordersDeleteHandler = (state, action) => {
+        return updateObject(state, { 
+            data: action.data,
+            fetchResult: updateObject(state.fetchResult, {
+                success: true,
+                loading: false
+            }) 
+        })
+    }
+        
+        const ordersReducer = (state = initialState, action) => {
+            switch(action.type) {
+                case actionTypes.ORDERS_FETCH_GET_START: return ordersFetchStartHandler(state, action)
+                case actionTypes.ORDERS_FETCH_GET_SUCCESS: return ordersFetchSuccessHandler(state, action)
+                case actionTypes.ORDERS_FETCH_GET_ERROR: return ordersFetchErrorHandler(state, action)
+                case actionTypes.ORDERS_FETCH_GET_CLEAR: return ordersClearFetchRes(state, action)
+                case actionTypes.ORDERS_FETCH_POST_DELETE: return ordersDeleteHandler(state, action)
         default: return state;
     }
 };

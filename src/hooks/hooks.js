@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useState } from 'react';
 import { updateObject, checkValidity } from '../shared/utility';
 
@@ -23,21 +23,23 @@ export const useInputChangeHandler = (obj) => {
 }
 
 export const useInputFabric = (arr, handler) => {
-    const list = arr.map(formElement => {
-        return (
-            <Input 
-                key={formElement.id}
-                elementType={formElement.config.elementType}
-                elementConfig={formElement.config.elementConfig}
-                value={formElement.config.value}
-                invalid={!formElement.config.valid}
-                shouldValidate={formElement.config.validation}
-                touched={formElement.config.touched}
-                label={formElement.label}
-                changed={event => handler(event, formElement.id)}
-            />
-        )
-    })
+    const list = useMemo(() => {
+        return arr.map(formElement => {
+            return (
+                <Input 
+                    key={formElement.id}
+                    elementType={formElement.config.elementType}
+                    elementConfig={formElement.config.elementConfig}
+                    value={formElement.config.value}
+                    invalid={!formElement.config.valid}
+                    shouldValidate={formElement.config.validation}
+                    touched={formElement.config.touched}
+                    label={formElement.config.label}
+                    changed={event => handler(event, formElement.id)}
+                />
+            )
+        })
+    },[arr, handler])
     return {list: list}
 }
 
