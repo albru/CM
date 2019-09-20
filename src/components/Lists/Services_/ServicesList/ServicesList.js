@@ -18,8 +18,6 @@ const ServicesList = props => {
         return servicesItems;
     },[])
 
-    console.log(classes)
-
     return (
         <ul className={classes.ServicesList}>
             {items}

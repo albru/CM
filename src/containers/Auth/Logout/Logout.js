@@ -11,7 +11,6 @@ const Logout = props => {
 }
 
 const mapDispatchToProps = dispatch => {
-    console.log('!logout Logout.js')
     return {
         onLogout: () => dispatch(actions.logout())
     }

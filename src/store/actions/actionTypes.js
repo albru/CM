@@ -3,6 +3,7 @@ export const AUTH_START = 'AUTH_START';
 export const AUTH_SUCCESS = 'AUTH_SUCCESS';
 export const AUTH_ERROR = 'AUTH_ERROR';
 export const AUTH_LOGOUT = 'AUTH_LOGOUT';
+export const AUTH_TRY_AUTOLOGIN = 'AUTH_TRY_AUTOLOGIN';
 
 // SIDEDRAWER
 export const SIDE_DRAWER_TOGGLE = 'SIDE_DRAWER_TOGGLE';

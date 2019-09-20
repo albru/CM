@@ -5,10 +5,9 @@ import FeaturesItem from './FeaturesItem/FeaturesItem';
 import { featuresData } from '../featuresData/featuresData';
 import classes from './FeaturesItems.css';
 
-
 const FeaturesItems = props => {
     const list = useMemo(() => {
-        const featuresList = featuresData.map((item, index) => {
+        return featuresData.map((item, index) => {
             return (
                 <FeaturesItem 
                     key={index}
@@ -17,7 +16,6 @@ const FeaturesItems = props => {
                     />
             )
         })
-        return featuresList;
     },[])
 
     return (

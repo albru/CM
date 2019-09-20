@@ -4,7 +4,8 @@
 export {
     auth,
     authCheckState,
-    logout
+    logout,
+    tryAuth
 } from './auth';
 
 // ORDER FORM-------------------------------------------------

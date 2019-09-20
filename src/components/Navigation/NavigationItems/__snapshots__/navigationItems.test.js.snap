@@ -5,24 +5,29 @@ exports[`NavigationItems should render correctly 1`] = `
   className=" "
 >
   <NavigationItem
-    key="Услуги"
-    name="Услуги"
     route="/services"
-  />
+  >
+    Услуги
+  </NavigationItem>
   <NavigationItem
-    key="Портфолио"
-    name="Портфолио"
     route="/portfolio"
-  />
+  >
+    Портфолио
+  </NavigationItem>
   <NavigationItem
-    key="Размещение рекламы"
-    name="Размещение рекламы"
-    route="/constructor"
-  />
+    route="/order"
+  >
+    Размещение рекламы
+  </NavigationItem>
   <NavigationItem
-    key="Контакты"
-    name="Контакты"
     route="/contacts"
-  />
+  >
+    Контакты
+  </NavigationItem>
+  <NavigationItem
+    route="/auth"
+  >
+    Войти
+  </NavigationItem>
 </ul>
 `;

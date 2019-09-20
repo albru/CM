@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback, useMemo } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -26,12 +26,12 @@ const OrderItems = props => {
         fetchOrders(token, userId);
     },[fetchOrders, token, userId])
     
-    const filteredObjAfterDelete = (obj, id) => {
+    const filteredObjAfterDelete = useCallback((obj, id) => {
         let res = Object.keys(obj) 
               .filter( key => key !== id ) 
               .reduce( (res, key) => Object.assign(res, { [key]: obj[key] }), {} ); 
         return res
-    }
+    },[])
 
     let orderList = [];
     let orders;
@@ -46,17 +46,20 @@ const OrderItems = props => {
             result = {...ordersIsLoad[key], id: key}
             orderList.push(result)
         }
-        orders = orderList.map(( item, index ) => 
-        <OrderItem 
-            key={index}
-            size={item.size}
-            place={item.place}
-            comment={item.comment}
-            time={item.showTime}
-            icon={<DeleteIcon onClick={() => props.deleteOrder(item.id, token, filteredObjAfterDelete(ordersIsLoad, item.id))}/>}
-        />
-        )
     }
+
+    orders = useMemo(() => {
+        return orderList.map(( item, index ) => 
+            <OrderItem 
+                key={index}
+                size={item.size}
+                place={item.place}
+                comment={item.comment}
+                time={item.showTime}
+                icon={<DeleteIcon onClick={() => props.deleteOrder(item.id, token, filteredObjAfterDelete(ordersIsLoad, item.id))}/>}
+            />
+        )
+    },[filteredObjAfterDelete, props, token, orderList, ordersIsLoad])
 
     if (error) {
         orders = <ErrorMessage errorMessage={error}

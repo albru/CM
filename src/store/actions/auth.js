@@ -31,8 +31,6 @@ export const logout = () => {
 };
 
 export const checkAuthTimeout = (expirationTime) => {
-    console.log('!logout auth js 34')
-    console.log(typeof(expirationTime))
     return dispatch => {
         setTimeout(() => {
             dispatch(logout())
@@ -40,10 +38,15 @@ export const checkAuthTimeout = (expirationTime) => {
     };
 };
 
+export const tryAuth = () => {
+    return {
+        type: actionTypes.AUTH_TRY_AUTOLOGIN
+    };
+}
+
 export const auth = (email, password, isSignUp) => {
     return dispatch => {
         dispatch(authStart());
-
         let url = isSignUp ? 
         'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCdNuG1zpK5PHbd45tAlMk8kBoP_p7B3hM'
         :
@@ -66,7 +69,6 @@ export const auth = (email, password, isSignUp) => {
                 localStorage.setItem('expirationDate', expirationDate)
                 localStorage.setItem('userId', responseData.localId)
                 dispatch(authSuccess(responseData.idToken, responseData.localId));
-                console.log(responseData.expiresIn, "POST LINE 68")
                 dispatch(checkAuthTimeout(responseData.expiresIn));
             }).catch(error => {
                 error.json().then(error => {
@@ -78,6 +80,7 @@ export const auth = (email, password, isSignUp) => {
 
 export const authCheckState = () => {
     return dispatch => {
+        dispatch(tryAuth())
         const token = localStorage.getItem('token');
         if (!token) {
             dispatch(logout())
