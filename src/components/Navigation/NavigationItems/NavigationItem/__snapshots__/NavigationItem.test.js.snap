@@ -4,8 +4,6 @@ exports[`NavigationItem should render correctly 1`] = `
 <li>
   <NavLink
     to="mockRoute"
-  >
-    mockName
-  </NavLink>
+  />
 </li>
 `;

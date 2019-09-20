@@ -14,7 +14,6 @@ const ModalContextProvider = props => {
 
     const modalToggleHandler = () => {
         setShowModal(!showModal)
-        console.log('TOGGLE')
     }
 
     const modalCloseHandler = () => {

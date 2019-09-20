@@ -16,9 +16,9 @@ const OrderInputList = props => {
     )
 }
 
-
 OrderInputList.propTypes = {
-    userData: PropTypes.array
+    userData: PropTypes.array,
+    inputChangeHandler: PropTypes.func
 }
 
 export default OrderInputList;

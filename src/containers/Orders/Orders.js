@@ -9,7 +9,7 @@ import BreadCrumbs from '../../components/Navigation/BreadCrumbs/BreadCrumbs';
 import { breadCrumbsData } from '../../components/Navigation/BreadCrumbs/breadCrumbsData/breadCrumbsData';
 
 const Orders = props => {
-    const ordersIsEmpty = props.ordersIsLoad === null 
+    const ordersIsEmpty = !props.ordersIsLoad 
                           || Object.keys(props.ordersIsLoad).length === 0 
                           ? true : false
     const crumbs = breadCrumbsData.ordersCrumb;                      

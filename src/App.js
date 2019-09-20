@@ -59,7 +59,7 @@ function App(props) {
   )
   
   useEffect(() => {
-    props.onTryAutoSignUp()
+    if(props.token === null && localStorage.getItem('token')) props.onTryAutoSignUp();
   })
 
   const bigSpinnerStyles = {
@@ -91,7 +91,8 @@ function App(props) {
 
 const mapStateToProps = state => {
   return {
-    isAuth: state.auth.token !== null
+    isAuth: state.auth.token !== null,
+    token: state.auth.token
   }
 }
 

@@ -23,6 +23,7 @@ export const useInputChangeHandler = (obj) => {
 }
 
 export const useInputFabric = (arr, handler) => {
+    console.log(arr)
     const list = useMemo(() => {
         return arr.map(formElement => {
             return (

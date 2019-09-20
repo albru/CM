@@ -16,6 +16,18 @@
 
 }
 
+.OrderItem svg {
+    display: flex;
+    color: salmon;
+    cursor: pointer;
+    transition: all .3s;
+    margin-left: auto;
+}
+
+.OrderItem svg:hover {
+    color: red;
+}
+
 @media (min-width: 500px) {
     .OrderItem {
         max-width: 300px;

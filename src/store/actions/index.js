@@ -4,7 +4,8 @@
 export {
     auth,
     authCheckState,
-    logout
+    logout,
+    tryAuth
 } from './auth';
 
 // ORDER FORM-------------------------------------------------
@@ -16,7 +17,8 @@ export {
 // ORDERS-------------------------------------------------
 export {
     fetchOrders,
-    fetchOrdersClear
+    fetchOrdersClear,
+    deleteOrder
 } from './orders';
 
 // MODAL FORM-------------------------------------------------

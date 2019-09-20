@@ -11,7 +11,7 @@ const PortfolioItems = props => {
     let isMac = userUseApple();
     
     const list = useMemo(() => {
-        let portfolioList = props.dataArr.map((item, index) => {
+        return props.dataArr.map((item, index) => {
             return (
                 <PortfolioItem 
                     key={index}
@@ -22,7 +22,6 @@ const PortfolioItems = props => {
                 />
             )
         });
-        return portfolioList;
     },[isMac, props.dataArr])
 
 

@@ -26,9 +26,16 @@ export const fetchOrdersClear = () => {
     };
 };
 
-export const fetchOrdersDelete = () => {
+export const fetchOrdersDeleteSuccess = (data) => {
     return {
-        type: actionTypes.ORDERS_FETCH_POST_DELETE
+        type: actionTypes.ORDERS_FETCH_POST_DELETE_SUCCESS,
+        data: data
+    };
+};
+
+export const fetchOrdersDeleteStart = () => {
+    return {
+        type: actionTypes.ORDERS_FETCH_POST_DELETE_START
     };
 };
 
@@ -50,18 +57,17 @@ export const fetchOrders = (token, userId) => {
     };
 };
 
-export const deleteOrder = ( orderData, token ) => {
+export const deleteOrder = ( orderId, token, data ) => {
     return dispatch => {
-        dispatch(fetchOrdersDelete())
-        fetch('https://cetus-media-b35fb.firebaseio.com/orders.json?auth=' + token, {
-            method: 'POST',
-            body: JSON.stringify( orderData ),
+        dispatch(fetchOrdersDeleteStart())
+        fetch(`https://cetus-media-b35fb.firebaseio.com/orders/${orderId}.json?auth=${token}`, {
+            method: 'DELETE',
             headers: {'Content-Type': 'application/json'}
         }).then(response => {
             if(!response.ok) { throw response }
             return response.json();
         }).then(responseData => {
-            dispatch(fetchOrdersSuccess(orderData))
+            dispatch(fetchOrdersDeleteSuccess(data))
         }).catch(error => {
             dispatch(fetchOrdersError(error.toString()))
         })

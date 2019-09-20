@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 
 import Aux from '../../hoc/_Aux/_Aux';
 import Section from '../../components/Section/Section';
@@ -24,7 +24,7 @@ const Portfolio = () => {
         maximumItems: false
     })
 
-    const addPortfolioItem = () => {
+    const addPortfolioItem = useCallback(() => {
         let updatedState = updateObject(portfolioState, { 
             maximumItems: portfolioState.maximumItems, 
             items: portfolioState.items
@@ -37,7 +37,7 @@ const Portfolio = () => {
         }
         updatedState.portfolioData = [...updatedPortfolioData].slice(updatedState.initial, updatedState.items)
         setPortfolioState(updatedState)
-    }
+    },[portfolioState, updatedPortfolioData])
     
     const crumbs = breadCrumbsData.portfolioCrumb;
 

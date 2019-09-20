@@ -1,6 +1,7 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 
+
 import classes from './OrderItem.css';
 
 const OrderItem = props => {
@@ -10,6 +11,7 @@ const OrderItem = props => {
             <h5>Диагональ панели: <span>{props.size}</span></h5>
             <h5>Длительность рекламы: <span>{props.time}</span> минут</h5>
             <h5>Комментарий:<span>{props.comment}</span></h5>
+            {props.icon}
         </li>
     )
 }

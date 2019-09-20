@@ -8,7 +8,7 @@ for (let key in orderUserData) {
     changedState[key] = orderUserData[key].value
 }
 
-const initialState = {
+export const initialState = {
     data: changedState,
     fetchResult: {
         error: null,
