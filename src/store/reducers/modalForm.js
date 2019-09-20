@@ -10,7 +10,7 @@ for (let key in modalUserData) {
     }
 }
 
-const initialState = {
+export const initialState = {
     fetchResult: {
         error: null,
         success: null,

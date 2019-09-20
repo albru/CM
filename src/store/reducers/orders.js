@@ -2,7 +2,7 @@ import * as actionTypes from '../actions/actionTypes';
 import { updateObject } from '../../shared/utility';
 
 
-const initialState = {
+export const initialState = {
     data: null,
     fetchResult: {
         error: null,
@@ -26,7 +26,7 @@ const ordersFetchSuccessHandler = (state, action) => {
             loading: false
         }) 
     })
-}
+} 
 
 const ordersFetchErrorHandler = (state, action) => {
     return updateObject(state, { fetchResult: 
@@ -55,14 +55,14 @@ const ordersFetchErrorHandler = (state, action) => {
         })
     }
         
-        const ordersReducer = (state = initialState, action) => {
-            switch(action.type) {
-                case actionTypes.ORDERS_FETCH_GET_START: return ordersFetchStartHandler(state, action)
-                case actionTypes.ORDERS_FETCH_GET_SUCCESS: return ordersFetchSuccessHandler(state, action)
-                case actionTypes.ORDERS_FETCH_GET_ERROR: return ordersFetchErrorHandler(state, action)
-                case actionTypes.ORDERS_FETCH_GET_CLEAR: return ordersClearFetchRes(state, action)
-                case actionTypes.ORDERS_FETCH_POST_DELETE_SUCCESS: return ordersDeleteHandler(state, action)
-        default: return state;
+    const ordersReducer = (state = initialState, action) => {
+        switch(action.type) {
+            case actionTypes.ORDERS_FETCH_GET_START: return ordersFetchStartHandler(state, action)
+            case actionTypes.ORDERS_FETCH_GET_SUCCESS: return ordersFetchSuccessHandler(state, action)
+            case actionTypes.ORDERS_FETCH_GET_ERROR: return ordersFetchErrorHandler(state, action)
+            case actionTypes.ORDERS_FETCH_GET_CLEAR: return ordersClearFetchRes(state, action)
+            case actionTypes.ORDERS_FETCH_POST_DELETE_SUCCESS: return ordersDeleteHandler(state, action)
+    default: return state;
     }
 };
 
