@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { compose } from 'redux';
 
 import Section from '../../components/Section/Section';
 import BreadCrumbs from '../../components/Navigation/BreadCrumbs/BreadCrumbs';
 import OrderForm from '../../components/Forms/OrderForm/OrderForm';
+
 
 import { breadCrumbsData } from '../../components/Navigation/BreadCrumbs/breadCrumbsData/breadCrumbsData';
 
@@ -35,4 +37,8 @@ Order.propTypes = {
             ])
 }
 
-export default connect(mapStateToProps, null)(Order);
+const orderEnhance = compose(
+    connect(mapStateToProps, null)
+)
+
+export default orderEnhance(Order);

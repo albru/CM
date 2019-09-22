@@ -9,6 +9,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 
 import classes from './OrderItems.css';
 import * as actions from '../../../../store/actions/index';
+import { easyKey } from '../../../../shared/utility';
 
 const OrderItems = props => {
     const { 
@@ -49,9 +50,9 @@ const OrderItems = props => {
     }
 
     orders = useMemo(() => {
-        return orderList.map(( item, index ) => 
+        return orderList.map(( item ) => 
             <OrderItem 
-                key={index}
+                key={easyKey()}
                 size={item.size}
                 place={item.place}
                 comment={item.comment}

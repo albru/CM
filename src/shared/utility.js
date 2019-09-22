@@ -5,6 +5,19 @@ export const updateObject = (oldObject, updatedProperties) => {
     };
 };
 
+export const easyKey = () => {
+    let key = [];
+    for (let i = 0; i < 6; i++) {
+      let word = Math.floor(Math.random() * (122 - 97) + 97);
+      if(word % 2){
+        key.push(String.fromCharCode(word))
+      } else {
+        key.push(Math.floor(Math.random() * 10))
+        }
+    }
+    return key.join('')
+  }
+
 export const createElementsArray = (obj) => {
     const formElementsArray = [];
     for (let key in obj) {
