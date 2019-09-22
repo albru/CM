@@ -18,7 +18,8 @@ const ModalForm = props => {
     const { inputChangeHandler, inputData } = useInputChangeHandler(modalUserData);
     const formElementsArray = createElementsArray(inputData);
     const spinner = <Spinner />
-
+    console.log('loading...')
+    document.onload = console.log('IM LOAD!!!')
     const submitFormHandler = event => {
         event.preventDefault()
         props.submitModalForm(inputData)
@@ -42,12 +43,9 @@ const ModalForm = props => {
         </Aux>
     );
 
-    if(props.error) {
-        form = (
-            <ErrorMessage errorMessage={props.error}
-                          btnClick={confirmErrorHandler} />
-        )
-    }
+    if(props.error) form = <ErrorMessage errorMessage={props.error} 
+                                          btnClick={confirmErrorHandler} />
+    
     if(props.success) {
         form = (
             <Aux>

@@ -7,6 +7,7 @@ import Button from '../../components/UI/Button/Button';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import BreadCrumbs from '../../components/Navigation/BreadCrumbs/BreadCrumbs';
 import Section from '../../components/Section/Section';
+import ErrorMessage from '../../components/UI/ErrorMessage/ErrorMessage';
 
 import classes from './Auth.css';
 import { authData } from './authData/authData';
@@ -49,7 +50,7 @@ const Auth = props => {
                       {isSignUp ? 'Вход' : 'Регистрация'}</span>
             </form>
             {props.loading ? <Spinner /> : null}
-            {props.error ? <p>{props.error}</p> : null}
+            {props.error ? <ErrorMessage errorMessage={props.error}/> : null}
         </Section>
     )
 }
