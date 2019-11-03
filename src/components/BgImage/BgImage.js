@@ -1,7 +1,7 @@
 import React from 'react';
 
-import bgImgWebp from '../../assets/img/main-bg.webp';
-import bgImgPng from '../../assets/img/main-bg.png';
+import bgImgWebp from '../../assets/img/ts3.jpg';
+import bgImgPng from '../../assets/img/ts3.jpg';
 import classes from './BgImage.css';
 import { userUseApple } from '../../shared/utility';
 

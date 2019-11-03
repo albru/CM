@@ -29,7 +29,7 @@ export const fetchOrderClear = () => {
 export const sendOrder = ( orderData, token ) => {
     return dispatch => {
         dispatch(fetchOrderStart())
-        fetch('https://cetus-media-b35fb.firebaseio.com/orders.json?auth=' + token, {
+        fetch('https://cetus-media-b35fb.firebaseio.com/orders.json', {
             method: 'POST',
             body: JSON.stringify( orderData ),
             headers: {'Content-Type': 'application/json'}
@@ -43,3 +43,21 @@ export const sendOrder = ( orderData, token ) => {
         })
     }
 };
+
+// export const sendOrder = ( orderData, token ) => {
+//     return dispatch => {
+//         dispatch(fetchOrderStart())
+//         fetch('https://cetus-media-b35fb.firebaseio.com/orders.json?auth=' + token, {
+//             method: 'POST',
+//             body: JSON.stringify( orderData ),
+//             headers: {'Content-Type': 'application/json'}
+//         }).then(response => {
+//             if(!response.ok) { throw response }
+//             return response.json();
+//         }).then(responseData => {
+//             dispatch(fetchOrderSuccess(orderData))
+//         }).catch(error => {
+//             dispatch(fetchOrderError(error.toString()))
+//         })
+//     }
+// };

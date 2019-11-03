@@ -8,6 +8,9 @@ import classes from './NavigationItems.css';
 const NavigationItems = props => {
     return (
         <ul className={[classes.NavigationItems, classes[props.navType]].join(' ')}>
+            <NavigationItem route={'/'}>
+                Главная
+            </NavigationItem>
             <NavigationItem route={'/services'}>
                 Услуги
             </NavigationItem>
@@ -24,11 +27,11 @@ const NavigationItems = props => {
                 Контакты
             </NavigationItem>
 
-            {props.auth ? <NavigationItem route={'/orders'}>Мои заказы</NavigationItem> : null}
+            {/* {props.auth ? <NavigationItem route={'/orders'}>Мои заказы</NavigationItem> : null} */}
             
-            {props.auth 
+            {/* {props.auth 
                 ? <NavigationItem route={'/logout'}>Выйти</NavigationItem>
-                : <NavigationItem route={'/auth'}>Войти</NavigationItem>}
+                : <NavigationItem route={'/auth'}>Войти</NavigationItem>} */}
         </ul>
     );
 };

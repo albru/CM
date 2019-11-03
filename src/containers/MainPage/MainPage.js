@@ -10,11 +10,21 @@ import BgImg from '../../components/BgImage/BgImage';
 import Button from '../../components/UI/Button/Button';
 
 const MainPage = props => {
+    const btnHandler = () => {
+        props.history.push('/order')
+    }
+
     return (
         <Aux>
             <Section sectionType="Greetings">
                 <h1>Наружные и интерьерные вывески, рекламные конструкции от производителя</h1>
                 <BgImg />
+                <div className='btn-group'>
+                    <Button btnType='MainButton'
+                        clicked={btnHandler}>Размещение</Button>
+                    <Button btnType='MainButton'
+                        clicked={props.modalToggle}>Производство</Button>
+                </div>
             </Section>
 
             <Section sectionType="Services">

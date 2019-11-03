@@ -1,88 +1,90 @@
-import React, { Suspense, useEffect } from 'react';
-import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import React, { Suspense, useEffect } from "react";
+import { Route, Switch, Redirect, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
-import Layout from './hoc/Layout/Layout';
-import MainPage from './containers/MainPage/MainPage';
-import Spinner from './components/UI/Spinner/Spinner';
-import Logout from './containers/Auth/Logout/Logout';
+import Layout from "./hoc/Layout/Layout";
+import MainPage from "./containers/MainPage/MainPage";
+import Spinner from "./components/UI/Spinner/Spinner";
+// import Logout from "./containers/Auth/Logout/Logout";
 
-import * as actions from './store/actions/index';
-import './App.css';
+import * as actions from "./store/actions/index";
+import "./App.css";
 
 const Portfolio = React.lazy(() => {
-  return import('./containers/Portfolio/Portfolio');
+  return import("./containers/Portfolio/Portfolio");
 });
 
 const Contacts = React.lazy(() => {
-  return import('./containers/Contacts/Contacts');
+  return import("./containers/Contacts/Contacts");
 });
 
 const Order = React.lazy(() => {
-  return import('./containers/Order/Order');
+  return import("./containers/Order/Order");
 });
 
 const Services = React.lazy(() => {
-  return import('./containers/Services_/Services');
+  return import("./containers/Services_/Services");
 });
 
-const Auth = React.lazy(() => {
-  return import('./containers/Auth/Auth');
-});
+// const Auth = React.lazy(() => {
+//   return import("./containers/Auth/Auth");
+// });
 
 const Orders = React.lazy(() => {
-  return import('./containers/Orders/Orders');
+  return import("./containers/Orders/Orders");
 });
 
 function App(props) {
-
   let routes = (
     <Switch>
-      <Route path="/portfolio" exact render={(props) => <Portfolio {...props}/>} />
-      <Route path="/services" exact render={(props) => <Services {...props}/>} />
-      <Route path="/contacts" exact render={(props) => <Contacts {...props}/>} />
-      <Route path="/auth" exact render={(props) => <Auth {...props}/>} />
-      <Route path="/order" exact render={(props) => <Order {...props}/>} />
-      
-      {props.isAuth 
+      <Route
+        path="/portfolio"
+        exact
+        render={props => <Portfolio {...props} />}
+      />
+      <Route path="/services" exact render={props => <Services {...props} />} />
+      <Route path="/contacts" exact render={props => <Contacts {...props} />} />
+      {/* <Route path="/auth" exact render={props => <Auth {...props} />} /> */}
+      <Route path="/order" exact render={props => <Order {...props} />} />
+
+      {/* {props.isAuth 
         ? <Route path="/logout" exact render={() => <Logout/>} />
         : null}
   
       {props.isAuth 
         ? <Route path="/orders" exact render={(props) => <Orders {...props}/>} />
         : null}
-  
-      <Route path="/" exact render={(props) => <MainPage {...props}/>} />
+   */}
+      <Route path="/" exact render={props => <MainPage {...props} />} />
       <Redirect to="/" />
     </Switch>
-  )
-  
-  useEffect(() => {
-    if(props.token === null && localStorage.getItem('token')) props.onTryAutoSignUp();
-  })
+  );
+
+  // useEffect(() => {
+  //   if (props.token === null && localStorage.getItem("token"))
+  //     props.onTryAutoSignUp();
+  // });
 
   const bigSpinnerStyles = {
-    'minHeight': '100vh',
-    'width': '100vw',
-    'display': 'flex',
-    'justifyContent': 'center',
-    'alignItems': 'center',
-    'transform': 'translateY(-100px)'
-  }
-  
+    minHeight: "100vh",
+    width: "100vw",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    transform: "translateY(-100px)",
+  };
+
   const bigSpinner = (
     <div style={bigSpinnerStyles}>
       <Spinner />
     </div>
-  )
+  );
   return (
     <div className="App">
       <React.StrictMode>
         <Layout>
-          <Suspense fallback={bigSpinner}>
-            {routes}
-          </Suspense>
+          <Suspense fallback={bigSpinner}>{routes}</Suspense>
         </Layout>
       </React.StrictMode>
     </div>
@@ -92,19 +94,24 @@ function App(props) {
 const mapStateToProps = state => {
   return {
     isAuth: state.auth.token !== null,
-    token: state.auth.token
-  }
-}
+    token: state.auth.token,
+  };
+};
 
 const mapDispatchToProps = dispatch => {
   return {
-    onTryAutoSignUp: () => dispatch(actions.authCheckState())
-  }
-}
+    onTryAutoSignUp: () => dispatch(actions.authCheckState()),
+  };
+};
 
 App.propTypes = {
   isAuth: PropTypes.bool,
-  onTryAutoSignUp: PropTypes.func
-}
+  onTryAutoSignUp: PropTypes.func,
+};
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(App)
+);

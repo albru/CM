@@ -31,16 +31,22 @@ const OrderForm = props => {
 
     const submitFormHandler = (event, userId) => {
         event.preventDefault();
-        if (props.token) {
-            const data = {};
-            for (let key in orderInputData) {
-                data[key] = orderInputData[key].value
-            }
-            data.userId = userId
-            props.submitOrderForm(data, props.token);
-        } else {
-            props.history.push('/auth')
+        const data = {};
+        for (let key in orderInputData) {
+            data[key] = orderInputData[key].value
         }
+        data.userId = userId
+        props.submitOrderForm(data, props.token);
+        // if (props.token) {
+        //     const data = {};
+        //     for (let key in orderInputData) {
+        //         data[key] = orderInputData[key].value
+        //     }
+        //     data.userId = userId
+        //     props.submitOrderForm(data, props.token);
+        // } else {
+        //     props.history.push('/auth')
+        // }
     }
 
     const succesConfirmHandler = () => {
@@ -54,7 +60,8 @@ const OrderForm = props => {
                   onSubmit={(event) => submitFormHandler(event, props.userId)}>
                 <OrderInputList inputChangeHandler={inputChangeHandler}
                                 userData={formElementsArray}/>
-            <Button btnType="MainButton">{props.token ? 'Готово' : 'Регистрация'}</Button> 
+            {/* <Button btnType="MainButton">{props.token ? 'Готово' : 'Регистрация'}</Button>  */}
+            <Button btnType="MainButton">{'Готово'}</Button> 
             </form>
             {props.loading ? <Spinner /> : null}
         </Aux>
